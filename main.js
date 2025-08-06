@@ -69,7 +69,6 @@ if(emailField && msgField && feedback && contactForm){
       return;
     }
     feedback.textContent = 'Enviando mensaje...';
-    // mensaje de éxito accesible tras submit real (Formspree)
     setTimeout(() => {
       feedback.textContent = '¡Mensaje enviado correctamente!';
       contactForm.reset();
