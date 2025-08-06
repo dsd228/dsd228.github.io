@@ -9,13 +9,11 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="glass-buttons.css">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <!-- Google Fonts: Inter y Orbitron -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- NAV -->
-  <nav class="main-nav glass animate-on-scroll">
+  <nav class="main-nav glass animate-on-scroll" role="navigation" aria-label="Navegación principal">
     <div class="logo"><a href="#">DSD</a></div>
     <ul>
       <li><a href="#about">Sobre mí</a></li>
@@ -29,9 +27,8 @@
     <button id="theme-toggle" aria-label="Cambiar tema"><span id="theme-icon">🌙</span></button>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero glass animate-on-scroll" id="hero">
-    <img src="assets/img/david.jpg" alt="Foto de David Sebastián Díaz" class="profile-pic">
+  <header class="hero glass animate-on-scroll" id="hero" role="banner">
+    <img src="assets/img/david.jpg" alt="Foto de David Sebastián Díaz" class="profile-pic" loading="lazy">
     <h1>David Sebastián Díaz</h1>
     <p>Consultor UX/UI | Marketing Digital | Analítica de Datos</p>
     <div class="hero-buttons">
@@ -42,11 +39,10 @@
     </div>
   </header>
 
-  <!-- SOBRE MÍ -->
   <section class="about glass animate-on-scroll" id="about">
     <h2>Sobre mí</h2>
     <div class="about-flex">
-      <img src="assets/img/sobremi.png" alt="Foto profesional de David" class="about-photo">
+      <img src="assets/img/sobremi.png" alt="Foto profesional de David" class="about-photo" loading="lazy">
       <div>
         <p>
           Soy estudiante y profesional en formación, apasionado por el diseño UX/UI, la analítica de datos y el marketing digital.
@@ -59,13 +55,21 @@
     </div>
   </section>
 
-  <main>
-    <!-- PROYECTOS -->
-    <section id="projects" class="glass animate-on-scroll">
+  <main role="main">
+    <section id="projects" class="glass animate-on-scroll reveal-on-scroll">
       <h2>Proyectos Destacados</h2>
       <div class="projects">
-        <div class="card animate-on-scroll">
-          <img src="assets/img/fraude.png" alt="Detección de Fraude">
+        <!-- Proyecto 1 -->
+        <div class="card project-card animate-on-scroll" tabindex="0">
+          <img src="assets/img/fraude.png" alt="Detección de Fraude" loading="lazy">
+          <div class="card-overlay" aria-hidden="true">
+            <h3>Detección de Fraude</h3>
+            <p>Clasificación de transacciones fraudulentas con machine learning. Permite identificar operaciones sospechosas y prevenir pérdidas.</p>
+            <div class="card-links">
+              <a href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener">Demo</a>
+              <a href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
           <h3>Detección de Fraude</h3>
           <p>Clasificación de transacciones fraudulentas con machine learning. Permite identificar operaciones sospechosas y prevenir pérdidas.</p>
           <div class="tags">
@@ -73,8 +77,16 @@
           </div>
           <a class="glass-button" href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank">Ver en GitHub</a>
         </div>
-        <div class="card animate-on-scroll">
-          <img src="assets/img/ux-proyecto.png" alt="Rediseño ONG">
+        <!-- Proyecto 2 -->
+        <div class="card project-card animate-on-scroll" tabindex="0">
+          <img src="assets/img/ux-proyecto.png" alt="Rediseño ONG" loading="lazy">
+          <div class="card-overlay" aria-hidden="true">
+            <h3>Rediseño ONG</h3>
+            <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
+            <div class="card-links">
+              <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
           <h3>Rediseño ONG</h3>
           <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
           <div class="tags">
@@ -82,8 +94,16 @@
           </div>
           <a class="glass-button" href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank">Ver proyecto</a>
         </div>
-        <div class="card animate-on-scroll">
-          <img src="assets/img/marketing.png" alt="Campaña Marketing Digital">
+        <!-- Proyecto 3 -->
+        <div class="card project-card animate-on-scroll" tabindex="0">
+          <img src="assets/img/marketing.png" alt="Campaña Marketing Digital" loading="lazy">
+          <div class="card-overlay" aria-hidden="true">
+            <h3>Campaña Marketing Digital</h3>
+            <p>Planificación y ejecución de campañas para PyMES. Resultados medibles y optimización de presupuesto.</p>
+            <div class="card-links">
+              <a href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener">Demo</a>
+            </div>
+          </div>
           <h3>Campaña Marketing Digital</h3>
           <p>Planificación y ejecución de campañas para PyMES. Resultados medibles y optimización de presupuesto.</p>
           <div class="tags">
@@ -94,8 +114,7 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="glass animate-on-scroll">
+    <section id="skills" class="glass animate-on-scroll reveal-on-scroll">
       <h2>Habilidades Técnicas</h2>
       <div class="skills">
         <div class="skill-item"><i class="fab fa-python"></i> <span>Python</span></div>
@@ -110,18 +129,16 @@
       </div>
     </section>
 
-    <!-- ESTADÍSTICAS -->
-    <section id="stats" class="glass animate-on-scroll">
+    <section id="stats" class="glass animate-on-scroll reveal-on-scroll">
       <h2>Estadísticas</h2>
       <p>Contribuciones y actividad en GitHub en los últimos meses.</p>
       <div class="stats-block">
-        <img class="stats-img" src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent" alt="Estadísticas GitHub">
-        <img class="stats-img" src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent" alt="GitHub Streak">
-        <img class="stats-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent" alt="Top Languages">
+        <img class="stats-img" src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent" alt="Estadísticas GitHub" loading="lazy">
+        <img class="stats-img" src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent" alt="GitHub Streak" loading="lazy">
+        <img class="stats-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent" alt="Top Languages" loading="lazy">
       </div>
     </section>
 
-    <!-- EXPERIENCIA -->
     <section class="exp-edu glass animate-on-scroll" id="experience">
       <h2>Experiencia y Educación</h2>
       <div class="timeline">
@@ -142,16 +159,16 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
     <section class="contact-section glass animate-on-scroll" id="contact">
       <h2>Contacto</h2>
-      <form action="https://formspree.io/f/xwpqrdjk" method="POST" class="contact-form" aria-label="Formulario de contacto">
+      <form id="contactForm" class="contact-form" aria-label="Formulario de contacto" action="https://formspree.io/f/xwpqrdjk" method="POST" novalidate>
         <label for="name">Nombre</label>
         <input type="text" name="name" id="name" placeholder="Tu nombre" required>
         <label for="email">Correo electrónico</label>
-        <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
+        <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required aria-required="true">
         <label for="message">Mensaje</label>
-        <textarea name="message" id="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <textarea name="message" id="message" rows="5" placeholder="Escribe tu mensaje aquí..." required aria-required="true"></textarea>
+        <div id="formFeedback" aria-live="polite" class="form-feedback"></div>
         <button class="glass-button" type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
       </form>
       <div class="contact-links">
@@ -163,8 +180,7 @@
     </section>
   </main>
 
-  <!-- FOOTER MODERNO -->
-  <footer class="glass footer animate-on-scroll">
+  <footer class="glass footer animate-on-scroll" role="contentinfo">
     <div class="footer-links">
       <a href="#about">Sobre mí</a>
       <a href="#projects">Proyectos</a>
@@ -180,37 +196,10 @@
     <p>&copy; 2025 David Sebastián Díaz. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- THEME TOGGLE Y ANIMACIONES SCROLL -->
-  <script>
-    // Theme toggle persistente
-    const btn = document.getElementById('theme-toggle');
-    const icon = document.getElementById('theme-icon');
-    if(localStorage.getItem('theme') === 'light') {
-      document.body.classList.add('light-theme');
-      icon.textContent = '🌞';
-    }
-    btn.onclick = function() {
-      document.body.classList.toggle('light-theme');
-      if(document.body.classList.contains('light-theme')){
-        icon.textContent = '🌞';
-        localStorage.setItem('theme', 'light');
-      } else {
-        icon.textContent = '🌙';
-        localStorage.setItem('theme', 'dark');
-      }
-    };
+  <!-- Botón flotante "Subir ↑" -->
+  <button id="scrollTopBtn" aria-label="Subir al inicio" class="scroll-top-btn" type="button">↑</button>
 
-    // Intersection Observer para animaciones on-scroll
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            entry.target.classList.add('show');
-          }
-        });
-      }, { threshold: 0.13 });
-      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-    });
-  </script>
+  <!-- JS principal -->
+  <script src="main.js"></script>
 </body>
 </html>
