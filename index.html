@@ -166,6 +166,24 @@
     <p>&copy; 2025 David Sebastián Díaz. Todos los derechos reservados.</p>
   </footer>
 
-  <script src="theme-toggle.js"></script>
+  <!-- Cambia la ruta si theme-toggle.js está en otra carpeta -->
+  <script>
+    const btn = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    if(localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-theme');
+      icon.textContent = '🌞';
+    }
+    btn.onclick = function() {
+      document.body.classList.toggle('light-theme');
+      if(document.body.classList.contains('light-theme')){
+        icon.textContent = '🌞';
+        localStorage.setItem('theme', 'light');
+      } else {
+        icon.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      }
+    };
+  </script>
 </body>
 </html>
