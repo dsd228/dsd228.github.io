@@ -17,6 +17,102 @@ body.light-theme {
   --text: #252525;
   --accent: #2563eb;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variables y fuentes ... (tu bloque de variables, igual que el que ya tienes) */
+/* ... (mantén aquí todo el CSS que ya tienes tal cual, solo añade lo siguiente al final) */
+
+/* --- Botón flotante "Subir" --- */
+.scroll-top-btn {
+  position: fixed;
+  right: 1.6rem;
+  bottom: 2.2rem;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(79, 140, 255, 0.83);
+  color: #fff;
+  font-size: 2rem;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.22);
+  cursor: pointer;
+  opacity: 0; visibility: hidden;
+  z-index: 999;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(40px);
+}
+.scroll-top-btn.show {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+.scroll-top-btn:focus-visible {
+  outline: 2px solid #fff;
+}
+
+/* --- Overlay proyectos --- */
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(24,28,34,0.93);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; pointer-events: none;
+  transform: translateY(24px) scale(1.05);
+  transition: opacity 0.28s, transform 0.32s;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: inherit;
+}
+.project-card:hover .card-overlay,
+.project-card:focus-within .card-overlay {
+  opacity: 1; pointer-events: all;
+  transform: translateY(0) scale(1);
+}
+.card-links {
+  margin-top: 1rem;
+  display: flex; gap: 1rem;
+}
+.card-links a {
+  color: #4F8CFF;
+  background: #fff2;
+  padding: 0.4em 1.1em;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.card-links a:hover { background: #4F8CFF; color: #fff; }
+
+/* --- Feedback del formulario --- */
+.form-feedback {
+  min-height: 1.2em;
+  color: #A657FF;
+  font-size: 1em;
+  margin-bottom: 0.4em;
+  transition: color 0.2s;
+}
+input:invalid, textarea:invalid {
+  border-color: #A657FF;
+}
+
+/* --- Reveal on scroll --- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s, transform 0.7s cubic-bezier(.4,2,.75,.8);
+}
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: none;
+}
 
 body {
   font-family: 'Inter', Arial, sans-serif;
