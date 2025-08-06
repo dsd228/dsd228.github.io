@@ -38,17 +38,42 @@ body {
   border: 1.5px solid rgba(255,255,255,0.14);
 }
 .logo.glass {
-  padding: 0.4em 1em;
-  border-radius: 14px;
-  box-shadow: 0 2px 16px rgba(31,38,135,0.09);
-  font-size: 2rem;
-  font-family: 'Orbitron', 'Inter', sans-serif;
-  font-weight: 700;
-  letter-spacing: 2px;
-  transition: box-shadow 0.3s;
+  padding: 0.4em 1.3em;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(79,140,255,0.18), 0 0 30px #4F8CFF88;
+  background: rgba(40,44,52,0.35);
+  display: inline-block;
+  /* Efecto glass extra */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-right: 1.2em;
 }
-.logo.glass:hover {
-  box-shadow: 0 4px 28px rgba(79,140,255,0.18);
+
+.logo.glass a {
+  font-family: 'Orbitron', 'Oxanium', 'Exo', 'Inter', Arial, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #4F8CFF 30%, #A657FF 70%, #fff 100%);
+  color: #fff;
+  letter-spacing: 0.12em;
+  text-shadow:
+    0 2px 14px #4F8CFF99,
+    0 0 10px #A657FF88,
+    0 0 2px #fff;
+  /* Efecto de brillo */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: brightness(1.15) drop-shadow(0 0 4px #A657FF99);
+  transition: filter 0.25s;
+  text-decoration: none;
+}
+.logo.glass a:hover,
+.logo.glass a:focus {
+  filter: brightness(1.35) drop-shadow(0 0 10px #fff);
+  text-shadow:
+    0 4px 24px #4F8CFF,
+    0 0 16px #fff;
 }
 
 /* Tipografía y jerarquía visual */
