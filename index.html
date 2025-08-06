@@ -16,54 +16,30 @@
 
   <style>
     :root {
-      --bg: #0d1117;
-      --card: #161b22;
-      --text: #c9d1d9;
-      --accent: #58a6ff;
-      --border: #30363d;
+      --bg-light: #f4f4f4;
+      --card-light: #ffffff;
+      --text-light: #333;
+      --accent-light: #0366d6;
+
+      --bg-dark: #0d1117;
+      --card-dark: #161b22;
+      --text-dark: #c9d1d9;
+      --accent-dark: #58a6ff;
+      --border-dark: #30363d;
     }
 
     body {
-      <button class="toggle-theme" onclick="toggleTheme()">🌙 / ☀️</button>
-
-<header>
-  <h1>Hola, soy David Sebastián Díaz</h1>
-  <p>Bienvenido a mi perfil profesional</p>
-  <!-- Tu SVG o imagen aquí -->
-</header>
-
-<section>
-  <!-- Contenido como 'Sobre mí', proyectos, etc. -->
-</section>
-
-<section class="social">
-  <!-- Enlaces sociales -->
-</section>
-
-<!-- Footer u otras secciones -->
-
-<script>
-  // Función para alternar tema claro/oscuro
-  function toggleTheme() {
-    const body = document.body;
-    const isDark = body.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }
-
-  // Al cargar, aplicar tema guardado
-  window.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark');
-    }
-  });
-</script>
-
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: var(--bg);
-      color: var(--text);
-      transition: background-color 0.3s, color 0.3s;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
     }
 
     header {
@@ -71,97 +47,92 @@
       color: white;
       padding: 30px 20px;
       text-align: center;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-dark);
     }
 
     section {
       padding: 20px;
       margin: 20px auto;
       max-width: 960px;
-      background-color: var(--card);
+      background-color: var(--card-light);
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      border: 1px solid var(--border);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    body.dark section {
+      background-color: var(--card-dark);
+      border: 1px solid var(--border-dark);
     }
 
     h2 {
-      color: var(--accent);
-      margin-bottom: 10px;
-      border-left: 4px solid var(--accent);
+      color: var(--accent-light);
+      border-left: 4px solid var(--accent-light);
       padding-left: 10px;
     }
 
+    body.dark h2 {
+      color: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
     a {
-      color: var(--accent);
+      color: var(--accent-light);
       text-decoration: none;
+    }
+
+    body.dark a {
+      color: var(--accent-dark);
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    ul {
-      line-height: 1.7;
-    }
-
     table {
       width: 100%;
       border-collapse: collapse;
-      color: var(--text);
     }
 
-    table th, table td {
-      border: 1px solid var(--border);
+    table td, table th {
+      border: 1px solid #ccc;
       padding: 10px;
       text-align: left;
-    }
-
-    .skills img, .stats img {
-      margin: 10px 10px 0 0;
-      max-height: 40px;
     }
 
     .social a img {
       height: 36px;
       width: 36px;
       margin-right: 10px;
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s ease;
     }
 
     .social a img:hover {
       transform: scale(1.1);
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #888;
-    }
-
-    /* Botón toggle */
     .toggle-theme {
       position: fixed;
-      top: 15px;
-      right: 15px;
+      top: 10px;
+      right: 10px;
+      padding: 8px 12px;
       background-color: #24292E;
-      border: none;
-      padding: 10px 15px;
       color: white;
-      border-radius: 8px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 16px;
-      z-index: 1000;
-      user-select: none;
+      z-index: 999;
       transition: background-color 0.3s ease;
+      user-select: none;
     }
+
     .toggle-theme:hover {
       background-color: #0366d6;
     }
 
     /* Botones en tabla */
     .btn {
-      background-color: var(--accent);
+      background-color: var(--accent-light);
       color: white;
       padding: 8px 15px;
       border: none;
@@ -173,7 +144,7 @@
       display: inline-block;
     }
     .btn:hover {
-      background-color: #3b7dd8;
+      background-color: #024ea2;
     }
     button[disabled] {
       background-color: #555;
@@ -186,28 +157,16 @@
       font-weight: 600;
     }
 
-    /* Modo oscuro invertido (tema claro) */
-    body.dark {
-      --bg: #f0f0f0;
-      --card: #ffffff;
-      --text: #222222;
-      --accent: #0366d6;
-      --border: #ddd;
-      background-color: var(--bg);
-      color: var(--text);
-    }
-    body.dark header {
-      background-color: var(--accent);
-      color: white;
-      border-bottom: 1px solid var(--border);
-    }
-    body.dark section {
-      background-color: var(--card);
-      border: 1px solid var(--border);
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-    body.dark a {
-      color: var(--accent);
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      td {
+        padding: 8px 0;
+      }
+      section {
+        margin: 10px;
+      }
     }
   </style>
 </head>
@@ -277,19 +236,19 @@
         <th>Enlace</th>
       </tr>
       <tr>
-        <td>Apple Inc. 2025</td>
-        <td>Proyecto académico-profesional con KPIs financieros, UX/UI, innovación tecnológica y sostenibilidad.</td>
-        <td><a href="https://github.com/dsd228/presentation" target="_blank" rel="noopener noreferrer" class="btn">Ver Repo</a></td>
+        <td>Detección Fraude con Tarjetas</td>
+        <td>Proyecto para detectar fraudes en tarjetas de crédito con análisis de datos y machine learning.</td>
+        <td><a href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener noreferrer" class="btn">Ver Repo</a></td>
       </tr>
       <tr>
-        <td>Clínica Dr. Javier Belinky</td>
-        <td>Contenido web y estrategia digital para cirugía reconstructiva y transgénero. (Confidencial)</td>
-        <td><button disabled>Confidencial</button></td>
+        <td>DataConecta</td>
+        <td>Plataforma para conectar y visualizar datos de manera eficiente.</td>
+        <td><a href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener noreferrer" class="btn">Ver Repo</a></td>
       </tr>
       <tr>
-        <td>Senior Living – Colonia Caroya</td>
-        <td>Idea de negocio para espacio sustentable para adultos mayores.</td>
-        <td><button disabled>En desarrollo</button></td>
+        <td>Estrategia Marketing UX Arcor</td>
+        <td>Estrategia de marketing y UX basada en datos para Arcor.</td>
+        <td><a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="btn">Ver Repo</a></td>
       </tr>
     </table>
   </section>
