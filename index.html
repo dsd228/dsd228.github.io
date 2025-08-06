@@ -69,6 +69,22 @@
       font-size: 0.9rem;
       opacity: 0.7;
     }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+      font-family: inherit;
+    }
+    input:focus, textarea:focus {
+      outline: 2px solid #79d5fa;
+    }
   </style>
 </head>
 <body>
@@ -80,6 +96,7 @@
       <a href="https://github.com/dsd228" class="glass-button"><i class="fab fa-github"></i> GitHub</a>
       <a href="https://www.linkedin.com/in/davidsdiaz/" class="glass-button"><i class="fab fa-linkedin"></i> LinkedIn</a>
       <a href="mailto:dsdiaz@ejemplo.com" class="glass-button"><i class="fas fa-envelope"></i> Email</a>
+      <a href="assets/CV_DavidDiaz.pdf" class="glass-button" download><i class="fas fa-file-download"></i> Descargar CV</a>
     </div>
   </header>
 
@@ -94,7 +111,20 @@
           <p><strong>Tecnologías:</strong> Python, Scikit-learn, Pandas</p>
           <a href="https://github.com/dsd228/credit-card-fraud-detection" class="glass-button">Ver en GitHub</a>
         </div>
-        <!-- Puedes duplicar más proyectos aquí -->
+        <div class="project-card">
+          <img src="assets/img/dataconecta.png" alt="Dataconecta" />
+          <h3>Dataconecta</h3>
+          <p>Proyecto educativo para visualización de datos interactiva.</p>
+          <p><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
+          <a href="https://dsd228.github.io/Dataconecta/" class="glass-button">Ver Demo</a>
+        </div>
+        <div class="project-card">
+          <img src="assets/img/arcor.png" alt="Arcor UX" />
+          <h3>Estrategia UX Arcor</h3>
+          <p>Análisis y propuesta de UX para Arcor basado en datos.</p>
+          <p><strong>Tecnologías:</strong> UX Research, Figma, Análisis de Datos</p>
+          <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" class="glass-button">Ver en GitHub</a>
+        </div>
       </div>
     </section>
 
@@ -128,7 +158,12 @@
 
     <section>
       <h2>¿Trabajamos juntos?</h2>
-      <a href="mailto:dsdiaz@ejemplo.com" class="glass-button">Contáctame</a>
+      <form action="mailto:dsdiaz@ejemplo.com" method="POST" enctype="text/plain">
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="email" name="email" placeholder="Tu email" required />
+        <textarea name="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
+        <button type="submit" class="glass-button">Enviar Mensaje</button>
+      </form>
     </section>
   </main>
 
