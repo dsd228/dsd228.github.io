@@ -1,316 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio profesional de David Sebastián Díaz - UX/UI, Marketing Digital, Ciencia de Datos">
-  <meta name="author" content="David Sebastián Díaz">
-  <title>David Sebastián Díaz | UX, Marketing y Datos</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Sebastián Díaz | Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/glass-buttons.css" />
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    :root {
-      --bg: #0f172a;
-      --glass: rgba(255, 255, 255, 0.08);
-      --text: #f1f5f9;
-      --accent: #38bdf8;
-      --radius: 16px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
-
     body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
     }
-
-    header, section, footer {
-      padding: 4rem 2rem;
-      max-width: 1200px;
+    header, main, section, footer {
+      padding: 1.5rem;
+      max-width: 1080px;
       margin: auto;
     }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    header {
       text-align: center;
-      animation: fadeIn 1.2s;
     }
-
-    .hero img {
-      width: 150px;
+    .avatar {
       border-radius: 50%;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 32px rgba(40,60,120,0.18);
-      border: 3px solid var(--accent);
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border: 3px solid #ffffff55;
     }
-
+    h1, h2 {
+      font-weight: 700;
+    }
     .glass-button {
-      background: var(--glass);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 12px;
-      padding: 12px 24px;
-      color: var(--text);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
-      transition: 0.3s ease;
-      display: inline-block;
       margin: 0.5rem;
-      font-weight: 600;
     }
-
-    .glass-button:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: scale(1.05);
-      color: var(--accent);
-    }
-
-    .about {
-      max-width: 700px;
-      margin: 2rem auto 0 auto;
-      text-align: center;
-      font-size: 1.15rem;
-      background: var(--glass);
-      border-radius: var(--radius);
-      padding: 1.5rem 2rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.16);
-      animation: fadeInUp 1.2s 0.2s both;
-    }
-
-    .projects {
+    .projects-grid {
       display: grid;
+      gap: 1.5rem;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-      animation: fadeInUp 1.2s 0.3s both;
     }
-
-    .card {
-      background: var(--glass);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-      transition: transform 0.3s;
-      animation: fadeInUp 1.2s 0.4s both;
+    .project-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
     }
-    .card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 12px 44px 0 rgba(0,0,0,0.22);
-    }
-
-    .card img {
+    .project-card img {
       width: 100%;
       border-radius: 12px;
-      margin-bottom: 1rem;
-      border: 2px solid var(--accent);
-      background: #fff4;
     }
-
-    .skills {
+    .skills-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      animation: fadeInUp 1.2s 0.4s both;
     }
-
-    .skills i {
-      font-size: 2.3rem;
-      color: var(--accent);
-      background: var(--glass);
-      border-radius: 8px;
-      padding: 0.6rem 1rem;
-      margin: 0.2rem;
-      box-shadow: 0 2px 8px rgba(40,60,120,0.08);
+    .skills-grid i {
+      font-size: 2rem;
     }
-
-    .stats-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.2rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
-      animation: fadeInUp 1.3s 0.5s both;
-    }
-    .stats-img {
-      max-width: 98%;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(40,60,120,0.08);
-      opacity: 0;
-      transform: translateY(20px) scale(0.98);
-      animation: fadeStats 0.8s forwards;
-    }
-    .stats-img:nth-child(1) { animation-delay: 0.2s; }
-    .stats-img:nth-child(2) { animation-delay: 0.4s; }
-    .stats-img:nth-child(3) { animation-delay: 0.6s; }
-
-    .exp-edu {
-      background: var(--glass);
-      border-radius: var(--radius);
-      padding: 1.5rem 2rem;
-      margin: 2rem auto;
-      max-width: 700px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-      animation: fadeInUp 1.2s 0.7s both;
-      text-align: center;
-    }
-
-    @media (max-width: 700px) {
-      header, section, footer {
-        padding: 3rem 1rem;
-      }
-      .about, .exp-edu {
-        padding: 1.2rem 1rem;
-      }
-    }
-    @media (max-width: 480px) {
-      .skills i { font-size: 1.5rem; padding: 0.4rem 0.7rem; }
-      .card { padding: 1rem; }
-    }
-
     footer {
       text-align: center;
-      font-size: 0.95rem;
-      background: var(--glass);
-      border-radius: var(--radius);
-      margin-top: 2rem;
-      padding: 1.6rem 1rem;
-      animation: fadeIn 1.2s 0.8s both;
-    }
-
-    /* Animaciones */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(22px);}
-      to   { opacity: 1; transform: translateY(0);}
-    }
-    @keyframes fadeStats {
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+      font-size: 0.9rem;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <img src="assets/img/david.jpg" alt="Foto de David Sebastián Díaz">
+  <header>
+    <img src="assets/img/avatar.png" alt="David Díaz" class="avatar" />
     <h1>David Sebastián Díaz</h1>
-    <p>Consultor UX/UI | Marketing Digital | Analítica de Datos</p>
+    <p>Estudiante de Marketing Digital y UX Design | Apasionado por la tecnología, el diseño y los datos.</p>
     <div>
-      <a class="glass-button" href="mailto:david.diaz.uxdata@gmail.com"><i class="fas fa-envelope"></i> Correo</a>
-      <a class="glass-button" href="https://www.linkedin.com/in/davidsebastian-diaz" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a class="glass-button" href="https://github.com/dsd228" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a class="glass-button" href="assets/CV_DavidDiaz.pdf" target="_blank" download>
-  <i class="fas fa-file-download"></i> Descargar CV
-</a>
-      <!-- Ejemplo de botón para CV:
-      <a class="glass-button" href="assets/CV_DavidDiaz.pdf" target="_blank"><i class="fas fa-file"></i> Descargar CV</a>
-      -->
+      <a href="https://github.com/dsd228" class="glass-button"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/davidsdiaz/" class="glass-button"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="mailto:dsdiaz@ejemplo.com" class="glass-button"><i class="fas fa-envelope"></i> Email</a>
     </div>
   </header>
-
-  <section class="about">
-    <h2>Sobre mí</h2>
-    <p>
-      Soy estudiante y profesional en formación apasionado por el diseño de experiencias, la tecnología y el análisis de datos. Me especializo en proyectos sociales y digitales que generan impacto. Siempre busco aprender y aplicar los últimos avances en UX, marketing digital y ciencia de datos.
-    </p>
-  </section>
 
   <main>
     <section>
       <h2>Proyectos Destacados</h2>
-      <div class="projects">
-        <div class="card">
-          <img src="assets/img/fraude.png" alt="Proyecto Detección de Fraude">
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="assets/img/proyecto1.png" alt="Proyecto 1" />
           <h3>Detección de Fraude</h3>
-          <p>Clasificación de transacciones fraudulentas con aprendizaje automático.</p>
-          <small>Tecnologías: Python, Scikit-learn, Pandas</small><br>
-          <a class="glass-button" href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank">Ver repositorio</a>
+          <p>Modelo de Machine Learning para detectar fraudes con tarjetas de crédito.</p>
+          <p><strong>Tecnologías:</strong> Python, Scikit-learn, Pandas</p>
+          <a href="https://github.com/dsd228/credit-card-fraud-detection" class="glass-button">Ver en GitHub</a>
         </div>
-        <div class="card">
-          <img src="assets/img/ux-proyecto.png" alt="Proyecto UX Rediseño ONG">
-          <h3>Rediseño ONG</h3>
-          <p>Mejora de experiencia de usuario y conversión en plataforma solidaria.</p>
-          <small>Tecnologías: Figma, Google Analytics</small><br>
-          <a class="glass-button" href="https://github.com/dsd228" target="_blank">Ver proyecto</a>
-        </div>
-        <div class="card">
-          <img src="assets/img/marketing.png" alt="Campaña Marketing Digital">
-          <h3>Campaña Marketing Digital</h3>
-          <p>Planificación y ejecución de campañas para PyMES.</p>
-          <small>Tecnologías: Meta Ads, Google Ads, Canva</small><br>
-          <a class="glass-button" href="https://github.com/dsd228" target="_blank">Ver proyecto</a>
-        </div>
+        <!-- Puedes duplicar más proyectos aquí -->
       </div>
     </section>
 
     <section>
       <h2>Habilidades y Tecnologías</h2>
-      <div class="skills">
-        <i class="fab fa-python" title="Python"></i>
-        <i class="fab fa-js" title="JavaScript"></i>
+      <div class="skills-grid">
         <i class="fab fa-html5" title="HTML5"></i>
-        <i class="fab fa-css3" title="CSS3"></i>
-        <i class="fas fa-chart-line" title="Data Analytics"></i>
-        <i class="fas fa-database" title="Bases de datos"></i>
+        <i class="fab fa-css3-alt" title="CSS3"></i>
+        <i class="fab fa-js" title="JavaScript"></i>
+        <i class="fab fa-python" title="Python"></i>
+        <i class="fab fa-bootstrap" title="Bootstrap"></i>
+        <i class="fas fa-database" title="SQL"></i>
         <i class="fab fa-figma" title="Figma"></i>
-        <i class="fab fa-google" title="Google Analytics"></i>
-        <i class="fab fa-github" title="GitHub"></i>
-        <!-- Agrega más iconos según tus habilidades -->
+        <i class="fas fa-chart-line" title="Google Analytics"></i>
       </div>
     </section>
 
     <section>
-      <h2>Estadísticas</h2>
-      <p>Contribuciones y actividad en GitHub en los últimos meses.</p>
-      <div class="stats-block">
-        <img class="stats-img" src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent" alt="Estadísticas GitHub">
-        <img class="stats-img" src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent" alt="GitHub Streak">
-        <img class="stats-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent" alt="Top Languages">
-      </div>
+      <h2>Estadísticas GitHub</h2>
+      <p>Mi actividad en GitHub refleja mi compromiso y pasión por el aprendizaje y los proyectos colaborativos.</p>
+      <img src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent&hide_border=true" alt="Estadísticas GitHub">
     </section>
 
-    <section class="exp-edu">
+    <section>
       <h2>Experiencia y Educación</h2>
-      <p>Estudiante y profesional en formación con enfoque en proyectos sociales, tecnología y diseño de experiencias. Abierto a nuevas oportunidades y colaboraciones.</p>
+      <ul>
+        <li>💼 Experiencia en proyectos de UX y análisis de datos.</li>
+        <li>🎓 Certificaciones de Google en Marketing Digital y UX Design.</li>
+      </ul>
     </section>
 
     <section>
       <h2>¿Trabajamos juntos?</h2>
-      <a class="glass-button" href="mailto:david.diaz.uxdata@gmail.com">Contáctame</a>
+      <a href="mailto:dsdiaz@ejemplo.com" class="glass-button">Contáctame</a>
     </section>
   </main>
-  <section class="contact-section">
-  <h2>Contacto</h2>
-  <form action="https://formspree.io/f/{https://formspree.io/f/xwpqrdjk}" method="POST">
-    <input type="text" name="name" placeholder="Tu nombre" required>
-    <input type="email" name="email" placeholder="Tu correo electrónico" required>
-    <textarea name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-    <button class="glass-button" type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
-  </form>
-</section>
 
   <footer>
-    <p>&copy; 2025 David Sebastián Díaz. Todos los derechos reservados.</p>
+    <p>&copy; 2025 David Sebastián Díaz · Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
