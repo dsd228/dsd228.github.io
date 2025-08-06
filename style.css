@@ -459,3 +459,146 @@ section, footer {
   font-size: 1.2rem;
   transition:*
 
+  /* 1. Botón flotante "Subir ↑" */
+.scroll-top-btn {
+  position: fixed;
+  right: 2rem; bottom: 2.2rem;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #4F8CFF 60%, #A657FF 100%);
+  color: #fff;
+  font-size: 2rem;
+  box-shadow: 0 6px 32px rgba(40,60,120,0.23);
+  cursor: pointer;
+  opacity: 0; visibility: hidden;
+  z-index: 999;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(40px);
+}
+.scroll-top-btn.show {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+.scroll-top-btn:focus-visible {
+  outline: 2px solid #fff;
+}
+
+/* 2. Overlay en tarjetas de proyectos */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(24,28,34,0.93);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; pointer-events: none;
+  transform: translateY(40px) scale(1.05);
+  transition: opacity 0.28s, transform 0.32s;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: inherit;
+}
+.project-card:hover .card-overlay,
+.project-card:focus-within .card-overlay {
+  opacity: 1; pointer-events: all;
+  transform: translateY(0) scale(1);
+}
+.card-links {
+  margin-top: 1rem;
+  display: flex; gap: 1rem;
+}
+.card-links a {
+  color: #4F8CFF;
+  background: #fff2;
+  padding: 0.4em 1.1em;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+  display: flex; align-items: center; gap: 0.4em;
+}
+.card-links a:hover { background: #4F8CFF; color: #fff; }
+
+/* 3. Feedback del formulario */
+.form-feedback {
+  min-height: 1.2em;
+  color: #A657FF;
+  font-size: 1em;
+  margin-bottom: 0.4em;
+  transition: color 0.2s;
+}
+input:invalid, textarea:invalid {
+  border-color: #A657FF;
+}
+
+/* 4. Reveal on scroll (aplica a secciones importantes) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s, transform 0.7s cubic-bezier(.4,2,.75,.8);
+}
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* 7. Smooth scrolling para anclas */
+html { scroll-behavior: smooth; }
+
+/* 8. Footer glass-card moderno */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(40,44,52,0.30);
+  box-shadow: 0 -4px 24px 0 rgba(31,38,135,0.18);
+  font-size: 1rem;
+  padding: 2rem 1rem 1rem 1rem;
+  border-radius: 18px 18px 0 0;
+  margin-top: 2rem;
+  text-align: center;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+}
+.footer-links a {
+  color: #4F8CFF;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #A657FF;
+  text-decoration: underline;
+}
+.footer-social {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+}
+.footer-social a {
+  color: #fff;
+  font-size: 1.4rem;
+  background: rgba(79,140,255,0.17);
+  border-radius: 50%;
+  padding: 0.41em;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.footer-social a:hover {
+  background: #4F8CFF;
+  color: #fff;
+  transform: scale(1.11);
+}
