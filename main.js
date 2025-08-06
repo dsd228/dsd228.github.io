@@ -1,13 +1,13 @@
 // Theme toggle persistente
 const btn = document.getElementById('theme-toggle');
 const icon = document.getElementById('theme-icon');
-if(localStorage.getItem('theme') === 'light') {
+if (localStorage.getItem('theme') === 'light') {
   document.body.classList.add('light-theme');
   icon.textContent = '🌞';
 }
 btn.onclick = function() {
   document.body.classList.toggle('light-theme');
-  if(document.body.classList.contains('light-theme')){
+  if (document.body.classList.contains('light-theme')) {
     icon.textContent = '🌞';
     localStorage.setItem('theme', 'light');
   } else {
@@ -29,7 +29,7 @@ scrollTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Animaciones de entrada con IntersectionObserver (para .reveal-on-scroll)
+// Reveal on scroll para .reveal-on-scroll
 const revealEls = document.querySelectorAll('.reveal-on-scroll');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -39,18 +39,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 revealEls.forEach(el => observer.observe(el));
-
-// Animaciones on-scroll para retrocompatibilidad con .animate-on-scroll
-document.addEventListener('DOMContentLoaded', () => {
-  const observer2 = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.13 });
-  document.querySelectorAll('.animate-on-scroll').forEach(el => observer2.observe(el));
-});
 
 // Validación en vivo del formulario de contacto
 const emailField = document.getElementById('email');
@@ -78,14 +66,22 @@ if(emailField && msgField && feedback && contactForm){
   contactForm.addEventListener('submit', function(e) {
     if (!validateForm()) {
       e.preventDefault();
+      return;
     }
+    feedback.textContent = 'Enviando mensaje...';
+    // mensaje de éxito accesible tras submit real (Formspree)
+    setTimeout(() => {
+      feedback.textContent = '¡Mensaje enviado correctamente!';
+      contactForm.reset();
+    }, 2000);
   });
 }
 
-// Scroll suave para navegaciones con ancla (retrocompatibilidad para navegadores viejos)
+// Scroll suave para anclas
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
+    const href = this.getAttribute('href');
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
