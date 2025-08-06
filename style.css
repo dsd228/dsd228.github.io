@@ -1,4 +1,6 @@
-:root {
+:root { --bg: #222; --text: #fff; }
+body.light-theme { --bg: #fff; --text: #222; }
+body { background: var(--bg); color: var(--text); transition: 0.3s; }
   --bg: #0f172a;
   --glass: rgba(255,255,255,0.08);
   --text: #f1f5f9;
