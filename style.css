@@ -1,3 +1,6 @@
+<script>
+    console.log("¡Bienvenido a tu página web, David!");
+</script>
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
