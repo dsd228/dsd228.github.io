@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfil de David Sebastián Díaz</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
   <style>
     :root {
       --bg: #0d1117;
@@ -13,8 +18,29 @@
       --accent: #58a6ff;
       --border: #30363d;
     }
+    <script>
+  // AOS animation
+  AOS.init();
+
+  // Dark mode toggle
+  function toggleTheme() {
+    const body = document.body;
+    const theme = body.classList.contains('dark') ? 'light' : 'dark';
+    body.classList.toggle('dark');
+    localStorage.setItem('theme', theme);
+  }
+
+  // Load saved theme
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') document.body.classList.add('dark');
+  });
+</script>
+
 
     body {
+      <button class="toggle-theme" onclick="toggleTheme()">🌙 / ☀️</button>
+
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
