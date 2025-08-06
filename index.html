@@ -7,12 +7,15 @@
   <meta name="author" content="David Sebastián Díaz">
   <title>David Sebastián Díaz | UX, Marketing y Datos</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="glass-buttons.css">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Inter y Orbitron -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="main-nav">
+  <!-- NAV -->
+  <nav class="main-nav glass animate-on-scroll">
     <div class="logo"><a href="#">DSD</a></div>
     <ul>
       <li><a href="#about">Sobre mí</a></li>
@@ -26,7 +29,8 @@
     <button id="theme-toggle" aria-label="Cambiar tema"><span id="theme-icon">🌙</span></button>
   </nav>
 
-  <header class="hero" id="hero">
+  <!-- HERO -->
+  <header class="hero glass animate-on-scroll" id="hero">
     <img src="assets/img/david.jpg" alt="Foto de David Sebastián Díaz" class="profile-pic">
     <h1>David Sebastián Díaz</h1>
     <p>Consultor UX/UI | Marketing Digital | Analítica de Datos</p>
@@ -38,7 +42,8 @@
     </div>
   </header>
 
-  <section class="about" id="about">
+  <!-- SOBRE MÍ -->
+  <section class="about glass animate-on-scroll" id="about">
     <h2>Sobre mí</h2>
     <div class="about-flex">
       <img src="assets/img/sobremi.png" alt="Foto profesional de David" class="about-photo">
@@ -55,10 +60,11 @@
   </section>
 
   <main>
-    <section id="projects">
+    <!-- PROYECTOS -->
+    <section id="projects" class="glass animate-on-scroll">
       <h2>Proyectos Destacados</h2>
       <div class="projects">
-        <div class="card">
+        <div class="card animate-on-scroll">
           <img src="assets/img/fraude.png" alt="Detección de Fraude">
           <h3>Detección de Fraude</h3>
           <p>Clasificación de transacciones fraudulentas con machine learning. Permite identificar operaciones sospechosas y prevenir pérdidas.</p>
@@ -67,7 +73,7 @@
           </div>
           <a class="glass-button" href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank">Ver en GitHub</a>
         </div>
-        <div class="card">
+        <div class="card animate-on-scroll">
           <img src="assets/img/ux-proyecto.png" alt="Rediseño ONG">
           <h3>Rediseño ONG</h3>
           <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
@@ -76,7 +82,7 @@
           </div>
           <a class="glass-button" href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank">Ver proyecto</a>
         </div>
-        <div class="card">
+        <div class="card animate-on-scroll">
           <img src="assets/img/marketing.png" alt="Campaña Marketing Digital">
           <h3>Campaña Marketing Digital</h3>
           <p>Planificación y ejecución de campañas para PyMES. Resultados medibles y optimización de presupuesto.</p>
@@ -88,7 +94,8 @@
       </div>
     </section>
 
-    <section id="skills">
+    <!-- SKILLS -->
+    <section id="skills" class="glass animate-on-scroll">
       <h2>Habilidades Técnicas</h2>
       <div class="skills">
         <div class="skill-item"><i class="fab fa-python"></i> <span>Python</span></div>
@@ -103,7 +110,8 @@
       </div>
     </section>
 
-    <section id="stats">
+    <!-- ESTADÍSTICAS -->
+    <section id="stats" class="glass animate-on-scroll">
       <h2>Estadísticas</h2>
       <p>Contribuciones y actividad en GitHub en los últimos meses.</p>
       <div class="stats-block">
@@ -113,7 +121,8 @@
       </div>
     </section>
 
-    <section class="exp-edu" id="experience">
+    <!-- EXPERIENCIA -->
+    <section class="exp-edu glass animate-on-scroll" id="experience">
       <h2>Experiencia y Educación</h2>
       <div class="timeline">
         <div class="timeline-item">
@@ -133,12 +142,16 @@
       </div>
     </section>
 
-    <section class="contact-section" id="contact">
+    <!-- CONTACTO -->
+    <section class="contact-section glass animate-on-scroll" id="contact">
       <h2>Contacto</h2>
-      <form action="https://formspree.io/f/xwpqrdjk" method="POST">
-        <input type="text" name="name" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu correo electrónico" required>
-        <textarea name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      <form action="https://formspree.io/f/xwpqrdjk" method="POST" class="contact-form" aria-label="Formulario de contacto">
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name" placeholder="Tu nombre" required>
+        <label for="email">Correo electrónico</label>
+        <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
+        <label for="message">Mensaje</label>
+        <textarea name="message" id="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
         <button class="glass-button" type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
       </form>
       <div class="contact-links">
@@ -150,7 +163,8 @@
     </section>
   </main>
 
-  <footer>
+  <!-- FOOTER MODERNO -->
+  <footer class="glass footer animate-on-scroll">
     <div class="footer-links">
       <a href="#about">Sobre mí</a>
       <a href="#projects">Proyectos</a>
@@ -160,14 +174,15 @@
     </div>
     <div class="footer-social">
       <a href="https://github.com/dsd228" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/davidsebastian-diaz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://linkedin.com/in/davidsebastian-diaz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:david.diaz.uxdata@gmail.com" aria-label="Correo"><i class="fas fa-envelope"></i></a>
     </div>
     <p>&copy; 2025 David Sebastián Díaz. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Cambia la ruta si theme-toggle.js está en otra carpeta -->
+  <!-- THEME TOGGLE Y ANIMACIONES SCROLL -->
   <script>
+    // Theme toggle persistente
     const btn = document.getElementById('theme-toggle');
     const icon = document.getElementById('theme-icon');
     if(localStorage.getItem('theme') === 'light') {
@@ -184,6 +199,18 @@
         localStorage.setItem('theme', 'dark');
       }
     };
+
+    // Intersection Observer para animaciones on-scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('show');
+          }
+        });
+      }, { threshold: 0.13 });
+      document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    });
   </script>
 </body>
 </html>
