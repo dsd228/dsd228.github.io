@@ -22,6 +22,7 @@
       --accent: #58a6ff;
       --border: #30363d;
     }
+
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -30,6 +31,7 @@
       color: var(--text);
       transition: background-color 0.3s, color 0.3s;
     }
+
     header {
       background-color: #24292E;
       color: white;
@@ -37,6 +39,7 @@
       text-align: center;
       border-bottom: 1px solid var(--border);
     }
+
     section {
       padding: 20px;
       margin: 20px auto;
@@ -46,51 +49,62 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       border: 1px solid var(--border);
     }
+
     h2 {
       color: var(--accent);
       margin-bottom: 10px;
       border-left: 4px solid var(--accent);
       padding-left: 10px;
     }
+
     a {
       color: var(--accent);
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     ul {
       line-height: 1.7;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       color: var(--text);
     }
+
     table th, table td {
       border: 1px solid var(--border);
       padding: 10px;
       text-align: left;
     }
+
     .skills img, .stats img {
       margin: 10px 10px 0 0;
       max-height: 40px;
     }
+
     .social a img {
       height: 36px;
       width: 36px;
       margin-right: 10px;
       transition: transform 0.2s ease-in-out;
     }
+
     .social a img:hover {
       transform: scale(1.1);
     }
+
     footer {
       text-align: center;
       padding: 20px;
       font-size: 14px;
       color: #888;
     }
+
     /* Botón toggle */
     .toggle-theme {
       position: fixed;
@@ -105,6 +119,61 @@
       font-size: 16px;
       z-index: 1000;
       user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .toggle-theme:hover {
+      background-color: #0366d6;
+    }
+
+    /* Botones en tabla */
+    .btn {
+      background-color: var(--accent);
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #3b7dd8;
+    }
+    button[disabled] {
+      background-color: #555;
+      cursor: not-allowed;
+      opacity: 0.6;
+      padding: 8px 15px;
+      border-radius: 6px;
+      border: none;
+      color: #ccc;
+      font-weight: 600;
+    }
+
+    /* Modo oscuro invertido (tema claro) */
+    body.dark {
+      --bg: #f0f0f0;
+      --card: #ffffff;
+      --text: #222222;
+      --accent: #0366d6;
+      --border: #ddd;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+    body.dark header {
+      background-color: var(--accent);
+      color: white;
+      border-bottom: 1px solid var(--border);
+    }
+    body.dark section {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    body.dark a {
+      color: var(--accent);
     }
   </style>
 </head>
@@ -116,7 +185,7 @@
   <header data-aos="fade-down">
     <h1>Hola, soy David Sebastián Díaz</h1>
     <p>Bienvenido a mi perfil profesional</p>
-    <!-- SVG logo acá -->
+    <!-- SVG logo -->
     <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="margin: 20px auto; display: block;">
       <defs>
         <radialGradient id="bubbleGradient" cx="50%" cy="50%" r="50%">
@@ -176,17 +245,17 @@
       <tr>
         <td>Apple Inc. 2025</td>
         <td>Proyecto académico-profesional con KPIs financieros, UX/UI, innovación tecnológica y sostenibilidad.</td>
-        <td><a href="https://github.com/dsd228/presentation" target="_blank" rel="noopener noreferrer">Ver Proyecto</a></td>
+        <td><a href="https://github.com/dsd228/presentation" target="_blank" rel="noopener noreferrer" class="btn">Ver Repo</a></td>
       </tr>
       <tr>
         <td>Clínica Dr. Javier Belinky</td>
         <td>Contenido web y estrategia digital para cirugía reconstructiva y transgénero. (Confidencial)</td>
-        <td>Confidencial</td>
+        <td><button disabled>Confidencial</button></td>
       </tr>
       <tr>
         <td>Senior Living – Colonia Caroya</td>
         <td>Idea de negocio para espacio sustentable para adultos mayores.</td>
-        <td>En desarrollo</td>
+        <td><button disabled>En desarrollo</button></td>
       </tr>
     </table>
   </section>
