@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portafolio profesional de David Sebastián Díaz - UX/UI, Marketing Digital, Ciencia de Datos">
   <meta name="author" content="David Sebastián Díaz">
+  <meta property="og:title" content="David Sebastián Díaz | UX, Marketing y Datos">
+  <meta property="og:description" content="Portafolio profesional de David Sebastián Díaz: UX/UI, Marketing Digital, Ciencia de Datos.">
   <title>David Sebastián Díaz | UX, Marketing y Datos</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="glass-buttons.css">
@@ -13,7 +15,8 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="main-nav glass animate-on-scroll" role="navigation" aria-label="Navegación principal">
+  <!-- NAV -->
+  <nav class="main-nav glass" role="navigation" aria-label="Navegación principal">
     <div class="logo"><a href="#">DSD</a></div>
     <ul>
       <li><a href="#about">Sobre mí</a></li>
@@ -27,8 +30,9 @@
     <button id="theme-toggle" aria-label="Cambiar tema"><span id="theme-icon">🌙</span></button>
   </nav>
 
-  <header class="hero glass animate-on-scroll" id="hero" role="banner">
-    <img src="assets/img/david.jpg" alt="Foto de David Sebastián Díaz" class="profile-pic" loading="lazy">
+  <!-- HERO -->
+  <header class="hero glass" id="hero" role="banner">
+    <img src="assets/img/david.jpg" alt="Foto de David Sebastián Díaz" class="profile-pic" loading="lazy" width="150" height="150">
     <h1>David Sebastián Díaz</h1>
     <p>Consultor UX/UI | Marketing Digital | Analítica de Datos</p>
     <div class="hero-buttons">
@@ -39,10 +43,11 @@
     </div>
   </header>
 
-  <section class="about glass animate-on-scroll" id="about">
+  <!-- SOBRE MÍ -->
+  <section class="about glass" id="about">
     <h2>Sobre mí</h2>
     <div class="about-flex">
-      <img src="assets/img/sobremi.png" alt="Foto profesional de David" class="about-photo" loading="lazy">
+      <img src="assets/img/sobremi.png" alt="Foto profesional de David" class="about-photo" loading="lazy" width="110" height="110">
       <div>
         <p>
           Soy estudiante y profesional en formación, apasionado por el diseño UX/UI, la analítica de datos y el marketing digital.
@@ -56,18 +61,20 @@
   </section>
 
   <main role="main">
-    <section id="projects" class="glass animate-on-scroll reveal-on-scroll">
+    <!-- PROYECTOS -->
+    <section id="projects" class="glass reveal-on-scroll">
       <h2>Proyectos Destacados</h2>
       <div class="projects">
-        <!-- Proyecto 1 -->
-        <div class="card project-card animate-on-scroll" tabindex="0">
-          <img src="assets/img/fraude.png" alt="Detección de Fraude" loading="lazy">
+        <div class="card project-card" tabindex="0">
+          <img src="assets/img/fraude.png"
+               alt="Miniatura del proyecto Detección de Fraude con Machine Learning"
+               loading="lazy" width="400" height="220">
           <div class="card-overlay" aria-hidden="true">
             <h3>Detección de Fraude</h3>
-            <p>Clasificación de transacciones fraudulentas con machine learning. Permite identificar operaciones sospechosas y prevenir pérdidas.</p>
+            <p>Identificación automática de transacciones sospechosas en tiempo real.</p>
             <div class="card-links">
-              <a href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener">Demo</a>
-              <a href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener" aria-label="Ver Demo"><i class="fas fa-desktop"></i> Demo</a>
+              <a href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener" aria-label="Ver en GitHub"><i class="fab fa-github"></i> GitHub</a>
             </div>
           </div>
           <h3>Detección de Fraude</h3>
@@ -75,16 +82,17 @@
           <div class="tags">
             <span>Python</span><span>Scikit-learn</span><span>Pandas</span>
           </div>
-          <a class="glass-button" href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank">Ver en GitHub</a>
+          <a class="glass-button" href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank">Ver Demo</a>
         </div>
-        <!-- Proyecto 2 -->
-        <div class="card project-card animate-on-scroll" tabindex="0">
-          <img src="assets/img/ux-proyecto.png" alt="Rediseño ONG" loading="lazy">
+        <div class="card project-card" tabindex="0">
+          <img src="assets/img/ux-proyecto.png"
+               alt="Miniatura del proyecto Rediseño ONG"
+               loading="lazy" width="400" height="220">
           <div class="card-overlay" aria-hidden="true">
             <h3>Rediseño ONG</h3>
             <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
             <div class="card-links">
-              <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener" aria-label="Ver en GitHub"><i class="fab fa-github"></i> GitHub</a>
             </div>
           </div>
           <h3>Rediseño ONG</h3>
@@ -94,14 +102,15 @@
           </div>
           <a class="glass-button" href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank">Ver proyecto</a>
         </div>
-        <!-- Proyecto 3 -->
-        <div class="card project-card animate-on-scroll" tabindex="0">
-          <img src="assets/img/marketing.png" alt="Campaña Marketing Digital" loading="lazy">
+        <div class="card project-card" tabindex="0">
+          <img src="assets/img/marketing.png"
+               alt="Miniatura del proyecto Campaña Marketing Digital"
+               loading="lazy" width="400" height="220">
           <div class="card-overlay" aria-hidden="true">
             <h3>Campaña Marketing Digital</h3>
             <p>Planificación y ejecución de campañas para PyMES. Resultados medibles y optimización de presupuesto.</p>
             <div class="card-links">
-              <a href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener">Demo</a>
+              <a href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener" aria-label="Ver Demo"><i class="fas fa-desktop"></i> Demo</a>
             </div>
           </div>
           <h3>Campaña Marketing Digital</h3>
@@ -114,7 +123,8 @@
       </div>
     </section>
 
-    <section id="skills" class="glass animate-on-scroll reveal-on-scroll">
+    <!-- SKILLS -->
+    <section id="skills" class="glass reveal-on-scroll">
       <h2>Habilidades Técnicas</h2>
       <div class="skills">
         <div class="skill-item"><i class="fab fa-python"></i> <span>Python</span></div>
@@ -129,17 +139,19 @@
       </div>
     </section>
 
-    <section id="stats" class="glass animate-on-scroll reveal-on-scroll">
+    <!-- ESTADÍSTICAS -->
+    <section id="stats" class="glass reveal-on-scroll">
       <h2>Estadísticas</h2>
       <p>Contribuciones y actividad en GitHub en los últimos meses.</p>
       <div class="stats-block">
-        <img class="stats-img" src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent" alt="Estadísticas GitHub" loading="lazy">
-        <img class="stats-img" src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent" alt="GitHub Streak" loading="lazy">
-        <img class="stats-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent" alt="Top Languages" loading="lazy">
+        <img class="stats-img" src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent" alt="Estadísticas GitHub" loading="lazy" width="600" height="170">
+        <img class="stats-img" src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent" alt="GitHub Streak" loading="lazy" width="600" height="170">
+        <img class="stats-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent" alt="Top Languages" loading="lazy" width="600" height="170">
       </div>
     </section>
 
-    <section class="exp-edu glass animate-on-scroll" id="experience">
+    <!-- EXPERIENCIA -->
+    <section class="exp-edu glass reveal-on-scroll" id="experience">
       <h2>Experiencia y Educación</h2>
       <div class="timeline">
         <div class="timeline-item">
@@ -159,17 +171,16 @@
       </div>
     </section>
 
-    <section class="contact-section glass animate-on-scroll" id="contact">
+    <!-- CONTACTO -->
+    <section class="contact-section glass reveal-on-scroll" id="contact">
       <h2>Contacto</h2>
-      <form id="contactForm" class="contact-form" aria-label="Formulario de contacto" action="https://formspree.io/f/xwpqrdjk" method="POST" novalidate>
-        <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" placeholder="Tu nombre" required>
+      <form id="contactForm" class="contact-form" aria-label="Formulario de contacto" action="https://formspree.io/f/xwpqrdjk" method="POST" novalidate autocomplete="off">
         <label for="email">Correo electrónico</label>
-        <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required aria-required="true">
+        <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" placeholder="ejemplo@email.com">
         <label for="message">Mensaje</label>
-        <textarea name="message" id="message" rows="5" placeholder="Escribe tu mensaje aquí..." required aria-required="true"></textarea>
+        <textarea id="message" name="message" required aria-required="true" rows="5" placeholder="Tu mensaje"></textarea>
         <div id="formFeedback" aria-live="polite" class="form-feedback"></div>
-        <button class="glass-button" type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+        <button class="glass-button" type="submit" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i> Enviar</button>
       </form>
       <div class="contact-links">
         <a href="mailto:david.diaz.uxdata@gmail.com" aria-label="Correo"><i class="fas fa-envelope"></i></a>
@@ -180,68 +191,26 @@
     </section>
   </main>
 
-  <footer class="glass footer animate-on-scroll" role="contentinfo">
-    <div class="footer-links">
+  <!-- FOOTER MODERNO -->
+  <footer class="glass footer" role="contentinfo">
+    <nav class="footer-links" aria-label="Enlaces de navegación">
       <a href="#about">Sobre mí</a>
       <a href="#projects">Proyectos</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contacto</a>
-      <a href="assets/CV_DavidDiaz.pdf" target="_blank" download>CV</a>
-    </div>
+    </nav>
     <div class="footer-social">
       <a href="https://github.com/dsd228" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/davidsebastian-diaz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:david.diaz.uxdata@gmail.com" aria-label="Correo"><i class="fas fa-envelope"></i></a>
     </div>
-    <p>&copy; 2025 David Sebastián Díaz. Todos los derechos reservados.</p>
+    <p>&copy; 2025 David Sebastián Díaz. Portfolio personal.</p>
   </footer>
 
   <!-- Botón flotante "Subir ↑" -->
-  <!-- 1. Botón flotante "Subir ↑" (colócalo justo antes de </body>) -->
-<button id="scrollTopBtn" class="scroll-top-btn" aria-label="Subir al inicio" type="button">↑</button>
+  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Subir al inicio" type="button">↑</button>
 
-<!-- 2. Ejemplo de Card de Proyecto con Overlay Mejorado -->
-<div class="card project-card" tabindex="0">
-  <img src="assets/img/proyecto1.png" 
-       alt="Miniatura del proyecto Detección de Fraude con Machine Learning" 
-       loading="lazy" width="400" height="220">
-  <!-- Overlay con detalles -->
-  <div class="card-overlay" aria-hidden="true">
-    <h3>Detección de Fraude</h3>
-    <p>Identificación automática de transacciones sospechosas en tiempo real.</p>
-    <div class="card-links">
-      <a href="https://demo-url" target="_blank" rel="noopener" aria-label="Ver Demo"><i class="fas fa-desktop"></i> Demo</a>
-      <a href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener" aria-label="Ver en GitHub"><i class="fab fa-github"></i> GitHub</a>
-    </div>
-  </div>
-  <!-- Resumen visible por default -->
-  <h3>Detección de Fraude</h3>
-  <p>Clasificación de transacciones fraudulentas con machine learning.</p>
-</div>
-
-<!-- 3. Formulario de contacto accesible -->
-<form id="contactForm" class="contact-form" aria-label="Formulario de contacto" action="https://formspree.io/f/xwpqrdjk" method="POST" novalidate>
-  <label for="email">Correo electrónico</label>
-  <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" placeholder="ejemplo@email.com">
-  <label for="message">Mensaje</label>
-  <textarea id="message" name="message" required aria-required="true" rows="5" placeholder="Tu mensaje"></textarea>
-  <!-- Mensaje de feedback accesible -->
-  <div id="formFeedback" aria-live="polite" class="form-feedback"></div>
-  <button class="glass-button" type="submit" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i> Enviar</button>
-</form>
-
-<!-- 8. Footer moderno -->
-<footer class="glass footer" role="contentinfo">
-  <nav class="footer-links" aria-label="Enlaces de navegación">
-    <a href="#about">Sobre mí</a>
-    <a href="#projects">Proyectos</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contacto</a>
-  </nav>
-  <div class="footer-social">
-    <a href="https://github.com/dsd228" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://linkedin.com/in/davidsebastian-diaz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="mailto:david.diaz.uxdata@gmail.com" aria-label="Correo"><i class="fas fa-envelope"></i></a>
-  </div>
-  <p>&copy; 2025 David Sebastián Díaz. Portfolio personal.</p>
-</footer>
+  <!-- JS principal -->
+  <script src="main.js"></script>
+</body>
+</html>
