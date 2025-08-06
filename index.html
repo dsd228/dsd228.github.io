@@ -6,177 +6,378 @@
   <title>David Sebastián Díaz | Portfolio</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/glass-buttons.css" />
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/dsd-logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #ffffff;
-    }
-    header, main, section, footer {
-      padding: 1.5rem;
-      max-width: 1080px;
-      margin: auto;
-    }
-    header {
-      text-align: center;
-    }
-    .avatar {
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border: 3px solid #ffffff55;
-    }
-    h1, h2 {
-      font-weight: 700;
-    }
-    .glass-button {
-      margin: 0.5rem;
-    }
-    .projects-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-    .project-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 1rem;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.25);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
-    }
-    .project-card img {
-      width: 100%;
-      border-radius: 12px;
-    }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .skills-grid i {
-      font-size: 2rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-    form label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border-radius: 8px;
-      border: none;
-      margin-top: 0.25rem;
-      font-family: 'Roboto', sans-serif;
-      font-size: 1rem;
-      resize: vertical;
-    }
-    form button[type="submit"] {
-      width: 100%;
-      margin-top: 1rem;
-    }
-  </style>
+
 </head>
 <body>
-  <header>
-    <img src="assets/img/avatar.png" alt="David Díaz" class="avatar" />
+  <header class="hero">
+    <img src="assets/img/avatar.png" alt="David Sebastián Díaz" class="avatar" />
     <h1>David Sebastián Díaz</h1>
     <p>Estudiante de Marketing Digital y UX Design | Apasionado por la tecnología, el diseño y los datos.</p>
-    <div>
-      <a href="https://github.com/dsd228" class="glass-button"><i class="fab fa-github"></i> GitHub</a>
-      <a href="linkedin.com/in/david-data-conecta" class="glass-button"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <div class="social-links">
+      <a href="https://github.com/dsd228" class="glass-button" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/david-data-conecta" class="glass-button" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
       <a href="mailto:david.diaz.uxdata@gmail.com" class="glass-button"><i class="fas fa-envelope"></i> Email</a>
       <a href="assets/CV_DavidDiaz.pdf" class="glass-button" download><i class="fas fa-file-download"></i> Descargar CV</a>
     </div>
   </header>
 
   <main>
-    <section>
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi">
+      <h2>Sobre Mí</h2>
+      <div class="about">
+        <p>
+          ¡Hola! Soy David Sebastián Díaz, un apasionado estudiante de <strong>Marketing Digital y UX Design</strong> 
+          con una fuerte inclinación hacia la tecnología y el análisis de datos. Mi objetivo es combinar la creatividad 
+          del diseño con el poder de los datos para crear experiencias digitales excepcionales que generen impacto real.
+        </p>
+        <p>
+          Mi formación incluye <strong>certificaciones de Google en Marketing Digital y UX Design</strong>, así como 
+          experiencia práctica en proyectos de análisis de datos y desarrollo web. Me especializo en la intersección 
+          entre el comportamiento del usuario, la estrategia digital y la implementación técnica.
+        </p>
+        <p>
+          <strong>Mis intereses principales:</strong>
+        </p>
+        <ul class="interests-list">
+          <li>🎯 Estrategias de Marketing Digital basadas en datos</li>
+          <li>🔍 Investigación y análisis de experiencia de usuario (UX)</li>
+          <li>📊 Análisis de datos y visualización</li>
+          <li>💻 Desarrollo web y tecnologías emergentes</li>
+          <li>🚀 Optimización de conversiones y growth hacking</li>
+        </ul>
+        <p>
+          <strong>Mi objetivo:</strong> Convertirme en un profesional versátil que pueda liderar proyectos digitales 
+          innovadores, combinando insights de datos con diseño centrado en el usuario para crear soluciones que 
+          realmente marquen la diferencia.
+        </p>
+      </div>
+    </section>
+    <!-- Proyectos Destacados -->
+    <section id="proyectos">
       <h2>Proyectos Destacados</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <img src="assets/img/proyecto1.png" alt="Proyecto 1" />
-          <h3>Detección de Fraude</h3>
-          <p>Modelo de Machine Learning para detectar fraudes con tarjetas de crédito.</p>
-          <p><strong>Tecnologías:</strong> Python, Scikit-learn, Pandas</p>
-          <a href="https://github.com/dsd228/credit-card-fraud-detection" class="glass-button" target="_blank" rel="noopener">Ver en GitHub</a>
+      <div class="projects">
+        <div class="card">
+          <img src="assets/img/proyecto1.png" alt="Detección de Fraude con Machine Learning" />
+          <div class="project-content">
+            <h3>Detección de Fraude</h3>
+            <p>
+              Desarrollo de un modelo de Machine Learning avanzado para detectar fraudes con tarjetas de crédito 
+              en tiempo real. Implementé algoritmos de clasificación y técnicas de balanceo de datos para lograr 
+              alta precisión en la detección de transacciones fraudulentas.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Matplotlib</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dsd228/credit-card-fraud-detection" class="glass-button" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> Ver en GitHub
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="project-card">
-          <img src="assets/img/dataconecta.png" alt="Dataconecta" />
-          <h3>Dataconecta</h3>
-          <p>Plataforma para conectar datos y análisis de manera intuitiva.</p>
-          <p><strong>Tecnologías:</strong> React, Node.js, APIs</p>
-          <a href="https://dsd228.github.io/Dataconecta/" class="glass-button" target="_blank" rel="noopener">Ver Proyecto</a>
+        <div class="card">
+          <img src="assets/img/dataconecta.png" alt="Plataforma Dataconecta" />
+          <div class="project-content">
+            <h3>Dataconecta</h3>
+            <p>
+              Plataforma web innovadora para conectar y visualizar datos de manera intuitiva. Diseñé una interfaz 
+              de usuario moderna que permite a los usuarios explorar conjuntos de datos complejos a través de 
+              dashboards interactivos y análisis en tiempo real.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">APIs REST</span>
+              <span class="tech-tag">Chart.js</span>
+              <span class="tech-tag">CSS3</span>
+            </div>
+            <div class="project-links">
+              <a href="https://dsd228.github.io/Dataconecta/" class="glass-button" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Ver Demo
+              </a>
+              <a href="https://github.com/dsd228/Dataconecta" class="glass-button" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div class="project-card">
-          <img src="assets/img/arcor-marketing.png" alt="Arcor Estrategia" />
-          <h3>Estrategia de Marketing UX basada en datos</h3>
-          <p>Proyecto de análisis y estrategia UX para Arcor.</p>
-          <p><strong>Tecnologías:</strong> UX Design, Análisis de datos, Marketing Digital</p>
-          <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos/blob/main/README.md" class="glass-button" target="_blank" rel="noopener">Ver Proyecto</a>
+        <div class="card">
+          <img src="assets/img/arcor-marketing.png" alt="Estrategia Marketing UX Arcor" />
+          <div class="project-content">
+            <h3>Estrategia de Marketing UX basada en datos</h3>
+            <p>
+              Proyecto integral de investigación y estrategia UX para Arcor, donde desarrollé una propuesta de 
+              marketing digital basada en análisis de datos de usuarios. Incluye investigación de mercado, 
+              personas, journey maps y recomendaciones estratégicas.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">UX Research</span>
+              <span class="tech-tag">Data Analysis</span>
+              <span class="tech-tag">Figma</span>
+              <span class="tech-tag">Google Analytics</span>
+              <span class="tech-tag">Marketing Digital</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos/blob/main/README.md" class="glass-button" target="_blank" rel="noopener">
+                <i class="fas fa-document-alt"></i> Ver Proyecto
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <!-- Habilidades Técnicas -->
+    <section id="habilidades">
       <h2>Habilidades y Tecnologías</h2>
-      <div class="skills-grid">
-        <i class="fab fa-html5" title="HTML5"></i>
-        <i class="fab fa-css3-alt" title="CSS3"></i>
-        <i class="fab fa-js" title="JavaScript"></i>
-        <i class="fab fa-python" title="Python"></i>
-        <i class="fab fa-bootstrap" title="Bootstrap"></i>
-        <i class="fas fa-database" title="SQL"></i>
-        <i class="fab fa-figma" title="Figma"></i>
-        <i class="fas fa-chart-line" title="Google Analytics"></i>
+      
+      <div class="skills-category">
+        <h3>Lenguajes de Programación</h3>
+        <div class="skills">
+          <div class="skill-item">
+            <i class="fab fa-python" title="Python"></i>
+            <span>Python</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-js" title="JavaScript"></i>
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-html5" title="HTML5"></i>
+            <span>HTML5</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-css3-alt" title="CSS3"></i>
+            <span>CSS3</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-database" title="SQL"></i>
+            <span>SQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Frameworks y Librerías</h3>
+        <div class="skills">
+          <div class="skill-item">
+            <i class="fab fa-react" title="React"></i>
+            <span>React</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-node-js" title="Node.js"></i>
+            <span>Node.js</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-bootstrap" title="Bootstrap"></i>
+            <span>Bootstrap</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-brain" title="Scikit-learn"></i>
+            <span>Scikit-learn</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-table" title="Pandas"></i>
+            <span>Pandas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Herramientas de Diseño y Análisis</h3>
+        <div class="skills">
+          <div class="skill-item">
+            <i class="fab fa-figma" title="Figma"></i>
+            <span>Figma</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-chart-line" title="Google Analytics"></i>
+            <span>Google Analytics</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-google" title="Google Data Studio"></i>
+            <span>Data Studio</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-chart-bar" title="Power BI"></i>
+            <span>Power BI</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-adobe" title="Adobe Creative Suite"></i>
+            <span>Adobe Suite</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Marketing Digital y UX</h3>
+        <div class="skills">
+          <div class="skill-item">
+            <i class="fas fa-search" title="SEO"></i>
+            <span>SEO/SEM</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-bullhorn" title="Marketing Digital"></i>
+            <span>Marketing Digital</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-users" title="UX Research"></i>
+            <span>UX Research</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-pencil-ruler" title="UI/UX Design"></i>
+            <span>UI/UX Design</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-mobile-alt" title="Responsive Design"></i>
+            <span>Responsive Design</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section>
+    <!-- Estadísticas GitHub -->
+    <section id="github-stats">
       <h2>Estadísticas GitHub</h2>
-      <p>Mi actividad en GitHub refleja mi compromiso y pasión por el aprendizaje y los proyectos colaborativos.</p>
-      <img src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent&hide_border=true" alt="Estadísticas GitHub">
+      <div class="stats-block">
+        <p>Mi actividad en GitHub refleja mi compromiso y pasión por el aprendizaje y los proyectos colaborativos.</p>
+        <img src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent&hide_border=true&text_color=ffffff&icon_color=38bdf8&bg_color=00000000" alt="Estadísticas GitHub" class="stats-img">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent&hide_border=true&text_color=ffffff&bg_color=00000000" alt="Lenguajes más utilizados" class="stats-img">
+      </div>
     </section>
 
-    <section>
+    <!-- Experiencia y Educación -->
+    <section id="experiencia">
       <h2>Experiencia y Educación</h2>
-      <ul>
-        <li>💼 Experiencia en proyectos de UX y análisis de datos.</li>
-        <li>🎓 Certificaciones de Google en Marketing Digital y UX Design.</li>
-      </ul>
+      <div class="exp-edu">
+        <div class="timeline-item">
+          <div class="timeline-icon">🎓</div>
+          <div class="timeline-content">
+            <h4>Certificación en UX Design</h4>
+            <p class="timeline-company">Google Career Certificates</p>
+            <p class="timeline-period">2024</p>
+            <p>Programa completo de diseño UX que cubre investigación de usuarios, wireframing, prototipado y testing de usabilidad.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">📊</div>
+          <div class="timeline-content">
+            <h4>Certificación en Marketing Digital</h4>
+            <p class="timeline-company">Google Digital Marketing</p>
+            <p class="timeline-period">2024</p>
+            <p>Formación integral en estrategias de marketing digital, SEO, SEM, análisis de datos y optimización de conversiones.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">💼</div>
+          <div class="timeline-content">
+            <h4>Proyectos Freelance</h4>
+            <p class="timeline-company">Desarrollo Web y UX</p>
+            <p class="timeline-period">2023 - Presente</p>
+            <p>Desarrollo de sitios web, análisis UX y estrategias de marketing digital para pequeñas y medianas empresas.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">🔬</div>
+          <div class="timeline-content">
+            <h4>Estudios en Data Science</h4>
+            <p class="timeline-company">Autodidacta</p>
+            <p class="timeline-period">2022 - Presente</p>
+            <p>Aprendizaje continuo en Python, Machine Learning, análisis de datos y visualización con herramientas como Pandas, Scikit-learn y Matplotlib.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
+    <!-- Sección de Contacto -->
+    <section id="contacto">
       <h2>¿Trabajamos juntos?</h2>
-      <a href="mailto:dsdiaz@ejemplo.com" class="glass-button">Contáctame</a>
-    </section>
+      <div class="contact-intro">
+        <p>
+          Estoy siempre abierto a nuevas oportunidades, colaboraciones y proyectos interesantes. 
+          Si tienes una idea, un proyecto en mente, o simplemente quieres conectar, ¡no dudes en contactarme!
+        </p>
+      </div>
 
-    <section>
-      <h2>Formulario de Contacto</h2>
-      <form action="https://formspree.io/f/xwpqrdjk" method="POST" style="max-width: 400px; margin: auto;">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+      <div class="contact-methods">
+        <h3>Contacto Directo</h3>
+        <div class="contact-links">
+          <a href="mailto:david.diaz.uxdata@gmail.com" class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <p>david.diaz.uxdata@gmail.com</p>
+            </div>
+          </a>
+          
+          <a href="https://linkedin.com/in/david-data-conecta" class="contact-card" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <strong>LinkedIn</strong>
+              <p>linkedin.com/in/david-data-conecta</p>
+            </div>
+          </a>
+          
+          <a href="https://github.com/dsd228" class="contact-card" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i>
+            <div>
+              <strong>GitHub</strong>
+              <p>github.com/dsd228</p>
+            </div>
+          </a>
+          
+          <a href="assets/CV_DavidDiaz.pdf" class="contact-card" download>
+            <i class="fas fa-file-download"></i>
+            <div>
+              <strong>Descargar CV</strong>
+              <p>Curriculum Vitae actualizado</p>
+            </div>
+          </a>
+        </div>
+      </div>
 
-        <label for="message">Mensaje:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+      <div class="contact-section">
+        <h3>Formulario de Contacto</h3>
+        <p>O envíame un mensaje directamente desde aquí:</p>
+        <form action="https://formspree.io/f/xwpqrdjk" method="POST">
+          <div class="form-group">
+            <label for="name">Nombre completo:</label>
+            <input type="text" id="name" name="name" required placeholder="Tu nombre completo" />
+          </div>
 
-        <button type="submit" class="glass-button">Enviar</button>
-      </form>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Asunto:</label>
+            <input type="text" id="subject" name="subject" required placeholder="¿De qué quieres hablar?" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Cuéntame sobre tu proyecto o idea..."></textarea>
+          </div>
+
+          <button type="submit" class="glass-button submit-btn">
+            <i class="fas fa-paper-plane"></i> Enviar mensaje
+          </button>
+        </form>
+      </div>
     </section>
   </main>
 
