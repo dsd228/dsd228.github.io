@@ -69,21 +69,24 @@
       font-size: 0.9rem;
       opacity: 0.7;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      max-width: 500px;
-      margin: auto;
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
     }
-    input, textarea {
-      padding: 0.75rem;
+    form input, form textarea {
+      width: 100%;
+      padding: 0.5rem;
       border-radius: 8px;
       border: none;
-      font-family: inherit;
+      margin-top: 0.25rem;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      resize: vertical;
     }
-    input:focus, textarea:focus {
-      outline: 2px solid #79d5fa;
+    form button[type="submit"] {
+      width: 100%;
+      margin-top: 1rem;
     }
   </style>
 </head>
@@ -96,7 +99,7 @@
       <a href="https://github.com/dsd228" class="glass-button"><i class="fab fa-github"></i> GitHub</a>
       <a href="https://www.linkedin.com/in/davidsdiaz/" class="glass-button"><i class="fab fa-linkedin"></i> LinkedIn</a>
       <a href="mailto:dsdiaz@ejemplo.com" class="glass-button"><i class="fas fa-envelope"></i> Email</a>
-      <a href="assets/CV_DavidDiaz.pdf" class="glass-button" download><i class="fas fa-file-download"></i> Descargar CV</a>
+      <a href="assets/cv/CV_DavidDiaz.pdf" class="glass-button" download><i class="fas fa-file-download"></i> Descargar CV</a>
     </div>
   </header>
 
@@ -109,21 +112,23 @@
           <h3>Detección de Fraude</h3>
           <p>Modelo de Machine Learning para detectar fraudes con tarjetas de crédito.</p>
           <p><strong>Tecnologías:</strong> Python, Scikit-learn, Pandas</p>
-          <a href="https://github.com/dsd228/credit-card-fraud-detection" class="glass-button">Ver en GitHub</a>
+          <a href="https://github.com/dsd228/credit-card-fraud-detection" class="glass-button" target="_blank" rel="noopener">Ver en GitHub</a>
         </div>
+
         <div class="project-card">
           <img src="assets/img/dataconecta.png" alt="Dataconecta" />
           <h3>Dataconecta</h3>
-          <p>Proyecto educativo para visualización de datos interactiva.</p>
-          <p><strong>Tecnologías:</strong> HTML, CSS, JavaScript</p>
-          <a href="https://dsd228.github.io/Dataconecta/" class="glass-button">Ver Demo</a>
+          <p>Plataforma para conectar datos y análisis de manera intuitiva.</p>
+          <p><strong>Tecnologías:</strong> React, Node.js, APIs</p>
+          <a href="https://dsd228.github.io/Dataconecta/" class="glass-button" target="_blank" rel="noopener">Ver Proyecto</a>
         </div>
+
         <div class="project-card">
-          <img src="assets/img/arcor.png" alt="Arcor UX" />
-          <h3>Estrategia UX Arcor</h3>
-          <p>Análisis y propuesta de UX para Arcor basado en datos.</p>
-          <p><strong>Tecnologías:</strong> UX Research, Figma, Análisis de Datos</p>
-          <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" class="glass-button">Ver en GitHub</a>
+          <img src="assets/img/arcor-marketing.png" alt="Arcor Estrategia" />
+          <h3>Estrategia de Marketing UX basada en datos</h3>
+          <p>Proyecto de análisis y estrategia UX para Arcor.</p>
+          <p><strong>Tecnologías:</strong> UX Design, Análisis de datos, Marketing Digital</p>
+          <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos/blob/main/README.md" class="glass-button" target="_blank" rel="noopener">Ver Proyecto</a>
         </div>
       </div>
     </section>
@@ -158,13 +163,20 @@
 
     <section>
       <h2>¿Trabajamos juntos?</h2>
-      <form action="https://formspree.io/f/xwpqrdjk" method="POST">
-  <input type="text" name="name" placeholder="Tu nombre" required />
-  <input type="email" name="email" placeholder="Tu correo electrónico" required />
-  <textarea name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-  <button class="glass-button" type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
-</form>
+      <a href="mailto:dsdiaz@ejemplo.com" class="glass-button">Contáctame</a>
+    </section>
 
+    <section>
+      <h2>Formulario de Contacto</h2>
+      <form action="https://formspree.io/f/xwpqrdjk" method="POST" style="max-width: 400px; margin: auto;">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="glass-button">Enviar</button>
+      </form>
     </section>
   </main>
 
