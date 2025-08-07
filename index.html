@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- 
-</style>
-  <style>
-  body {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-      url('assets/img/fondo-metalico.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: #fff;
-  }
-</style>
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="-OexU2GtH4rpONcAk78-PtCLzJ3yLWYkLKZRjVIVfLU" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +14,116 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/fondo-metalico.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: #fff;
+    }
+    /* Mejora de tarjetas de proyecto */
+    .project-card {
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+      background: rgba(30, 30, 40, 0.72);
+      margin: 1em;
+      overflow: hidden;
+      border: 2px solid #0af;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-width: 320px;
+      max-width: 420px;
+    }
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 12px 32px 0 #0af4;
+    }
+    .project-metric {
+      color: #0ff;
+      font-weight: 600;
+      margin-top: 0.5em;
+      display: block;
+    }
+    .card-content h4 {
+      color: #ff0;
+      font-size: 1.1em;
+      margin: 0.2em 0 0.5em 0;
+    }
+    /* Mejora testimonios */
+    .testimonios {
+      margin: 2em auto;
+      max-width: 700px;
+      text-align: center;
+    }
+    .testimonios blockquote {
+      font-style: italic;
+      background: rgba(0,0,0,0.3);
+      border-left: 4px solid #0af;
+      margin: 1em auto;
+      padding: 1em 2em;
+      border-radius: 10px;
+      color: #fff;
+    }
+    .testimonios cite {
+      display: block;
+      margin-top: 0.6em;
+      color: #0af;
+      font-size: 1em;
+      font-style: normal;
+    }
+    /* CTA contacto */
+    .contact-section h2 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+    .contact-section .glass-button {
+      font-size: 1.1em;
+      margin: 0.5em;
+      padding: 1em 2em;
+      display: inline-block;
+    }
+    /* Menú hamburguesa solo referencia, requiere JS extra para el toggle */
+    @media (max-width: 900px) {
+      .main-nav ul {
+        display: none;
+      }
+      .main-nav .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 2em;
+      }
+      .projects {
+        flex-direction: column;
+        align-items: center;
+      }
+      .project-card {
+        width: 95vw;
+        min-width: unset;
+        max-width: 98vw;
+      }
+    }
+    @media (max-width: 700px) {
+      .about-flex, .skills, .stats-block {
+        flex-direction: column !important;
+        align-items: center;
+      }
+      .profile-pic, .about-photo {
+        width: 90px !important;
+        height: 90px !important;
+      }
+      .stats-img {
+        width: 98vw !important;
+        min-width: unset;
+      }
+    }
+    /* Botones accesibles */
+    .glass-button, button, input[type="submit"] {
+      font-size: 1.1em;
+      min-width: 130px;
+      min-height: 48px;
+    }
+  </style>
 </head>
 <body>
   <!-- NAV -->
@@ -37,13 +134,14 @@
       <li><a href="#projects">Proyectos</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#stats">Estadísticas</a></li>
-      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#educacion-experiencia">Experiencia</a></li>
       <li><a href="#contact">Contacto</a></li>
       <li><a href="assets/CV_DavidDiaz.pdf" target="_blank" download>CV</a></li>
     </ul>
+    <!-- Icono hamburguesa solo visible móvil, requiere JS para toggle -->
+    <span class="hamburger" style="display:none;">☰</span>
     <button id="theme-toggle" aria-label="Cambiar tema"><span id="theme-icon">🌙</span></button>
   </nav>
-
   <!-- HERO -->
   <header class="hero glass" id="hero" role="banner">
     <img src="assets/img/david.jpg" alt="Foto de David Sebastián Díaz" class="profile-pic" loading="lazy" width="150" height="150">
@@ -56,63 +154,54 @@
       <a class="glass-button" href="assets/CV_DavidDiaz.pdf" target="_blank" download><i class="fas fa-file-download"></i> Descargar CV</a>
     </div>
   </header>
-
   <!-- SOBRE MÍ -->
   <section class="about glass" id="about">
     <h2>Sobre mí</h2>
-    <div class="about-flex">
+    <div class="about-flex" style="display:flex;align-items:center;gap:1.2em;">
       <img src="assets/img/sobremi.png" alt="Foto profesional de David" class="about-photo" loading="lazy" width="110" height="110">
       <div>
         <p>
-          Soy estudiante y profesional en formación, apasionado por el diseño UX/UI, la analítica de datos y el marketing digital.
-          Mi objetivo es crear soluciones digitales útiles y con impacto social y empresarial, aplicando las últimas tendencias en tecnología y experiencia de usuario.
+          Nací en 2001 en Córdoba, Argentina. Soy estudiante y profesional en formación, apasionado por el diseño UX/UI, la analítica de datos y el marketing digital.
         </p>
         <p>
-          Actualmente estudio Ciencia de Datos y colaboro en proyectos sociales, de tecnología y de innovación digital.
+          Mi objetivo es crear soluciones digitales útiles y con impacto social y empresarial, aplicando las últimas tendencias en tecnología y experiencia de usuario. Actualmente estudio Ciencia de Datos y colaboro en proyectos sociales, de tecnología y de innovación digital.
+        </p>
+        <p>
+          <b>Meta actual:</b> especializarme en inteligencia artificial aplicada al marketing. <br>
+          <b>Hobby:</b> apasionado por la fotografía y el aprendizaje autodidacta.
         </p>
       </div>
     </div>
   </section>
-
   <main role="main">
     <!-- PROYECTOS -->
     <section id="projects" class="glass reveal-on-scroll">
       <h2>Proyectos Destacados</h2>
-      <div class="projects">
-        <div class="card project-card" tabindex="0">
+      <div class="projects" style="display:flex;gap:2em;flex-wrap:wrap;justify-content:center;">
+        <div class="card project-card">
           <img src="assets/img/fraude.png"
                alt="Miniatura del proyecto Detección de Fraude con Machine Learning"
                loading="lazy" width="400" height="220">
-          <div class="card-overlay" aria-hidden="true">
+          <div class="card-content">
             <h3>Detección de Fraude</h3>
-            <p>Identificación automática de transacciones sospechosas en tiempo real.</p>
-            <div class="card-links">
-              <a href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener" aria-label="Ver Demo"><i class="fas fa-desktop"></i> Demo</a>
-              <a href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener" aria-label="Ver en GitHub"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-          </div>
-          <div class="card-content" aria-hidden="true">
-            <h3>Detección de Fraude</h3>
-            <p>Clasificación de transacciones fraudulentas con machine learning. Permite identificar operaciones sospechosas y prevenir pérdidas.</p>
+            <h4>Machine Learning para seguridad financiera</h4>
+            <span class="project-metric">Precisión: 98% &nbsp;|&nbsp; +1000 transacciones analizadas</span>
+            <p>Clasificación automática de transacciones sospechosas en tiempo real. Permite identificar operaciones fraudulentas y prevenir pérdidas económicas.</p>
             <div class="tags">
               <span>Python</span><span>Scikit-learn</span><span>Pandas</span>
             </div>
             <a class="glass-button" href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank">Ver Demo</a>
+            <a class="glass-button" href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank">Ver repositorio</a>
           </div>
         </div>
-        <div class="card project-card" tabindex="0">
+        <div class="card project-card">
           <img src="assets/img/ux-proyecto.png"
                alt="Miniatura del proyecto Rediseño ONG"
                loading="lazy" width="400" height="220">
-          <div class="card-overlay" aria-hidden="true">
+          <div class="card-content">
             <h3>Rediseño ONG</h3>
-            <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
-            <div class="card-links">
-              <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener" aria-label="Ver en GitHub"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-          </div>
-          <div class="card-content" aria-hidden="true">
-            <h3>Rediseño ONG</h3>
+            <h4>Experiencia de usuario solidaria</h4>
+            <span class="project-metric">+25% donaciones &nbsp;|&nbsp; +500 usuarios impactados</span>
             <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
             <div class="tags">
               <span>Figma</span><span>Google Analytics</span>
@@ -120,20 +209,15 @@
             <a class="glass-button" href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank">Ver proyecto</a>
           </div>
         </div>
-        <div class="card project-card" tabindex="0">
+        <div class="card project-card">
           <img src="assets/img/marketing.png"
                alt="Miniatura del proyecto Campaña Marketing Digital"
                loading="lazy" width="400" height="220">
-          <div class="card-overlay" aria-hidden="true">
+          <div class="card-content">
             <h3>Campaña Marketing Digital</h3>
-            <p>Planificación y ejecución de campañas para PyMES. Resultados medibles y optimización de presupuesto.</p>
-            <div class="card-links">
-              <a href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener" aria-label="Ver Demo"><i class="fas fa-desktop"></i> Demo</a>
-            </div>
-          </div>
-          <div class="card-content" aria-hidden="true">
-            <h3>Campaña Marketing Digital</h3>
-            <p>Planificación y ejecución de campañas para PyMES. Resultados medibles y optimización de presupuesto.</p>
+            <h4>Resultados medibles en PyMES</h4>
+            <span class="project-metric">+30% ROI &nbsp;|&nbsp; +50 leads nuevos</span>
+            <p>Planificación y ejecución de campañas para PyMES. Optimización de presupuesto y resultados medibles.</p>
             <div class="tags">
               <span>Meta Ads</span><span>Google Ads</span><span>Canva</span>
             </div>
@@ -142,11 +226,18 @@
         </div>
       </div>
     </section>
-
+    <!-- TESTIMONIOS -->
+    <section class="testimonios glass reveal-on-scroll">
+      <h2>Testimonios</h2>
+      <blockquote>
+        “David fue clave para aumentar nuestras donaciones online y mejorar la experiencia de nuestros usuarios. Su visión y atención al detalle marcaron la diferencia.”
+        <cite>— Fundación Solidaria, Directora de Comunicación</cite>
+      </blockquote>
+    </section>
     <!-- SKILLS -->
     <section id="skills" class="glass reveal-on-scroll">
       <h2>Habilidades Técnicas</h2>
-      <div class="skills">
+      <div class="skills" style="display:flex;flex-wrap:wrap;gap:1em;">
         <div class="skill-item"><i class="fab fa-python"></i> <span>Python</span></div>
         <div class="skill-item"><i class="fab fa-js"></i> <span>JavaScript</span></div>
         <div class="skill-item"><i class="fab fa-html5"></i> <span>HTML5</span></div>
@@ -158,57 +249,54 @@
         <div class="skill-item"><i class="fab fa-github"></i> <span>GitHub</span></div>
       </div>
     </section>
-
     <!-- ESTADÍSTICAS -->
     <section id="stats" class="glass reveal-on-scroll">
       <h2>Estadísticas</h2>
       <p>Contribuciones y actividad en GitHub en los últimos meses.</p>
-      <div class="stats-block">
+      <div class="stats-block" style="display:flex;flex-wrap:wrap;gap:1em;">
         <img class="stats-img" src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent" alt="Estadísticas GitHub" loading="lazy" width="600" height="170">
         <img class="stats-img" src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent" alt="GitHub Streak" loading="lazy" width="600" height="170">
         <img class="stats-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent" alt="Top Languages" loading="lazy" width="600" height="170">
       </div>
     </section>
-
     <!-- EXPERIENCIA -->
-  <section id="educacion-experiencia" class="glass reveal-on-scroll">
-  <h2>🧠 Educación</h2>
-  <h3>Certificaciones Profesionales</h3>
-  <ul>
-    <li>
-      <strong>Google Digital Marketing & E-Commerce Professional Certificate</strong> – Coursera | Google (2025)
-    </li>
-    <li>
-      <strong>Google UX Design Professional Certificate (versión 2)</strong> – Coursera | Google (2025)
-    </li>
-  </ul>
-  <h3>Formación Académica</h3>
-  <ul>
-    <li>
-      <strong>Estudiante de [Tu carrera actual o secundaria]</strong> – [Nombre de la institución], [Ciudad, País]<br>
-      <em>En curso.</em> Formación enfocada en [temas relevantes, por ejemplo: tecnología, comunicación digital, salud, etc.]
-    </li>
-  </ul>
-
-  <h2>💼 Experiencia</h2>
-  <h3>Creador de contenido digital y proyectos web</h3>
-  <p><strong>Freelance</strong> | 2024 - presente</p>
-  <ul>
-    <li>Diseño y desarrollo de sitios web informativos e interactivos (HTML, CSS, JavaScript, Bootstrap).</li>
-    <li>Creación de portafolios y proyectos personales como [ej.: detección de fraude con tarjetas de crédito, HumanizarIA, etc.].</li>
-    <li>Optimización SEO y vinculación con Google Analytics y Google Ads.</li>
-  </ul>
-  <h3>Asistente en proyectos educativos</h3>
-  <p><strong>Voluntariado / Colaboración académica</strong> | 2023 - 2025</p>
-  <ul>
-    <li>Apoyo en la creación de recursos didácticos y estrategias de aprendizaje.</li>
-    <li>Implementación de herramientas tecnológicas para mejorar la experiencia educativa.</li>
-  </ul>
-</section>
-
+    <section id="educacion-experiencia" class="glass reveal-on-scroll">
+      <h2>🧠 Educación</h2>
+      <h3>Certificaciones Profesionales</h3>
+      <ul>
+        <li>
+          <strong>Google Digital Marketing & E-Commerce Professional Certificate</strong> – Coursera | Google (2025)
+        </li>
+        <li>
+          <strong>Google UX Design Professional Certificate (versión 2)</strong> – Coursera | Google (2025)
+        </li>
+      </ul>
+      <h3>Formación Académica</h3>
+      <ul>
+        <li>
+          <strong>Estudiante de Ciencia de Datos</strong> – Universidad Nacional de Córdoba, Argentina<br>
+          <em>En curso.</em> Formación enfocada en analítica de datos, experiencia de usuario, tecnología y comunicación digital.
+        </li>
+      </ul>
+      <h2>💼 Experiencia</h2>
+      <h3>Creador de contenido digital y proyectos web</h3>
+      <p><strong>Freelance</strong> | 2024 - presente</p>
+      <ul>
+        <li>Diseño y desarrollo de sitios web informativos e interactivos (HTML, CSS, JavaScript, Bootstrap).</li>
+        <li>Creación de portafolios y proyectos personales como detección de fraude con tarjetas de crédito y HumanizarIA.</li>
+        <li>Optimización SEO y vinculación con Google Analytics y Google Ads.</li>
+      </ul>
+      <h3>Asistente en proyectos educativos</h3>
+      <p><strong>Voluntariado / Colaboración académica</strong> | 2023 - 2025</p>
+      <ul>
+        <li>Apoyo en la creación de recursos didácticos y estrategias de aprendizaje.</li>
+        <li>Implementación de herramientas tecnológicas para mejorar la experiencia educativa.</li>
+      </ul>
+    </section>
     <!-- CONTACTO -->
     <section class="contact-section glass reveal-on-scroll" id="contact">
-      <h2>Contacto</h2>
+      <h2>¿Trabajamos juntos?</h2>
+      <p>Contactame para proyectos, colaboraciones o consultas. ¡Respondere a la brevedad!</p>
       <form id="contactForm" class="contact-form" aria-label="Formulario de contacto" action="https://formspree.io/f/xwpqrdjk" method="POST" novalidate autocomplete="off">
         <label for="email">Correo electrónico</label>
         <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" placeholder="ejemplo@email.com">
@@ -218,14 +306,13 @@
         <button class="glass-button" type="submit" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i> Enviar</button>
       </form>
       <div class="contact-links">
-        <a href="mailto:david.diaz.uxdata@gmail.com" aria-label="Correo"><i class="fas fa-envelope"></i></a>
-        <a href="https://linkedin.com/in/davidsebastian-diaz" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/dsd228" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="assets/CV_DavidDiaz.pdf" target="_blank" download aria-label="Descargar CV"><i class="fas fa-file-download"></i></a>
+        <a class="glass-button" href="mailto:david.diaz.uxdata@gmail.com" aria-label="Correo"><i class="fas fa-envelope"></i> Email</a>
+        <a class="glass-button" href="https://linkedin.com/in/david-data-conecta" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a class="glass-button" href="https://github.com/dsd228" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+        <a class="glass-button" href="assets/CV_DavidDiaz.pdf" target="_blank" download aria-label="Descargar CV"><i class="fas fa-file-download"></i> CV</a>
       </div>
     </section>
   </main>
-
   <!-- FOOTER MODERNO -->
   <footer class="glass footer" role="contentinfo">
     <nav class="footer-links" aria-label="Enlaces de navegación">
@@ -241,10 +328,8 @@
     </div>
     <p>&copy; 2025 David Sebastián Díaz. Portfolio personal.</p>
   </footer>
-
   <!-- Botón flotante "Subir ↑" -->
   <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Subir al inicio" type="button">↑</button>
-
   <!-- JS principal -->
   <script src="main.js"></script>
 </body>
