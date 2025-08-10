@@ -1,506 +1,211 @@
-Claro, David. El HTML que tienes ya está bastante sólido y profesional, pero te propongo varias mejoras para que quede aún más moderno, limpio, accesible y optimizado:
-
-⸻
-
-Principales mejoras que incorporo:
-	•	Mejoras en accesibilidad (uso de roles, etiquetas ARIA, contraste colores).
-	•	Limpieza y consistencia en estilos inline, moviendo estilos a CSS (idealmente a un archivo aparte).
-	•	Mejor manejo de SEO con etiquetas meta adicionales.
-	•	Mejoras en estructura semántica.
-	•	Mejora en navegación móvil y accesibilidad del menú hamburguesa (aunque sin JS completo).
-	•	Añadido botón de cambio de tema con mejor accesibilidad y animaciones.
-	•	Mejora de SEO social (Open Graph + Twitter Cards).
-	•	Optimización en etiquetas alt y atributos loading.
-	•	Uso de variables CSS para colores para facilitar temas (claro/oscuro).
-	•	Sugerencias para carga diferida y buen performance.
-
-⸻
-
-Aquí te dejo el código completo mejorado (solo el HTML, el CSS externo deberías tenerlo en tus archivos):
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portafolio profesional de David Sebastián Díaz - UX/UI, Marketing Digital, Ciencia de Datos" />
-  <meta name="author" content="David Sebastián Díaz" />
-  <meta name="keywords" content="UX, UI, Marketing Digital, Ciencia de Datos, Portfolio, Consultor, Diseño, Analítica" />
-  
-  <!-- SEO social Open Graph -->
-  <meta property="og:title" content="David Sebastián Díaz | UX, Marketing y Datos" />
-  <meta property="og:description" content="Portafolio profesional de David Sebastián Díaz: UX/UI, Marketing Digital, Ciencia de Datos." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tu-dominio.com" />
-  <meta property="og:image" content="https://tu-dominio.com/assets/img/og-image.jpg" />
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="David Sebastián Díaz | UX, Marketing y Datos" />
-  <meta name="twitter:description" content="Portafolio profesional de David Sebastián Díaz: UX/UI, Marketing Digital, Ciencia de Datos." />
-  <meta name="twitter:image" content="https://tu-dominio.com/assets/img/og-image.jpg" />
-  
-  <title>David Sebastián Díaz | UX, Marketing y Datos</title>
+  <title>David Sebastián Díaz | Consultor UX/UI & Marketing Digital</title>
+  <meta name="description" content="Portafolio profesional de David Sebastián Díaz, especialista en UX/UI, marketing digital y analítica de datos." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <!-- FontAwesome CDN para iconos -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <nav class="main-nav glass" role="navigation" aria-label="Navegación principal">
+    <div class="logo glass"><a href="#">DSD</a></div>
+    <ul>
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#stats">Estadísticas</a></li>
+      <li><a href="#educacion-experiencia">Experiencia</a></li>
+      <li><a href="#contact">Contacto</a></li>
+      <li><a href="assets/CV_DavidDiaz.pdf" target="_blank" rel="noopener noreferrer" download>CV</a></li>
+    </ul>
+    <span class="hamburger" style="display:none;" aria-label="Menú móvil">&#9776;</span>
+    <button id="theme-toggle" aria-label="Cambiar tema"><span id="theme-icon">🌙</span></button>
+  </nav>
 
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="glass-buttons.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <header class="hero glass" id="hero" role="banner">
+    <img src="assets/img/david.jpg" alt="Foto de David Sebastián Díaz" class="profile-pic" loading="lazy" width="150" height="150" />
+    <h1>David Sebastián Díaz</h1>
+    <p>Consultor UX/UI | Marketing Digital | Analítica de Datos</p>
+    <div class="hero-buttons">
+      <a class="glass-button" href="mailto:david.diaz.uxdata@gmail.com" aria-label="Enviar correo"><i class="fas fa-envelope"></i> Correo</a>
+      <a class="glass-button" href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a class="glass-button" href="https://github.com/dsd228" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+      <a class="glass-button" href="assets/CV_DavidDiaz.pdf" target="_blank" rel="noopener noreferrer" download aria-label="Descargar CV"><i class="fas fa-file-download"></i> Descargar CV</a>
+    </div>
+  </header>
 
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
+  <section class="about glass" id="about">
+    <h2>Sobre mí</h2>
+    <div class="about-flex">
+      <img src="assets/img/sobremi.png" alt="Foto profesional de David" class="about-photo" loading="lazy" width="110" height="110" />
+      <div>
+        <p>
+          Nací en 2001 en Córdoba, Argentina. Soy estudiante y profesional en formación, apasionado por el diseño UX/UI, la analítica de datos y el marketing digital.
+        </p>
+        <p>
+          Mi objetivo es crear soluciones digitales útiles y con impacto social y empresarial, aplicando las últimas tendencias en tecnología y experiencia de usuario. Actualmente estudio Ciencia de Datos y colaboro en proyectos sociales, de tecnología y de innovación digital.
+        </p>
+        <p>
+          <strong>Meta actual:</strong> especializarme en inteligencia artificial aplicada al marketing. <br />
+          <strong>Hobby:</strong> apasionado por la fotografía y el aprendizaje autodidacta.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <style>
-    :root {
-      --color-primary: #0af;
-      --color-primary-light: #0af4;
-      --color-accent: #0ff;
-      --color-yellow: #ff0;
-      --color-bg-dark: rgba(30, 30, 40, 0.72);
-      --color-bg-overlay: rgba(0, 0, 0, 0.5);
-      --font-sans: 'Inter', sans-serif;
-      --font-display: 'Orbitron', sans-serif;
-    }
-    /* Estilos básicos y variables */
-    body {
-      margin: 0;
-      font-family: var(--font-sans);
-      background-image: linear-gradient(var(--color-bg-overlay), var(--color-bg-overlay)), url('assets/img/fondo-metalico.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #fff;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-    a {
-      color: var(--color-primary);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover,
-    a:focus {
-      color: var(--color-accent);
-      outline: none;
-    }
-    /* Nav */
-    nav.main-nav {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: var(--color-bg-dark);
-      backdrop-filter: saturate(180%) blur(20px);
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-    nav.main-nav .logo a {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: var(--color-primary);
-      letter-spacing: 0.1em;
-    }
-    nav.main-nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav.main-nav li {
-      font-weight: 600;
-    }
-    nav.main-nav a {
-      font-size: 1rem;
-      padding: 0.5rem 0.7rem;
-      border-radius: 6px;
-    }
-    nav.main-nav a:hover,
-    nav.main-nav a:focus {
-      background-color: var(--color-primary);
-      color: #000;
-      outline-offset: 2px;
-    }
-    /* Botón tema */
-    #theme-toggle {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      color: var(--color-primary);
-      font-size: 1.5rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
-    #theme-toggle:hover,
-    #theme-toggle:focus {
-      background-color: var(--color-primary);
-      color: #000;
-      outline-offset: 2px;
-    }
-    /* HERO */
-    header.hero {
-      text-align: center;
-      padding: 4rem 1rem 3rem;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      backdrop-filter: saturate(180%) blur(20px);
-      background: var(--color-bg-dark);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px var(--color-primary-light);
-    }
-    .profile-pic {
-      border-radius: 50%;
-      border: 3px solid var(--color-primary);
-      max-width: 150px;
-      height: auto;
-      margin-bottom: 1rem;
-      object-fit: cover;
-      box-shadow: 0 0 10px var(--color-primary);
-    }
-    header.hero h1 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 0.3rem;
-      color: var(--color-primary);
-    }
-    header.hero p {
-      font-weight: 600;
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      color: var(--color-accent);
-    }
-    .hero-buttons a {
-      margin: 0 0.5rem 0.5rem 0.5rem;
-      display: inline-block;
-      min-width: 140px;
-      padding: 0.8rem 1rem;
-      font-weight: 600;
-      border-radius: 12px;
-      background: var(--color-bg-dark);
-      box-shadow: 0 0 10px var(--color-primary-light);
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .hero-buttons a i {
-      margin-right: 0.5rem;
-    }
-    .hero-buttons a:hover,
-    .hero-buttons a:focus {
-      background-color: var(--color-primary);
-      color: #000;
-      outline-offset: 2px;
-      box-shadow: 0 0 15px var(--color-primary);
-    }
-    /* Secciones */
-    section {
-      max-width: 1100px;
-      margin: 2rem auto 4rem;
-      padding: 2rem 1rem;
-      background: var(--color-bg-dark);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px var(--color-primary-light);
-      backdrop-filter: saturate(180%) blur(20px);
-    }
-    section h2 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--color-primary);
-      text-align: center;
-    }
-    /* About */
-    .about-flex {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .about-photo {
-      border-radius: 50%;
-      border: 3px solid var(--color-primary);
-      max-width: 110px;
-      object-fit: cover;
-      box-shadow: 0 0 10px var(--color-primary);
-    }
-    .about-flex p {
-      font-size: 1rem;
-      margin-bottom: 0.8rem;
-      color: #eee;
-    }
-    /* Proyectos */
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-    .project-card {
-      background: var(--color-bg-dark);
-      border-radius: 20px;
-      border: 2px solid var(--color-primary);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-      overflow: hidden;
-      min-width: 320px;
-      max-width: 420px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card:hover,
-    .project-card:focus-within {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 12px 32px 0 var(--color-primary-light);
-      outline: none;
-    }
-    .project-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      aspect-ratio: 16 / 9;
-    }
-    .card-content {
-      padding: 1rem 1.2rem 1.5rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .card-content h3 {
-      margin: 0.5rem 0 0.2rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      font-size: 1.3rem;
-    }
-    .card-content h4 {
-      color: var(--color-yellow);
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin: 0 0 0.5rem 0;
-    }
-    .project-metric {
-      color: var(--color-accent);
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.8rem;
-      display: block;
-    }
-    .card-content p {
-      color: #ddd;
-      flex-grow: 1;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    .tags span {
-      background-color: var(--color-primary);
-      color: #000;
-      font-weight: 600;
-      font-size: 0.8rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 12px;
-      margin-right: 0.4rem;
-      display: inline-block;
-      margin-bottom: 0.5rem;
-      user-select: none;
-    }
-    .card-content a.glass-button {
-      margin-right: 0.5rem;
-      margin-top: auto;
-    }
-    /* Testimonios */
-    .testimonios blockquote {
-      font-style: italic;
-      background: rgba(0, 0, 0, 0.3);
-      border-left: 6px solid var(--color-primary);
-      margin: 1.5rem auto;
-      padding: 1.5rem 2rem;
-      border-radius: 12px;
-      color: #fff;
-      font-size: 1.1rem;
-      max-width: 700px;
-    }
-    .testimonios cite {
-      display: block;
-      margin-top: 0.8rem;
-      color: var(--color-primary);
-      font-size: 1rem;
-      font-style: normal;
-      font-weight: 700;
-    }
-    /* Skills */
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-    .skill-item {
-      background: var(--color-primary);
-      color: #000;
-      border-radius: 16px;
-      padding: 0.7rem 1.2rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 0 10px var(--color-primary-light);
-      user-select: none;
-      cursor: default;
-    }
-    .skill-item i {
-      font-size: 1.3rem;
-    }
-    /* Estadísticas */
-    .stats-block {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-    .stats-img {
-      border-radius: 20px;
-      box-shadow: 0 8px 32px var(--color-primary-light);
-      background: var(--color-bg-dark);
-      max-width: 600px;
-      width: 100%;
-      height: auto;
-    }
-    /* Educación y Experiencia */
-    #educacion-experiencia ul {
-      list-style: none;
-      padding-left: 0;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-    #educacion-experiencia li {
-      margin-bottom: 0.8rem;
-      font-size: 1rem;
-      color: #ddd;
-      line-height: 1.4;
-    }
-    #educacion-experiencia strong {
-      color: var(--color-primary);
-      font-weight: 700;
-    }
-    /* Contacto */
-    .contact-section p {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #eee;
-    }
-    .contact-form {
-      max-width: 480px;
-      margin: 0 auto 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .contact-form label {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--color-primary);
-    }
-    .contact-form input[type="email"],
-    .contact-form textarea {
-      font-size: 1rem;
-      padding: 0.7rem 1rem;
-      border-radius: 12px;
-      border: 2px solid var(--color-primary);
-      background: transparent;
-      color: #eee;
-      resize: vertical;
-      transition: border-color 0.3s ease;
-    }
-    .contact-form input[type="email"]:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--color-accent);
-      background-color: rgba(0, 255, 255, 0.05);
-    }
-    .form-feedback {
-      color: #ff4444;
-      font-weight: 600;
-      min-height: 1.2rem;
-      font-size: 0.9rem;
-    }
-    /* Botones */
-    .glass-button {
-      font-size: 1.1em;
-      min-width: 140px;
-      min-height: 48px;
-      padding: 0.8rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 600;
-      background: var(--color-bg-dark);
-      border: 2px solid var(--color-primary);
-      color: var(--color-primary);
-      text-align: center;
-      cursor: pointer;
-      box-shadow: 0 0 12px var(--color-primary-light);
-      transition: background-color 0.3s ease, color 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      user-select: none;
-    }
-    .glass-button:hover,
-    .glass-button:focus {
-      background-color: var(--color-primary);
-      color: #000;
-      outline-offset: 2px;
-      box-shadow: 0 0 20px var(--color-primary);
-    }
-    /* Footer */
-    footer.footer {
-      background: var(--color-bg-dark);
-      color: #ccc;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      user-select: none;
-      border-top: 1px solid var(--color-primary);
-      backdrop-filter: saturate(180%) blur(20px);
-    }
-    footer.footer a {
-      margin: 0 0.8rem;
-      color: var(--color-primary);
-      font-size: 1.4rem;
-    }
-    footer.footer a:hover,
-    footer.footer a:focus {
-      color: var(--color-accent);
-      outline-offset: 2px;
-    }
-    footer.footer .footer-links a {
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.5rem;
-      border-radius: 8px;
-    }
-    /* Scroll top button */
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--color-primary);
-      color: #000;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 0 15px var(--color-primary);
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-      z-index: 1000
+  <main role="main">
+    <section id="projects" class="glass reveal-on-scroll">
+      <h2>Proyectos Destacados</h2>
+      <div class="projects">
+        <article class="card project-card" tabindex="0">
+          <img src="assets/img/fraude.png" alt="Miniatura del proyecto Detección de Fraude con Machine Learning" loading="lazy" width="400" height="220" />
+          <div class="card-content">
+            <h3>Detección de Fraude</h3>
+            <h4>Machine Learning para seguridad financiera</h4>
+            <span class="project-metric">Precisión: 98% &nbsp;|&nbsp; +1000 transacciones analizadas</span>
+            <p>Clasificación automática de transacciones sospechosas en tiempo real. Permite identificar operaciones fraudulentas y prevenir pérdidas económicas.</p>
+            <div class="tags" aria-label="Tecnologías utilizadas">
+              <span>Python</span><span>Scikit-learn</span><span>Pandas</span>
+            </div>
+            <a class="glass-button" href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener noreferrer">Ver Demo</a>
+            <a class="glass-button" href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener noreferrer">Ver repositorio</a>
+          </div>
+        </article>
+        <article class="card project-card" tabindex="0">
+          <img src="assets/img/ux-proyecto.png" alt="Miniatura del proyecto Rediseño ONG" loading="lazy" width="400" height="220" />
+          <div class="card-content">
+            <h3>Rediseño ONG</h3>
+            <h4>Experiencia de usuario solidaria</h4>
+            <span class="project-metric">+25% donaciones &nbsp;|&nbsp; +500 usuarios impactados</span>
+            <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
+            <div class="tags" aria-label="Tecnologías utilizadas">
+              <span>Figma</span><span>Google Analytics</span>
+            </div>
+            <a class="glass-button" href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener noreferrer">Ver proyecto</a>
+          </div>
+        </article>
+        <article class="card project-card" tabindex="0">
+          <img src="assets/img/marketing.png" alt="Miniatura del proyecto Campaña Marketing Digital" loading="lazy" width="400" height="220" />
+          <div class="card-content">
+            <h3>Campaña Marketing Digital</h3>
+            <h4>Resultados medibles en PyMES</h4>
+            <span class="project-metric">+30% ROI &nbsp;|&nbsp; +50 leads nuevos</span>
+            <p>Planificación y ejecución de campañas para PyMES. Optimización de presupuesto y resultados medibles.</p>
+            <div class="tags" aria-label="Tecnologías utilizadas">
+              <span>Meta Ads</span><span>Google Ads</span><span>Canva</span>
+            </div>
+            <a class="glass-button" href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener noreferrer">Ver proyecto</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="testimonios glass reveal-on-scroll" aria-label="Testimonios">
+      <h2>Testimonios</h2>
+      <blockquote>
+        “David fue clave para aumentar nuestras donaciones online y mejorar la experiencia de nuestros usuarios. Su visión y atención al detalle marcaron la diferencia.”
+        <cite>— Fundación Solidaria, Directora de Comunicación</cite>
+      </blockquote>
+    </section>
+
+    <section id="skills" class="glass reveal-on-scroll" aria-label="Habilidades técnicas">
+      <h2>Habilidades Técnicas</h2>
+      <div class="skills">
+        <div class="skill-item"><i class="fab fa-python" aria-hidden="true"></i> <span>Python</span></div>
+        <div class="skill-item"><i class="fab fa-js" aria-hidden="true"></i> <span>JavaScript</span></div>
+        <div class="skill-item"><i class="fab fa-html5" aria-hidden="true"></i> <span>HTML5</span></div>
+        <div class="skill-item"><i class="fab fa-css3" aria-hidden="true"></i> <span>CSS3</span></div>
+        <div class="skill-item"><i class="fas fa-chart-line" aria-hidden="true"></i> <span>Data Analytics</span></div>
+        <div class="skill-item"><i class="fas fa-database" aria-hidden="true"></i> <span>Bases de datos</span></div>
+        <div class="skill-item"><i class="fab fa-figma" aria-hidden="true"></i> <span>Figma</span></div>
+        <div class="skill-item"><i class="fab fa-google" aria-hidden="true"></i> <span>Google Analytics</span></div>
+        <div class="skill-item"><i class="fab fa-github" aria-hidden="true"></i> <span>GitHub</span></div>
+      </div>
+    </section>
+
+    <section id="stats" class="glass reveal-on-scroll" aria-label="Estadísticas de contribuciones y actividad en GitHub">
+      <h2>Estadísticas</h2>
+      <p>Contribuciones y actividad en GitHub en los últimos meses.</p>
+      <div class="stats-block">
+        <img class="stats-img" src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent" alt="Estadísticas GitHub" loading="lazy" width="600" height="170" />
+        <img class="stats-img" src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent" alt="GitHub Streak" loading="lazy" width="600" height="170" />
+        <img class="stats-img" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent" alt="Top Languages" loading="lazy" width="600" height="170" />
+      </div>
+    </section>
+
+    <section id="educacion-experiencia" class="glass reveal-on-scroll" aria-label="Educación y experiencia">
+      <h2>🧠 Educación</h2>
+      <h3>Certificaciones Profesionales</h3>
+      <ul>
+        <li>
+          <strong>Google Digital Marketing & E-Commerce Professional Certificate</strong> – Coursera | Google (2025)
+        </li>
+        <li>
+          <strong>Google UX Design Professional Certificate (versión 2)</strong> – Coursera | Google (2025)
+        </li>
+      </ul>
+      <h3>Formación Académica</h3>
+      <ul>
+        <li>
+          <strong>Estudiante de Ciencia de Datos</strong> – Universidad Nacional de Córdoba, Argentina
+        </li>
+        <li>
+          Cursos diversos en Marketing Digital, Analítica y UX/UI en plataformas Coursera, Google y edX.
+        </li>
+      </ul>
+      <h2>💼 Experiencia Laboral</h2>
+      <ul>
+        <li>
+          <strong>Consultor UX/UI y Marketing Digital</strong> – Freelance | 2022 - presente
+          <br />Asesoramiento para PyMES y ONGs, desarrollo de estrategias digitales, diseño y análisis.
+        </li>
+        <li>
+          <strong>Analista de Datos Junior</strong> – Proyecto Universitario | 2023
+          <br />Implementación de modelos de Machine Learning para detección de fraude.
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="glass reveal-on-scroll" aria-label="Contacto">
+      <h2>Contacto</h2>
+      <p>Si querés contactarme, escribime un mensaje o usá las redes sociales.</p>
+      <form class="contact-form" id="contactForm" novalidate aria-live="polite" aria-describedby="form-feedback">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required placeholder="tuemail@ejemplo.com" aria-required="true" aria-describedby="emailHelp" />
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Escribí tu mensaje aquí..." aria-required="true"></textarea>
+        <div class="form-feedback" id="form-feedback" role="alert" aria-live="assertive"></div>
+        <button type="submit" class="glass-button" aria-label="Enviar mensaje">Enviar</button>
+      </form>
+      <div class="contact-links" role="region" aria-label="Enlaces de contacto">
+        <a class="glass-button" href="mailto:david.diaz.uxdata@gmail.com" aria-label="Enviar correo"><i class="fas fa-envelope"></i> Correo</a>
+        <a class="glass-button" href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a class="glass-button" href="https://github.com/dsd228" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <button class="scroll-top-btn" aria-label="Subir al inicio" title="Subir al inicio">↑</button>
+
+  <footer class="footer" role="contentinfo">
+    <nav class="footer-links" aria-label="Enlaces del pie de página">
+      <a href="#about">Sobre mí</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+    <div class="footer-social" role="region" aria-label="Redes sociales">
+      <a href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/dsd228" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    <div>&copy; 2025 David Sebastián Díaz. Todos los derechos reservados.</div>
+  </footer>
+</body>
+</html>
