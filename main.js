@@ -1,16 +1,14 @@
-// Cambiar entre modo oscuro y claro con persistencia en localStorage
+// Toggle modo oscuro/claro con persistencia localStorage
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 
 function setTheme(theme) {
   if (theme === 'light') {
     document.body.classList.add('light');
-    themeIcon.classList.remove('fa-moon');
-    themeIcon.classList.add('fa-sun');
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
   } else {
     document.body.classList.remove('light');
-    themeIcon.classList.remove('fa-sun');
-    themeIcon.classList.add('fa-moon');
+    themeIcon.classList.replace('fa-sun', 'fa-moon');
   }
   localStorage.setItem('theme', theme);
 }
@@ -24,7 +22,7 @@ themeToggleBtn.addEventListener('click', () => {
   }
 });
 
-// Detectar tema guardado o usar preferencia sistema
+// Detectar tema guardado o preferencia sistema al cargar
 window.addEventListener('load', () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
@@ -33,4 +31,18 @@ window.addEventListener('load', () => {
     const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     setTheme(prefersLight ? 'light' : 'dark');
   }
+});
+
+// Mostrar botón subir al inicio solo si scrollea
+const scrollBtn = document.querySelector('.scroll-top-btn');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollBtn.style.display = 'block';
+  } else {
+    scrollBtn.style.display = 'none';
+  }
+});
+
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
