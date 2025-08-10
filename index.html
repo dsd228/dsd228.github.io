@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  /* Fuente moderna: Inter desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>David Sebastián Díaz | Consultor UX/UI & Marketing Digital</title>
-  <meta name="description" content="Portafolio profesional de David Sebastián Díaz, especialista en UX/UI, marketing digital y analítica de datos." />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-  <!-- FontAwesome CDN para iconos -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    rel="stylesheet"
-  />
+  <meta name="google-site-verification" content="-OexU2GtH4rpONcAk78-PtCLzJ3yLWYkLKZRjVIVfLU" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio profesional de David Sebastián Díaz - UX/UI, Marketing Digital, Ciencia de Datos" />
+  <meta name="author" content="David Sebastián Díaz" />
+  <meta property="og:title" content="David Sebastián Díaz | UX, Marketing y Datos" />
+  <meta property="og:description" content="Portafolio profesional de David Sebastián Díaz: UX/UI, Marketing Digital, Ciencia de Datos." />
+  <title>David Sebastián Díaz | UX, Marketing y Datos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- NAV -->
   <nav class="main-nav glass" role="navigation" aria-label="Navegación principal">
     <div class="logo glass"><a href="#">DSD</a></div>
     <ul>
@@ -26,24 +25,28 @@
       <li><a href="#stats">Estadísticas</a></li>
       <li><a href="#educacion-experiencia">Experiencia</a></li>
       <li><a href="#contact">Contacto</a></li>
-      <li><a href="assets/CV_DavidDiaz.pdf" target="_blank" rel="noopener noreferrer" download>CV</a></li>
+      <li><a href="assets/CV_DavidDiaz.pdf" target="_blank" download>CV</a></li>
     </ul>
-    <span class="hamburger" style="display:none;" aria-label="Menú móvil">&#9776;</span>
+    <!-- Icono hamburguesa móvil -->
+    <span class="hamburger" aria-label="Menú móvil" role="button" tabindex="0">☰</span>
+    <!-- Toggle tema -->
     <button id="theme-toggle" aria-label="Cambiar tema"><span id="theme-icon">🌙</span></button>
   </nav>
 
+  <!-- HERO -->
   <header class="hero glass" id="hero" role="banner">
     <img src="assets/img/david.jpg" alt="Foto de David Sebastián Díaz" class="profile-pic" loading="lazy" width="150" height="150" />
     <h1>David Sebastián Díaz</h1>
     <p>Consultor UX/UI | Marketing Digital | Analítica de Datos</p>
     <div class="hero-buttons">
-      <a class="glass-button" href="mailto:david.diaz.uxdata@gmail.com" aria-label="Enviar correo"><i class="fas fa-envelope"></i> Correo</a>
-      <a class="glass-button" href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a class="glass-button" href="https://github.com/dsd228" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
-      <a class="glass-button" href="assets/CV_DavidDiaz.pdf" target="_blank" rel="noopener noreferrer" download aria-label="Descargar CV"><i class="fas fa-file-download"></i> Descargar CV</a>
+      <a class="glass-button" href="mailto:david.diaz.uxdata@gmail.com"><i class="fas fa-envelope"></i> Correo</a>
+      <a class="glass-button" href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a class="glass-button" href="https://github.com/dsd228" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+      <a class="glass-button" href="assets/CV_DavidDiaz.pdf" target="_blank" download><i class="fas fa-file-download"></i> Descargar CV</a>
     </div>
   </header>
 
+  <!-- SOBRE MÍ -->
   <section class="about glass" id="about">
     <h2>Sobre mí</h2>
     <div class="about-flex">
@@ -56,61 +59,63 @@
           Mi objetivo es crear soluciones digitales útiles y con impacto social y empresarial, aplicando las últimas tendencias en tecnología y experiencia de usuario. Actualmente estudio Ciencia de Datos y colaboro en proyectos sociales, de tecnología y de innovación digital.
         </p>
         <p>
-          <strong>Meta actual:</strong> especializarme en inteligencia artificial aplicada al marketing. <br />
-          <strong>Hobby:</strong> apasionado por la fotografía y el aprendizaje autodidacta.
+          <b>Meta actual:</b> especializarme en inteligencia artificial aplicada al marketing. <br />
+          <b>Hobby:</b> apasionado por la fotografía y el aprendizaje autodidacta.
         </p>
       </div>
     </div>
   </section>
 
+  <!-- PROYECTOS -->
   <main role="main">
     <section id="projects" class="glass reveal-on-scroll">
       <h2>Proyectos Destacados</h2>
       <div class="projects">
-        <article class="card project-card" tabindex="0">
+        <div class="card project-card">
           <img src="assets/img/fraude.png" alt="Miniatura del proyecto Detección de Fraude con Machine Learning" loading="lazy" width="400" height="220" />
           <div class="card-content">
             <h3>Detección de Fraude</h3>
             <h4>Machine Learning para seguridad financiera</h4>
             <span class="project-metric">Precisión: 98% &nbsp;|&nbsp; +1000 transacciones analizadas</span>
             <p>Clasificación automática de transacciones sospechosas en tiempo real. Permite identificar operaciones fraudulentas y prevenir pérdidas económicas.</p>
-            <div class="tags" aria-label="Tecnologías utilizadas">
+            <div class="tags">
               <span>Python</span><span>Scikit-learn</span><span>Pandas</span>
             </div>
-            <a class="glass-button" href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener noreferrer">Ver Demo</a>
-            <a class="glass-button" href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener noreferrer">Ver repositorio</a>
+            <a class="glass-button" href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener">Ver Demo</a>
+            <a class="glass-button" href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener">Ver repositorio</a>
           </div>
-        </article>
-        <article class="card project-card" tabindex="0">
+        </div>
+        <div class="card project-card">
           <img src="assets/img/ux-proyecto.png" alt="Miniatura del proyecto Rediseño ONG" loading="lazy" width="400" height="220" />
           <div class="card-content">
             <h3>Rediseño ONG</h3>
             <h4>Experiencia de usuario solidaria</h4>
             <span class="project-metric">+25% donaciones &nbsp;|&nbsp; +500 usuarios impactados</span>
             <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
-            <div class="tags" aria-label="Tecnologías utilizadas">
+            <div class="tags">
               <span>Figma</span><span>Google Analytics</span>
             </div>
-            <a class="glass-button" href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener noreferrer">Ver proyecto</a>
+            <a class="glass-button" href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener">Ver proyecto</a>
           </div>
-        </article>
-        <article class="card project-card" tabindex="0">
+        </div>
+        <div class="card project-card">
           <img src="assets/img/marketing.png" alt="Miniatura del proyecto Campaña Marketing Digital" loading="lazy" width="400" height="220" />
           <div class="card-content">
             <h3>Campaña Marketing Digital</h3>
             <h4>Resultados medibles en PyMES</h4>
             <span class="project-metric">+30% ROI &nbsp;|&nbsp; +50 leads nuevos</span>
             <p>Planificación y ejecución de campañas para PyMES. Optimización de presupuesto y resultados medibles.</p>
-            <div class="tags" aria-label="Tecnologías utilizadas">
+            <div class="tags">
               <span>Meta Ads</span><span>Google Ads</span><span>Canva</span>
             </div>
-            <a class="glass-button" href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener noreferrer">Ver proyecto</a>
+            <a class="glass-button" href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener">Ver proyecto</a>
           </div>
-        </article>
+        </div>
       </div>
     </section>
 
-    <section class="testimonios glass reveal-on-scroll" aria-label="Testimonios">
+    <!-- TESTIMONIOS -->
+    <section class="testimonios glass reveal-on-scroll">
       <h2>Testimonios</h2>
       <blockquote>
         “David fue clave para aumentar nuestras donaciones online y mejorar la experiencia de nuestros usuarios. Su visión y atención al detalle marcaron la diferencia.”
@@ -118,7 +123,8 @@
       </blockquote>
     </section>
 
-    <section id="skills" class="glass reveal-on-scroll" aria-label="Habilidades técnicas">
+    <!-- SKILLS -->
+    <section id="skills" class="glass reveal-on-scroll">
       <h2>Habilidades Técnicas</h2>
       <div class="skills">
         <div class="skill-item"><i class="fab fa-python" aria-hidden="true"></i> <span>Python</span></div>
@@ -133,7 +139,8 @@
       </div>
     </section>
 
-    <section id="stats" class="glass reveal-on-scroll" aria-label="Estadísticas de contribuciones y actividad en GitHub">
+    <!-- ESTADÍSTICAS -->
+    <section id="stats" class="glass reveal-on-scroll">
       <h2>Estadísticas</h2>
       <p>Contribuciones y actividad en GitHub en los últimos meses.</p>
       <div class="stats-block">
@@ -143,72 +150,32 @@
       </div>
     </section>
 
-    <section id="educacion-experiencia" class="glass reveal-on-scroll" aria-label="Educación y experiencia">
+    <!-- EXPERIENCIA -->
+    <section id="educacion-experiencia" class="glass reveal-on-scroll">
       <h2>🧠 Educación</h2>
       <h3>Certificaciones Profesionales</h3>
       <ul>
-        <li>
-          <strong>Google Digital Marketing & E-Commerce Professional Certificate</strong> – Coursera | Google (2025)
-        </li>
-        <li>
-          <strong>Google UX Design Professional Certificate (versión 2)</strong> – Coursera | Google (2025)
-        </li>
+        <li>Google Digital Marketing & E-Commerce Professional Certificate (Coursera)</li>
+        <li>Google UX Design Professional Certificate (Coursera)</li>
+        <li>Estudiante en Ciencias de Datos, Universidad Nacional de Córdoba</li>
       </ul>
-      <h3>Formación Académica</h3>
+      <h2>💼 Experiencia</h2>
       <ul>
-        <li>
-          <strong>Estudiante de Ciencia de Datos</strong> – Universidad Nacional de Córdoba, Argentina
-        </li>
-        <li>
-          Cursos diversos en Marketing Digital, Analítica y UX/UI en plataformas Coursera, Google y edX.
-        </li>
+        <li>Consultor independiente en UX/UI y Marketing Digital - 2023 - Presente</li>
+        <li>Colaborador en proyectos sociales y educativos de Data Science - 2022 - Presente</li>
+        <li>Participación en cursos y talleres de inteligencia artificial aplicada a marketing</li>
       </ul>
-      <h2>💼 Experiencia Laboral</h2>
-      <ul>
-        <li>
-          <strong>Consultor UX/UI y Marketing Digital</strong> – Freelance | 2022 - presente
-          <br />Asesoramiento para PyMES y ONGs, desarrollo de estrategias digitales, diseño y análisis.
-        </li>
-        <li>
-          <strong>Analista de Datos Junior</strong> – Proyecto Universitario | 2023
-          <br />Implementación de modelos de Machine Learning para detección de fraude.
-        </li>
-      </ul>
-    </section>
-
-    <section id="contact" class="glass reveal-on-scroll" aria-label="Contacto">
-      <h2>Contacto</h2>
-      <p>Si querés contactarme, escribime un mensaje o usá las redes sociales.</p>
-      <form class="contact-form" id="contactForm" novalidate aria-live="polite" aria-describedby="form-feedback">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" required placeholder="tuemail@ejemplo.com" aria-required="true" aria-describedby="emailHelp" />
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Escribí tu mensaje aquí..." aria-required="true"></textarea>
-        <div class="form-feedback" id="form-feedback" role="alert" aria-live="assertive"></div>
-        <button type="submit" class="glass-button" aria-label="Enviar mensaje">Enviar</button>
-      </form>
-      <div class="contact-links" role="region" aria-label="Enlaces de contacto">
-        <a class="glass-button" href="mailto:david.diaz.uxdata@gmail.com" aria-label="Enviar correo"><i class="fas fa-envelope"></i> Correo</a>
-        <a class="glass-button" href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a class="glass-button" href="https://github.com/dsd228" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
-      </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
+  <footer class="footer glass" role="contentinfo">
+    <p>© 2025 David Sebastián Díaz | <a href="mailto:david.diaz.uxdata@gmail.com">Contacto</a></p>
+  </footer>
+
+  <!-- Scroll to top -->
   <button class="scroll-top-btn" aria-label="Subir al inicio" title="Subir al inicio">↑</button>
 
-  <footer class="footer" role="contentinfo">
-    <nav class="footer-links" aria-label="Enlaces del pie de página">
-      <a href="#about">Sobre mí</a>
-      <a href="#projects">Proyectos</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contacto</a>
-    </nav>
-    <div class="footer-social" role="region" aria-label="Redes sociales">
-      <a href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/dsd228" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
-    <div>&copy; 2025 David Sebastián Díaz. Todos los derechos reservados.</div>
-  </footer>
+  <script src="main.js"></script>
 </body>
 </html>
