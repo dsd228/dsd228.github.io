@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,7 +40,7 @@
       transition: var(--transition);
     }
 
-    body.dark {
+    body.dark-mode {
       --dark: #f8fafc;
       --dark-secondary: #e2e8f0;
       --light: #1e293b;
@@ -64,7 +65,7 @@
       transition: var(--transition);
     }
 
-    body.dark .header {
+    body.dark-mode .header {
       border-bottom-color: rgba(255, 255, 255, 0.1);
     }
 
@@ -72,7 +73,7 @@
       background: rgba(255, 255, 255, 0.8);
     }
 
-    body.dark .header {
+    body.dark-mode .header {
       background: rgba(15, 23, 42, 0.8);
     }
 
@@ -119,7 +120,7 @@
       color: var(--primary);
     }
 
-    body.dark .theme-toggle:hover {
+    body.dark-mode .theme-toggle:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
 
@@ -147,7 +148,7 @@
       background-color: var(--gray-light);
     }
 
-    body.dark .nav a:hover {
+    body.dark-mode .nav a:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
 
@@ -202,7 +203,7 @@
       color: var(--dark-secondary);
     }
 
-    body.dark .about-content p {
+    body.dark-mode .about-content p {
       color: var(--gray);
     }
 
@@ -231,7 +232,7 @@
       flex-direction: column;
     }
 
-    body.dark .project-card {
+    body.dark-mode .project-card {
       background: rgba(255, 255, 255, 0.05);
     }
 
@@ -260,7 +261,7 @@
       transition: var(--transition);
     }
 
-    body.dark .project-card h3 {
+    body.dark-mode .project-card h3 {
       color: var(--light);
     }
 
@@ -288,7 +289,7 @@
       flex: 1;
     }
 
-    body.dark .project-card p {
+    body.dark-mode .project-card p {
       color: var(--gray);
     }
 
@@ -308,7 +309,7 @@
       font-weight: 500;
     }
 
-    body.dark .tags span {
+    body.dark-mode .tags span {
       background: rgba(255, 255, 255, 0.1);
       color: var(--gray);
     }
@@ -373,7 +374,7 @@
       transition: var(--transition);
     }
 
-    body.dark .skill-item {
+    body.dark-mode .skill-item {
       background: rgba(255, 255, 255, 0.05);
     }
 
@@ -417,7 +418,7 @@
       color: var(--dark-secondary);
     }
 
-    body.dark .experience-list li {
+    body.dark-mode .experience-list li {
       color: var(--gray);
     }
 
@@ -433,7 +434,7 @@
       color: var(--dark);
     }
 
-    body.dark .experience-list h3 {
+    body.dark-mode .experience-list h3 {
       color: var(--light);
     }
 
@@ -452,7 +453,7 @@
       color: var(--dark-secondary);
     }
 
-    body.dark .contact-item {
+    body.dark-mode .contact-item {
       color: var(--gray);
     }
 
@@ -473,11 +474,11 @@
       color: var(--primary);
     }
 
-    body.dark .contact-item a {
+    body.dark-mode .contact-item a {
       color: var(--gray);
     }
 
-    body.dark .contact-item a:hover {
+    body.dark-mode .contact-item a:hover {
       color: var(--primary);
     }
 
@@ -491,7 +492,7 @@
       font-size: 0.9rem;
     }
 
-    body.dark .footer {
+    body.dark-mode .footer {
       border-top-color: rgba(255, 255, 255, 0.1);
       color: var(--gray);
     }
@@ -822,21 +823,22 @@
     // Theme toggle
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
-    const html = document.documentElement;
+    const body = document.body;
 
     // Check for saved theme preference or use prefers-color-scheme
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+    // Apply saved theme or system preference
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      html.classList.add('dark');
+      body.classList.add('dark-mode');
       themeIcon.classList.replace('fa-moon', 'fa-sun');
     }
 
     themeToggle.addEventListener('click', () => {
-      html.classList.toggle('dark');
+      body.classList.toggle('dark-mode');
       
-      if (html.classList.contains('dark')) {
+      if (body.classList.contains('dark-mode')) {
         themeIcon.classList.replace('fa-moon', 'fa-sun');
         localStorage.setItem('theme', 'dark');
       } else {
@@ -931,3 +933,4 @@
   </script>
 </body>
 </html>
+```
