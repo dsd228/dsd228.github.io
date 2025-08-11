@@ -5,38 +5,637 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>David Sebastián Díaz | UX, Marketing y Datos</title>
   <meta name="description" content="Portafolio profesional de David Sebastián Díaz - UX/UI, Marketing Digital, Ciencia de Datos" />
-  <link rel="stylesheet" href="style.css" />
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    rel="stylesheet"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --dark: #1e293b;
+      --dark-secondary: #334155;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --gray-light: #e2e8f0;
+      --success: #10b981;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #f1f5f9;
+      transition: var(--transition);
+    }
+
+    body.dark {
+      --dark: #f8fafc;
+      --dark-secondary: #e2e8f0;
+      --light: #1e293b;
+      background-color: #0f172a;
+      color: var(--light);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-light);
+      transition: var(--transition);
+    }
+
+    body.dark .header {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .header {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    body.dark .header {
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      cursor: pointer;
+      color: var(--dark-secondary);
+      transition: var(--transition);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--gray-light);
+      color: var(--primary);
+    }
+
+    body.dark .theme-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--dark-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .nav a:hover {
+      color: var(--primary);
+      background-color: var(--gray-light);
+    }
+
+    body.dark .nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav a i {
+      font-size: 1rem;
+    }
+
+    /* Sections */
+    .section {
+      padding: 4rem 0;
+      scroll-margin-top: 80px;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+
+    /* About */
+    .about-flex {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .about-img {
+      flex: 0 0 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-content p {
+      margin-bottom: 1rem;
+      color: var(--dark-secondary);
+    }
+
+    body.dark .about-content p {
+      color: var(--gray);
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+
+    .project-card {
+      background: var(--light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body.dark .project-card {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+
+    body.dark .project-card h3 {
+      color: var(--light);
+    }
+
+    .project-card h4 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .project-metric {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .project-card p {
+      color: var(--dark-secondary);
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    body.dark .project-card p {
+      color: var(--gray);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tags span {
+      background: var(--gray-light);
+      color: var(--dark-secondary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    body.dark .tags span {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--gray);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      background: var(--light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      min-width: 180px;
+      transition: var(--transition);
+    }
+
+    body.dark .skill-item {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .skill-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .skill-item i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    /* Stats */
+    .stats-block {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .stats-img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Experience */
+    .experience-list {
+      margin: 1.5rem 0;
+    }
+
+    .experience-list ul {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .experience-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--dark-secondary);
+    }
+
+    body.dark .experience-list li {
+      color: var(--gray);
+    }
+
+    .experience-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .experience-list h3 {
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    body.dark .experience-list h3 {
+      color: var(--light);
+    }
+
+    /* Contact */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--dark-secondary);
+    }
+
+    body.dark .contact-item {
+      color: var(--gray);
+    }
+
+    .contact-item i {
+      font-size: 1.25rem;
+      color: var(--primary);
+      width: 40px;
+      text-align: center;
+    }
+
+    .contact-item a {
+      color: var(--dark-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-item a:hover {
+      color: var(--primary);
+    }
+
+    body.dark .contact-item a {
+      color: var(--gray);
+    }
+
+    body.dark .contact-item a:hover {
+      color: var(--primary);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 4rem;
+      border-top: 1px solid var(--gray-light);
+      color: var(--dark-secondary);
+      font-size: 0.9rem;
+    }
+
+    body.dark .footer {
+      border-top-color: rgba(255, 255, 255, 0.1);
+      color: var(--gray);
+    }
+
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Scroll Top Button */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 99;
+    }
+
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .about-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .about-img {
+        flex: 0 0 120px;
+        height: 120px;
+      }
+
+      .project-card {
+        min-width: 300px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body>
-  <header class="header glass">
-    <div class="header-left">
-      <h1>David Díaz</h1>
-      <button id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
-        <i id="theme-icon" class="fa-solid fa-moon"></i>
-      </button>
+  <header class="header">
+    <div class="header-content">
+      <div class="header-left">
+        <h1>David Díaz</h1>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+          <i id="theme-icon" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li><a href="#about"><i class="fa-solid fa-user"></i> Sobre mí</a></li>
+          <li><a href="#projects"><i class="fa-solid fa-diagram-project"></i> Proyectos</a></li>
+          <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
+          <li><a href="#stats"><i class="fa-solid fa-chart-line"></i> Estadísticas</a></li>
+          <li><a href="#experience"><i class="fa-solid fa-briefcase"></i> Experiencia</a></li>
+          <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+          <li><a href="assets/CV_DavidDiaz.pdf" target="_blank" download class="btn btn-outline"><i class="fa-solid fa-file-arrow-down"></i> CV</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <a href="#about"><i class="fa-solid fa-user"></i> Sobre mí</a>
-      <a href="#projects"><i class="fa-solid fa-diagram-project"></i> Proyectos</a>
-      <a href="#skills"><i class="fa-solid fa-code"></i> Skills</a>
-      <a href="#stats"><i class="fa-solid fa-chart-line"></i> Estadísticas</a>
-      <a href="#experience"><i class="fa-solid fa-briefcase"></i> Experiencia</a>
-      <a href="#contact"><i class="fa-solid fa-envelope"></i> Contacto</a>
-      <a href="assets/CV_DavidDiaz.pdf" target="_blank" download><i class="fa-solid fa-file-arrow-down"></i> CV</a>
-    </nav>
   </header>
 
   <main class="container">
-
-    <section id="about" class="section glass">
-      <h2>Sobre mí</h2>
-      <div class="about-flex">
-        <img src="assets/img/sobremi.png" alt="Foto profesional de David" loading="lazy" width="110" height="110" />
-        <div>
+    <section id="about" class="section">
+      <h2 class="animate-in">Sobre mí</h2>
+      <div class="about-flex animate-in delay-1">
+        <img src="assets/img/sobremi.png" alt="Foto profesional de David" class="about-img" loading="lazy" />
+        <div class="about-content">
           <p>
             Nací en 2001 en Córdoba, Argentina. Soy estudiante y profesional en formación, apasionado por el diseño UX/UI, la analítica de datos y el marketing digital.
           </p>
@@ -44,142 +643,291 @@
             Mi objetivo es crear soluciones digitales útiles y con impacto social y empresarial, aplicando las últimas tendencias en tecnología y experiencia de usuario. Actualmente estudio Ciencia de Datos y colaboro en proyectos sociales, de tecnología y de innovación digital.
           </p>
           <p>
-            <b>Meta actual:</b> especializarme en inteligencia artificial aplicada al marketing. <br />
-            <b>Hobby:</b> apasionado por la fotografía y el aprendizaje autodidacta.
+            <b class="highlight">Meta actual:</b> especializarme en inteligencia artificial aplicada al marketing. <br />
+            <b class="highlight">Hobby:</b> apasionado por la fotografía y el aprendizaje autodidacta.
           </p>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="section glass">
-      <h2>Proyectos Destacados</h2>
+    <section id="projects" class="section">
+      <h2 class="animate-in">Proyectos Destacados</h2>
       <div class="projects">
-        <article class="card project-card">
-          <img src="assets/img/fraude.png" alt="Detección de Fraude" loading="lazy" width="400" height="220" />
+        <article class="project-card animate-in delay-1">
+          <img src="assets/img/fraude.png" alt="Detección de Fraude" class="project-img" loading="lazy" />
           <div class="card-content">
             <h3>Detección de Fraude</h3>
             <h4>Machine Learning para seguridad financiera</h4>
-            <span class="project-metric">Precisión: 98% &nbsp;|&nbsp; +1000 transacciones analizadas</span>
+            <span class="project-metric">Precisión: 98% | +1000 transacciones analizadas</span>
             <p>Clasificación automática de transacciones sospechosas en tiempo real. Permite identificar operaciones fraudulentas y prevenir pérdidas económicas.</p>
             <div class="tags">
-              <span>Python</span><span>Scikit-learn</span><span>Pandas</span>
+              <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>ML</span>
             </div>
-            <a class="glass-button" href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener">Ver Demo</a>
-            <a class="glass-button" href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener">Ver repositorio</a>
+            <div class="project-links">
+              <a href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener" class="btn btn-primary">
+                <i class="fa-solid fa-external-link-alt"></i> Ver Demo
+              </a>
+              <a href="https://github.com/dsd228/credit-card-fraud-detection" target="_blank" rel="noopener" class="btn btn-outline">
+                <i class="fa-brands fa-github"></i> Código
+              </a>
+            </div>
           </div>
         </article>
 
-        <article class="card project-card">
-          <img src="assets/img/ux-proyecto.png" alt="Rediseño ONG" loading="lazy" width="400" height="220" />
+        <article class="project-card animate-in delay-2">
+          <img src="assets/img/ux-proyecto.png" alt="Rediseño ONG" class="project-img" loading="lazy" />
           <div class="card-content">
             <h3>Rediseño ONG</h3>
             <h4>Experiencia de usuario solidaria</h4>
-            <span class="project-metric">+25% donaciones &nbsp;|&nbsp; +500 usuarios impactados</span>
+            <span class="project-metric">+25% donaciones | +500 usuarios impactados</span>
             <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
             <div class="tags">
-              <span>Figma</span><span>Google Analytics</span>
+              <span>Figma</span><span>UX Research</span><span>Analytics</span>
             </div>
-            <a class="glass-button" href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener">Ver proyecto</a>
+            <div class="project-links">
+              <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener" class="btn btn-primary">
+                <i class="fa-solid fa-external-link-alt"></i> Ver Proyecto
+              </a>
+            </div>
           </div>
         </article>
 
-        <article class="card project-card">
-          <img src="assets/img/marketing.png" alt="Campaña Marketing Digital" loading="lazy" width="400" height="220" />
+        <article class="project-card animate-in delay-3">
+          <img src="assets/img/marketing.png" alt="Campaña Marketing Digital" class="project-img" loading="lazy" />
           <div class="card-content">
             <h3>Campaña Marketing Digital</h3>
             <h4>Resultados medibles en PyMES</h4>
-            <span class="project-metric">+30% ROI &nbsp;|&nbsp; +50 leads nuevos</span>
+            <span class="project-metric">+30% ROI | +50 leads nuevos</span>
             <p>Planificación y ejecución de campañas para PyMES. Optimización de presupuesto y resultados medibles.</p>
             <div class="tags">
-              <span>Meta Ads</span><span>Google Ads</span><span>Canva</span>
+              <span>Meta Ads</span><span>Google Ads</span><span>Canva</span><span>Analytics</span>
             </div>
-            <a class="glass-button" href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener">Ver proyecto</a>
+            <div class="project-links">
+              <a href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener" class="btn btn-primary">
+                <i class="fa-solid fa-external-link-alt"></i> Ver Proyecto
+              </a>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="skills" class="section glass">
-      <h2>Habilidades Técnicas</h2>
+    <section id="skills" class="section">
+      <h2 class="animate-in">Habilidades Técnicas</h2>
       <div class="skills">
-        <div class="skill-item"><i class="fab fa-python"></i> Python</div>
-        <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
-        <div class="skill-item"><i class="fab fa-html5"></i> HTML5</div>
-        <div class="skill-item"><i class="fab fa-css3"></i> CSS3</div>
-        <div class="skill-item"><i class="fas fa-chart-line"></i> Data Analytics</div>
-        <div class="skill-item"><i class="fas fa-database"></i> Bases de datos</div>
-        <div class="skill-item"><i class="fab fa-figma"></i> Figma</div>
-        <div class="skill-item"><i class="fab fa-google"></i> Google Analytics</div>
-        <div class="skill-item"><i class="fab fa-github"></i> GitHub</div>
+        <div class="skill-item animate-in delay-1">
+          <i class="fab fa-python"></i> Python
+        </div>
+        <div class="skill-item animate-in delay-2">
+          <i class="fab fa-js"></i> JavaScript
+        </div>
+        <div class="skill-item animate-in delay-3">
+          <i class="fab fa-html5"></i> HTML5
+        </div>
+        <div class="skill-item animate-in delay-1">
+          <i class="fab fa-css3"></i> CSS3
+        </div>
+        <div class="skill-item animate-in delay-2">
+          <i class="fas fa-chart-line"></i> Data Analytics
+        </div>
+        <div class="skill-item animate-in delay-3">
+          <i class="fas fa-database"></i> Bases de datos
+        </div>
+        <div class="skill-item animate-in delay-1">
+          <i class="fab fa-figma"></i> Figma
+        </div>
+        <div class="skill-item animate-in delay-2">
+          <i class="fab fa-google"></i> Google Analytics
+        </div>
+        <div class="skill-item animate-in delay-3">
+          <i class="fab fa-github"></i> GitHub
+        </div>
       </div>
     </section>
 
-    <section id="stats" class="section glass">
-      <h2>Estadísticas</h2>
-      <p>Contribuciones y actividad en GitHub en los últimos meses.</p>
-      <div class="stats-block">
+    <section id="stats" class="section">
+      <h2 class="animate-in">Estadísticas de GitHub</h2>
+      <p class="animate-in delay-1">Contribuciones y actividad en GitHub en los últimos meses.</p>
+      <div class="stats-block animate-in delay-2">
         <img
           class="stats-img"
           src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent"
           alt="Estadísticas GitHub"
           loading="lazy"
-          width="600"
-          height="170"
         />
         <img
           class="stats-img"
           src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent"
           alt="GitHub Streak"
           loading="lazy"
-          width="600"
-          height="170"
         />
         <img
           class="stats-img"
           src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent"
           alt="Top Languages"
           loading="lazy"
-          width="600"
-          height="170"
         />
       </div>
     </section>
 
-    <section id="experience" class="section glass">
-      <h2>🧠 Educación</h2>
-      <ul>
-        <li>Google Digital Marketing & E-Commerce Professional Certificate (Coursera)</li>
-        <li>Google UX Design Professional Certificate (Coursera)</li>
-        <li>Estudiante en Ciencias de Datos, Universidad Nacional de Córdoba</li>
-      </ul>
-      <h2>💼 Experiencia</h2>
-      <ul>
-        <li>Consultor independiente en UX/UI y Marketing Digital - 2023 - Presente</li>
-        <li>Colaborador en proyectos sociales y educativos de Data Science - 2022 - Presente</li>
-        <li>Participación en cursos y talleres de inteligencia artificial aplicada a marketing</li>
-      </ul>
+    <section id="experience" class="section">
+      <h2 class="animate-in">Experiencia Profesional</h2>
+      <div class="experience-list">
+        <h3 class="gradient-text animate-in delay-1">🧠 Educación</h3>
+        <ul class="animate-in delay-2">
+          <li>Google Digital Marketing & E-Commerce Professional Certificate (Coursera)</li>
+          <li>Google UX Design Professional Certificate (Coursera)</li>
+          <li>Estudiante en Ciencias de Datos, Universidad Nacional de Córdoba</li>
+        </ul>
+        
+        <h3 class="gradient-text animate-in delay-3">💼 Experiencia</h3>
+        <ul class="animate-in delay-1">
+          <li>Consultor independiente en UX/UI y Marketing Digital - 2023 - Presente</li>
+          <li>Colaborador en proyectos sociales y educativos de Data Science - 2022 - Presente</li>
+          <li>Participación en cursos y talleres de inteligencia artificial aplicada a marketing</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="contact" class="section glass">
-      <h2>Contacto</h2>
-      <p><i class="fa-solid fa-envelope"></i> david.diaz.uxdata@gmail.com</p>
-      <p>
-        <i class="fa-brands fa-linkedin"></i>
-        <a href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener">linkedin.com/in/david-data-conecta</a>
-      </p>
-      <p>
-        <i class="fa-brands fa-github"></i>
-        <a href="https://github.com/dsd228" target="_blank" rel="noopener">github.com/dsd228</a>
-      </p>
+    <section id="contact" class="section">
+      <h2 class="animate-in">Contacto</h2>
+      <div class="contact-info animate-in delay-1">
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:david.diaz.uxdata@gmail.com">david.diaz.uxdata@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-linkedin"></i>
+          <a href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener">linkedin.com/in/david-data-conecta</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-brands fa-github"></i>
+          <a href="https://github.com/dsd228" target="_blank" rel="noopener">github.com/dsd228</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="footer glass">
-    <p>© 2025 David Sebastián Díaz | <a href="mailto:david.diaz.uxdata@gmail.com">Contacto</a></p>
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 David Sebastián Díaz | <a href="mailto:david.diaz.uxdata@gmail.com">Contacto</a></p>
+    </div>
   </footer>
 
-  <button class="scroll-top-btn" aria-label="Subir al inicio" title="Subir al inicio">↑</button>
+  <button class="scroll-top-btn" aria-label="Subir al inicio" title="Subir al inicio">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-  <script src="main.js"></script>
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const html = document.documentElement;
+
+    // Check for saved theme preference or use prefers-color-scheme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      html.classList.add('dark');
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      
+      if (html.classList.contains('dark')) {
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Scroll to top button
+    const scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Skip if it's an external link or download
+        if (href === '#' || href.startsWith('#!') || this.getAttribute('download') !== null) {
+          return;
+        }
+
+        e.preventDefault();
+
+        const target = document.querySelector(href);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Animation on scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.animate-in');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+
+    // Set initial state for animate-in elements
+    document.querySelectorAll('.animate-in').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    });
+
+    // Initial check
+    animateOnScroll();
+
+    // Check on scroll
+    window.addEventListener('scroll', animateOnScroll);
+
+    // Intersection Observer for more advanced animations (optional)
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.animate-in').forEach(el => {
+        observer.observe(el);
+      });
+    }
+  </script>
 </body>
 </html>
