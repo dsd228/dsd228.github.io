@@ -1,29 +1,34 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>David Sebastián Díaz | UX, Marketing y Datos</title>
+  <title>David Sebastián Díaz | UX, Marketing y Ciencia de Datos</title>
   <meta name="description" content="Portafolio profesional de David Sebastián Díaz - UX/UI, Marketing Digital, Ciencia de Datos" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
       --primary: #6366f1;
       --primary-dark: #4f46e5;
+      --primary-light: #818cf8;
       --dark: #1e293b;
       --dark-secondary: #334155;
       --light: #f8fafc;
       --gray: #94a3b8;
       --gray-light: #e2e8f0;
       --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
       --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
       --radius-sm: 0.375rem;
       --radius-md: 0.5rem;
       --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --border-width: 1px;
     }
 
     * {
@@ -38,14 +43,19 @@
       color: var(--dark);
       background-color: #f1f5f9;
       transition: var(--transition);
+      background-image: linear-gradient(135deg, rgba(241, 245, 249, 0.8) 0%, rgba(226, 232, 240, 0.8) 100%);
+      min-height: 100vh;
     }
 
     body.dark-mode {
       --dark: #f8fafc;
       --dark-secondary: #e2e8f0;
       --light: #1e293b;
+      --gray: #64748b;
+      --gray-light: #334155;
       background-color: #0f172a;
       color: var(--light);
+      background-image: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
     }
 
     .container {
@@ -61,20 +71,16 @@
       z-index: 100;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gray-light);
+      border-bottom: var(--border-width) solid var(--gray-light);
       transition: var(--transition);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-sm);
     }
 
     body.dark-mode .header {
       border-bottom-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .header {
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    body.dark-mode .header {
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: var(--shadow-sm);
     }
 
     .header-content {
@@ -91,6 +97,18 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      font-size: 1.75rem;
+      color: var(--primary);
     }
 
     .header h1 {
@@ -113,6 +131,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%;
+      margin-left: 0.5rem;
     }
 
     .theme-toggle:hover {
@@ -141,66 +160,167 @@
       transition: var(--transition);
       padding: 0.5rem 0.75rem;
       border-radius: var(--radius-sm);
+      position: relative;
     }
 
     .nav a:hover {
       color: var(--primary);
-      background-color: var(--gray-light);
     }
 
-    body.dark-mode .nav a:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+    .nav a:hover::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    body.dark-mode .nav a {
+      color: var(--gray);
     }
 
     .nav a i {
       font-size: 1rem;
     }
 
+    /* Hero Section */
+    .hero {
+      padding: 6rem 0 4rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--dark-secondary);
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    body.dark-mode .hero-subtitle {
+      color: var(--gray);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
     /* Sections */
     .section {
-      padding: 4rem 0;
-      scroll-margin-top: 80px;
+      padding: 5rem 0;
+      scroll-margin-top: 100px;
     }
 
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: var(--primary);
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
       position: relative;
       display: inline-block;
+      font-weight: 700;
     }
 
-    .section h2::after {
+    body.dark-mode .section-title {
+      color: var(--light);
+    }
+
+    .section-title::after {
       content: '';
       position: absolute;
       bottom: -8px;
-      left: 0;
-      width: 50%;
-      height: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
       background: var(--primary);
-      border-radius: 3px;
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--dark-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    body.dark-mode .section-subtitle {
+      color: var(--gray);
     }
 
     /* About */
     .about-flex {
       display: flex;
-      gap: 2rem;
+      gap: 3rem;
       align-items: flex-start;
       flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .about-img-container {
+      flex: 0 0 220px;
+      position: relative;
     }
 
     .about-img {
-      flex: 0 0 150px;
-      height: 150px;
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--primary);
+      border: 4px solid var(--primary);
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+    }
+
+    .about-img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .profile-badge {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
       box-shadow: var(--shadow-md);
     }
 
+    .about-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
     .about-content p {
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
       color: var(--dark-secondary);
+      font-size: 1.05rem;
     }
 
     body.dark-mode .about-content p {
@@ -214,51 +334,72 @@
       font-weight: 600;
     }
 
+    .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 0.25rem;
+    }
+
     /* Projects */
     .projects {
       display: grid;
-      gap: 2rem;
+      gap: 2.5rem;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      margin-top: 2rem;
     }
 
     .project-card {
       background: var(--light);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: var(--transition);
       height: 100%;
       display: flex;
       flex-direction: column;
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     body.dark-mode .project-card {
       background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary-light);
     }
 
     .project-img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .project-card:hover .project-img {
+      transform: scale(1.05);
     }
 
     .card-content {
-      padding: 1.5rem;
+      padding: 1.75rem;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
     .project-card h3 {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
       color: var(--dark);
       transition: var(--transition);
+      font-weight: 700;
     }
 
     body.dark-mode .project-card h3 {
@@ -266,7 +407,7 @@
     }
 
     .project-card h4 {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--primary);
       margin-bottom: 1rem;
       font-weight: 600;
@@ -274,19 +415,21 @@
 
     .project-metric {
       display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 0.25rem 0.75rem;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary);
+      padding: 0.35rem 0.85rem;
       border-radius: 20px;
-      font-size: 0.8rem;
-      margin-bottom: 1rem;
-      font-weight: 500;
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+      border: 1px solid rgba(99, 102, 241, 0.2);
     }
 
     .project-card p {
       color: var(--dark-secondary);
       margin-bottom: 1.5rem;
       flex: 1;
+      line-height: 1.7;
     }
 
     body.dark-mode .project-card p {
@@ -296,22 +439,34 @@
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
     }
 
     .tags span {
-      background: var(--gray-light);
-      color: var(--dark-secondary);
-      padding: 0.25rem 0.75rem;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary);
+      padding: 0.35rem 0.85rem;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 500;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      transition: var(--transition);
+    }
+
+    .tags span:hover {
+      background: var(--primary);
+      color: white;
     }
 
     body.dark-mode .tags span {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--gray);
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--primary-light);
+    }
+
+    body.dark-mode .tags span:hover {
+      background: var(--primary-light);
+      color: white;
     }
 
     .project-links {
@@ -323,13 +478,15 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
+      padding: 0.85rem 1.75rem;
       border-radius: var(--radius-md);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-decoration: none;
       transition: var(--transition);
       border: 1px solid transparent;
+      min-width: 140px;
+      justify-content: center;
     }
 
     .btn-primary {
@@ -340,6 +497,7 @@
     .btn-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
 
     .btn-outline {
@@ -352,6 +510,7 @@
       background: var(--primary);
       color: white;
       transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
 
     /* Skills */
@@ -359,33 +518,55 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
     }
 
     .skill-item {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 1rem 1.5rem;
+      gap: 1rem;
+      padding: 1.25rem 1.75rem;
       background: var(--light);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
-      min-width: 180px;
+      min-width: 200px;
       transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     body.dark-mode .skill-item {
       background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
     .skill-item:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-md);
+      border-color: var(--primary);
     }
 
-    .skill-item i {
-      font-size: 1.5rem;
+    .skill-icon {
+      font-size: 2rem;
       color: var(--primary);
+    }
+
+    .skill-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+
+    body.dark-mode .skill-name {
+      color: var(--light);
+    }
+
+    .skill-level {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    body.dark-mode .skill-level {
+      color: var(--gray);
     }
 
     /* Stats */
@@ -393,103 +574,264 @@
       display: grid;
       gap: 1.5rem;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      margin-top: 2rem;
+    }
+
+    .stats-card {
+      background: var(--light);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode .stats-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .stats-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
     }
 
     .stats-img {
       width: 100%;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
+      margin: 1rem 0;
+    }
+
+    .stats-title {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
     }
 
     /* Experience */
     .experience-list {
-      margin: 1.5rem 0;
+      margin-top: 2rem;
     }
 
-    .experience-list ul {
-      list-style: none;
-      margin: 1rem 0;
+    .experience-category {
+      margin-bottom: 2.5rem;
     }
 
-    .experience-list li {
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
+    .experience-category h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .experience-category h3 i {
+      font-size: 1.75rem;
+    }
+
+    .timeline {
       position: relative;
-      color: var(--dark-secondary);
+      padding-left: 2rem;
     }
 
-    body.dark-mode .experience-list li {
-      color: var(--gray);
-    }
-
-    .experience-list li::before {
-      content: '▹';
+    .timeline::before {
+      content: '';
       position: absolute;
       left: 0;
-      color: var(--primary);
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--primary);
+      border-radius: 2px;
     }
 
-    .experience-list h3 {
-      margin-bottom: 0.5rem;
+    .timeline-item {
+      position: relative;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--light);
+    }
+
+    body.dark-mode .timeline-item::before {
+      border-color: var(--dark);
+    }
+
+    .timeline-item h4 {
+      font-size: 1.1rem;
       color: var(--dark);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
     }
 
-    body.dark-mode .experience-list h3 {
+    body.dark-mode .timeline-item h4 {
       color: var(--light);
     }
 
+    .timeline-date {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-item p {
+      color: var(--dark-secondary);
+      line-height: 1.6;
+    }
+
+    body.dark-mode .timeline-item p {
+      color: var(--gray);
+    }
+
     /* Contact */
-    .contact-info {
+    .contact-container {
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
     }
 
     .contact-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      color: var(--dark-secondary);
+      gap: 1.25rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: var(--light);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     body.dark-mode .contact-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-item:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 50%;
+    }
+
+    .contact-details {
+      flex: 1;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+
+    body.dark-mode .contact-label {
+      color: var(--light);
+    }
+
+    .contact-value {
+      color: var(--dark-secondary);
+    }
+
+    body.dark-mode .contact-value {
       color: var(--gray);
     }
 
-    .contact-item i {
-      font-size: 1.25rem;
-      color: var(--primary);
-      width: 40px;
-      text-align: center;
-    }
-
-    .contact-item a {
+    .contact-value a {
       color: var(--dark-secondary);
       text-decoration: none;
       transition: var(--transition);
     }
 
-    .contact-item a:hover {
+    .contact-value a:hover {
       color: var(--primary);
+      text-decoration: underline;
     }
 
-    body.dark-mode .contact-item a {
+    body.dark-mode .contact-value a {
       color: var(--gray);
     }
 
-    body.dark-mode .contact-item a:hover {
+    body.dark-mode .contact-value a:hover {
       color: var(--primary);
+    }
+
+    .contact-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--light);
+      color: var(--dark-secondary);
+      font-size: 1.25rem;
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-mode .social-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: var(--gray);
+    }
+
+    .social-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
     }
 
     /* Footer */
     .footer {
       text-align: center;
-      padding: 2rem 0;
+      padding: 3rem 0 2rem;
       margin-top: 4rem;
       border-top: 1px solid var(--gray-light);
       color: var(--dark-secondary);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     body.dark-mode .footer {
@@ -497,13 +839,31 @@
       color: var(--gray);
     }
 
+    .footer-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
     .footer a {
       color: var(--primary);
       text-decoration: none;
+      font-weight: 500;
     }
 
     .footer a:hover {
       text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
     }
 
     /* Scroll Top Button */
@@ -511,8 +871,8 @@
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
       background: var(--primary);
       color: white;
@@ -527,6 +887,11 @@
       visibility: hidden;
       transition: var(--transition);
       z-index: 99;
+      border: 3px solid var(--light);
+    }
+
+    body.dark-mode .scroll-top-btn {
+      border-color: var(--dark);
     }
 
     .scroll-top-btn.visible {
@@ -537,22 +902,41 @@
     .scroll-top-btn:hover {
       background: var(--primary-dark);
       transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
     }
 
     /* Responsive */
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
+        text-align: center;
       }
 
       .nav {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 1rem;
+      }
+
+      .hero {
+        padding: 4rem 1rem 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
       }
 
       .section {
-        padding: 3rem 0;
+        padding: 4rem 0;
+      }
+
+      .section-title {
+        font-size: 2.25rem;
       }
 
       .about-flex {
@@ -561,13 +945,32 @@
         text-align: center;
       }
 
-      .about-img {
-        flex: 0 0 120px;
-        height: 120px;
+      .about-img-container {
+        flex: 0 0 180px;
+        height: 180px;
       }
 
-      .project-card {
-        min-width: 300px;
+      .about-content {
+        text-align: center;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .contact-container {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        gap: 1rem;
       }
     }
 
@@ -583,8 +986,25 @@
       }
     }
 
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
     .animate-in {
-      animation: fadeIn 0.6s ease-out forwards;
+      animation: fadeIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .animate-slide {
+      animation: slideIn 0.8s ease-out forwards;
+      opacity: 0;
     }
 
     .delay-1 {
@@ -599,6 +1019,14 @@
       animation-delay: 0.3s;
     }
 
+    .delay-4 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-5 {
+      animation-delay: 0.5s;
+    }
+
     /* Gradient Text */
     .gradient-text {
       background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -606,63 +1034,114 @@
       -webkit-text-fill-color: transparent;
       font-weight: 700;
     }
+
+    /* Badge pulse animation */
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+      }
+    }
+
+    .profile-badge {
+      animation: pulse 2s infinite;
+    }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="header-content">
       <div class="header-left">
-        <h1>David Sebastián Díaz</h1>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
-          <i id="theme-icon" class="fa-solid fa-moon"></i>
-        </button>
+        <a href="#" class="logo">
+          <i class="fas fa-laptop-code logo-icon"></i>
+          <h1>David Sebastián Díaz</h1>
+        </a>
       </div>
       <nav>
         <ul class="nav">
           <li><a href="#about"><i class="fa-solid fa-user"></i> Sobre mí</a></li>
           <li><a href="#projects"><i class="fa-solid fa-diagram-project"></i> Proyectos</a></li>
-          <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
+          <li><a href="#skills"><i class="fa-solid fa-code"></i> Habilidades</a></li>
           <li><a href="#stats"><i class="fa-solid fa-chart-line"></i> Estadísticas</a></li>
           <li><a href="#experience"><i class="fa-solid fa-briefcase"></i> Experiencia</a></li>
           <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
           <li><a href="assets/CV_DavidDiaz.pdf" target="_blank" download class="btn btn-outline"><i class="fa-solid fa-file-arrow-down"></i> CV</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+        <i id="theme-icon" class="fa-solid fa-moon"></i>
+      </button>
     </div>
   </header>
 
   <main class="container">
+    <section class="hero">
+      <h1>Transformando datos en experiencias digitales</h1>
+      <p class="hero-subtitle">UX/UI Designer | Marketing Digital | Científico de Datos</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-eye"></i> Ver Proyectos
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fa-solid fa-paper-plane"></i> Contáctame
+        </a>
+      </div>
+    </section>
+
     <section id="about" class="section">
-      <h2 class="animate-in">Sobre mí</h2>
-      <div class="about-flex animate-in delay-1">
-        <img src="assets/img/sobremi.png" alt="Foto profesional de David" class="about-img" loading="lazy" />
-        <div class="about-content">
+      <div class="section-header">
+        <h2 class="section-title animate-in">Sobre mí</h2>
+        <p class="section-subtitle animate-in delay-1">Conectando diseño, datos y marketing para crear soluciones digitales con impacto</p>
+      </div>
+      <div class="about-flex">
+        <div class="about-img-container animate-in delay-2">
+          <img src="assets/img/sobremi.png" alt="Foto profesional de David Sebastián Díaz" class="about-img" loading="lazy" />
+          <span class="profile-badge">C+ Rank</span>
+        </div>
+        <div class="about-content animate-in delay-3">
           <p>
-            Nací en Córdoba, Argentina. Soy estudiante y profesional en formación, apasionado por el diseño UX/UI, la analítica de datos y el marketing digital.
+            Soy David Sebastián Díaz, profesional multidisciplinario con formación en <span class="highlight">UX/UI Design</span>, <span class="highlight">Marketing Digital</span> y <span class="highlight">Ciencia de Datos</span>. Nacido en Córdoba, Argentina, mi enfoque se centra en crear soluciones digitales que transformen datos en experiencias valiosas para usuarios y empresas.
           </p>
           <p>
-            Mi objetivo es crear soluciones digitales útiles y con impacto social y empresarial, aplicando las últimas tendencias en tecnología y experiencia de usuario. Actualmente estudio Ciencia de Datos y colaboro en proyectos sociales, de tecnología y de innovación digital.
+            Mi pasión radica en la intersección entre el diseño centrado en el usuario, el análisis de datos y las estrategias de marketing digital. Actualmente me especializo en inteligencia artificial aplicada al marketing, desarrollando proyectos que optimizan la toma de decisiones basadas en datos.
           </p>
           <p>
-            <b class="highlight">Meta actual:</b> especializarme en inteligencia artificial aplicada al marketing. <br />
-            <b class="highlight">Hobby:</b> apasionado por la fotografía y el aprendizaje autodidacta.
+            <span class="highlight">Meta actual:</span> profundizar en modelos de machine learning para personalización de experiencias digitales. <br />
+            <span class="highlight">Hobby:</span> fotografía documental y exploración de nuevas tecnologías emergentes.
           </p>
+          <div style="margin-top: 1.5rem;">
+            <span class="badge"><i class="fas fa-award"></i> Google UX Design Certified</span>
+            <span class="badge"><i class="fas fa-award"></i> Google Digital Marketing Certified</span>
+            <span class="badge"><i class="fas fa-graduation-cap"></i> Ciencias de Datos - UNC</span>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="projects" class="section">
-      <h2 class="animate-in">Proyectos Destacados</h2>
+      <div class="section-header">
+        <h2 class="section-title animate-in">Proyectos Destacados</h2>
+        <p class="section-subtitle animate-in delay-1">Soluciones innovadoras que combinan diseño, datos y tecnología</p>
+      </div>
       <div class="projects">
-        <article class="project-card animate-in delay-1">
-          <img src="assets/img/fraude.png" alt="Detección de Fraude" class="project-img" loading="lazy" />
+        <article class="project-card animate-in delay-2">
+          <img src="assets/img/fraude.png" alt="Detección de Fraude en Tarjetas de Crédito" class="project-img" loading="lazy" />
           <div class="card-content">
-            <h3>Detección de Fraude</h3>
+            <h3>Detección de Fraude en Tarjetas de Crédito</h3>
             <h4>Machine Learning para seguridad financiera</h4>
-            <span class="project-metric">Precisión: 98% | +1000 transacciones analizadas</span>
-            <p>Clasificación automática de transacciones sospechosas en tiempo real. Permite identificar operaciones fraudulentas y prevenir pérdidas económicas.</p>
+            <span class="project-metric"><i class="fas fa-bolt"></i> Precisión: 98% | +1000 transacciones analizadas</span>
+            <p>Sistema de clasificación automática de transacciones sospechosas en tiempo real. Utiliza algoritmos de machine learning para identificar patrones de fraude y prevenir pérdidas económicas en instituciones financieras.</p>
             <div class="tags">
-              <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>ML</span>
+              <span><i class="fab fa-python"></i> Python</span>
+              <span><i class="fas fa-robot"></i> Scikit-learn</span>
+              <span><i class="fas fa-table"></i> Pandas</span>
+              <span><i class="fas fa-brain"></i> ML</span>
+              <span><i class="fas fa-chart-line"></i> Análisis Predictivo</span>
             </div>
             <div class="project-links">
               <a href="https://dsd228.github.io/credit-card-fraud-detection/" target="_blank" rel="noopener" class="btn btn-primary">
@@ -675,15 +1154,19 @@
           </div>
         </article>
 
-        <article class="project-card animate-in delay-2">
-          <img src="assets/img/ux-proyecto.png" alt="Rediseño ONG" class="project-img" loading="lazy" />
+        <article class="project-card animate-in delay-3">
+          <img src="assets/img/ux-proyecto.png" alt="Rediseño de Plataforma para ONG" class="project-img" loading="lazy" />
           <div class="card-content">
-            <h3>Rediseño ONG</h3>
-            <h4>Experiencia de usuario solidaria</h4>
-            <span class="project-metric">+25% donaciones | +500 usuarios impactados</span>
-            <p>Mejora de experiencia de usuario y conversión en plataforma solidaria, optimizando la captación de donaciones.</p>
+            <h3>Rediseño de Plataforma para ONG</h3>
+            <h4>Experiencia de usuario para el impacto social</h4>
+            <span class="project-metric"><i class="fas fa-heart"></i> +25% donaciones | +500 usuarios impactados</span>
+            <p>Proyecto de rediseño completo de plataforma solidaria, optimizando la experiencia de usuario para aumentar la conversión en donaciones. Aplicación de metodologías UX Research y análisis de datos para mejorar la usabilidad y accesibilidad.</p>
             <div class="tags">
-              <span>Figma</span><span>UX Research</span><span>Analytics</span>
+              <span><i class="fab fa-figma"></i> Figma</span>
+              <span><i class="fas fa-search"></i> UX Research</span>
+              <span><i class="fas fa-chart-bar"></i> Analytics</span>
+              <span><i class="fas fa-user-friends"></i> User Testing</span>
+              <span><i class="fas fa-mobile-alt"></i> Diseño Responsivo</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/dsd228/Arcor-estrategia-de-Marketing-UX-basada-en-datos" target="_blank" rel="noopener" class="btn btn-primary">
@@ -693,15 +1176,19 @@
           </div>
         </article>
 
-        <article class="project-card animate-in delay-3">
-          <img src="assets/img/marketing.png" alt="Campaña Marketing Digital" class="project-img" loading="lazy" />
+        <article class="project-card animate-in delay-4">
+          <img src="assets/img/marketing.png" alt="Campaña de Marketing Digital para PyMES" class="project-img" loading="lazy" />
           <div class="card-content">
-            <h3>Campaña Marketing Digital</h3>
-            <h4>Resultados medibles en PyMES</h4>
-            <span class="project-metric">+30% ROI | +50 leads nuevos</span>
-            <p>Planificación y ejecución de campañas para PyMES. Optimización de presupuesto y resultados medibles.</p>
+            <h3>Campaña de Marketing Digital para PyMES</h3>
+            <h4>Estrategias medibles para crecimiento empresarial</h4>
+            <span class="project-metric"><i class="fas fa-chart-line"></i> +30% ROI | +50 leads nuevos</span>
+            <p>Planificación y ejecución de campañas de marketing digital para pequeñas y medianas empresas. Optimización de presupuesto publicitario y resultados medibles a través de análisis de datos y métricas clave de rendimiento.</p>
             <div class="tags">
-              <span>Meta Ads</span><span>Google Ads</span><span>Canva</span><span>Analytics</span>
+              <span><i class="fab fa-facebook-f"></i> Meta Ads</span>
+              <span><i class="fab fa-google"></i> Google Ads</span>
+              <span><i class="fas fa-palette"></i> Canva</span>
+              <span><i class="fas fa-chart-line"></i> Analytics</span>
+              <span><i class="fas fa-bullseye"></i> Estrategia Digital</span>
             </div>
             <div class="project-links">
               <a href="https://dsd228.github.io/Dataconecta/" target="_blank" rel="noopener" class="btn btn-primary">
@@ -714,104 +1201,264 @@
     </section>
 
     <section id="skills" class="section">
-      <h2 class="animate-in">Habilidades Técnicas</h2>
+      <div class="section-header">
+        <h2 class="section-title animate-in">Habilidades Técnicas</h2>
+        <p class="section-subtitle animate-in delay-1">Competencias desarrolladas a través de proyectos reales y certificaciones profesionales</p>
+      </div>
       <div class="skills">
-        <div class="skill-item animate-in delay-1">
-          <i class="fab fa-python"></i> Python
-        </div>
         <div class="skill-item animate-in delay-2">
-          <i class="fab fa-js"></i> JavaScript
+          <i class="fab fa-python skill-icon"></i>
+          <div>
+            <div class="skill-name">Python</div>
+            <div class="skill-level">Avanzado | Pandas, NumPy, Scikit-learn</div>
+          </div>
         </div>
         <div class="skill-item animate-in delay-3">
-          <i class="fab fa-html5"></i> HTML5
+          <i class="fab fa-js skill-icon"></i>
+          <div>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-level">Intermedio | Frontend, Visualización</div>
+          </div>
         </div>
-        <div class="skill-item animate-in delay-1">
-          <i class="fab fa-css3"></i> CSS3
+        <div class="skill-item animate-in delay-4">
+          <i class="fab fa-html5 skill-icon"></i>
+          <div>
+            <div class="skill-name">HTML5</div>
+            <div class="skill-level">Avanzado | Semántica, Accesibilidad</div>
+          </div>
+        </div>
+        <div class="skill-item animate-in delay-5">
+          <i class="fab fa-css3 skill-icon"></i>
+          <div>
+            <div class="skill-name">CSS3</div>
+            <div class="skill-level">Avanzado | Flexbox, Grid, Animaciones</div>
+          </div>
         </div>
         <div class="skill-item animate-in delay-2">
-          <i class="fas fa-chart-line"></i> Data Analytics
+          <i class="fas fa-chart-line skill-icon"></i>
+          <div>
+            <div class="skill-name">Data Analytics</div>
+            <div class="skill-level">Avanzado | Visualización, Dashboarding</div>
+          </div>
         </div>
         <div class="skill-item animate-in delay-3">
-          <i class="fas fa-database"></i> Bases de datos
+          <i class="fas fa-database skill-icon"></i>
+          <div>
+            <div class="skill-name">Bases de Datos</div>
+            <div class="skill-level">Intermedio | SQL, Modelado</div>
+          </div>
         </div>
-        <div class="skill-item animate-in delay-1">
-          <i class="fab fa-figma"></i> Figma
+        <div class="skill-item animate-in delay-4">
+          <i class="fab fa-figma skill-icon"></i>
+          <div>
+            <div class="skill-name">Figma</div>
+            <div class="skill-level">Avanzado | Prototipado, Diseño UI</div>
+          </div>
+        </div>
+        <div class="skill-item animate-in delay-5">
+          <i class="fab fa-google skill-icon"></i>
+          <div>
+            <div class="skill-name">Google Analytics</div>
+            <div class="skill-level">Avanzado | Implementación, Reporting</div>
+          </div>
         </div>
         <div class="skill-item animate-in delay-2">
-          <i class="fab fa-google"></i> Google Analytics
+          <i class="fab fa-github skill-icon"></i>
+          <div>
+            <div class="skill-name">GitHub</div>
+            <div class="skill-level">Intermedio | Control de versiones</div>
+          </div>
         </div>
         <div class="skill-item animate-in delay-3">
-          <i class="fab fa-github"></i> GitHub
+          <i class="fas fa-robot skill-icon"></i>
+          <div>
+            <div class="skill-name">Machine Learning</div>
+            <div class="skill-level">Intermedio | Modelos predictivos</div>
+          </div>
+        </div>
+        <div class="skill-item animate-in delay-4">
+          <i class="fas fa-chart-bar skill-icon"></i>
+          <div>
+            <div class="skill-name">Visualización de Datos</div>
+            <div class="skill-level">Avanzado | Plotly, Matplotlib</div>
+          </div>
+        </div>
+        <div class="skill-item animate-in delay-5">
+          <i class="fas fa-bullhorn skill-icon"></i>
+          <div>
+            <div class="skill-name">Marketing Digital</div>
+            <div class="skill-level">Avanzado | Estrategias, Campañas</div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="stats" class="section">
-      <h2 class="animate-in">Estadísticas de GitHub</h2>
-      <p class="animate-in delay-1">Contribuciones y actividad en GitHub en los últimos meses.</p>
+      <div class="section-header">
+        <h2 class="section-title animate-in">Estadísticas de GitHub</h2>
+        <p class="section-subtitle animate-in delay-1">Contribuciones y actividad en desarrollo de proyectos de código abierto</p>
+      </div>
       <div class="stats-block animate-in delay-2">
-        <img
-          class="stats-img"
-          src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent"
-          alt="Estadísticas GitHub"
-          loading="lazy"
-        />
-        <img
-          class="stats-img"
-          src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent"
-          alt="GitHub Streak"
-          loading="lazy"
-        />
-        <img
-          class="stats-img"
-          src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent"
-          alt="Top Languages"
-          loading="lazy"
-        />
+        <div class="stats-card">
+          <h3 class="stats-title">Estadísticas Generales</h3>
+          <img
+            class="stats-img"
+            src="https://github-readme-stats.vercel.app/api?username=dsd228&show_icons=true&theme=transparent&hide_border=true"
+            alt="Estadísticas GitHub"
+            loading="lazy"
+          />
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-title">Racha de Contribuciones</h3>
+          <img
+            class="stats-img"
+            src="https://github-readme-streak-stats.herokuapp.com/?user=dsd228&theme=transparent&hide_border=true"
+            alt="GitHub Streak"
+            loading="lazy"
+          />
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-title">Lenguajes Más Usados</h3>
+          <img
+            class="stats-img"
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=dsd228&layout=compact&theme=transparent&hide_border=true"
+            alt="Top Languages"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
 
     <section id="experience" class="section">
-      <h2 class="animate-in">Experiencia Profesional</h2>
+      <div class="section-header">
+        <h2 class="section-title animate-in">Experiencia Profesional</h2>
+        <p class="section-subtitle animate-in delay-1">Formación académica y trayectoria profesional en tecnología y diseño</p>
+      </div>
       <div class="experience-list">
-        <h3 class="gradient-text animate-in delay-1">🧠 Educación</h3>
-        <ul class="animate-in delay-2">
-          <li>Google Digital Marketing & E-Commerce Professional Certificate (Coursera)</li>
-          <li>Google UX Design Professional Certificate (Coursera)</li>
-          <li>Estudiante en Ciencias de Datos, Universidad Nacional de Córdoba</li>
-        </ul>
-        
-        <h3 class="gradient-text animate-in delay-3">💼 Experiencia</h3>
-        <ul class="animate-in delay-1">
-          <li>Consultor independiente en UX/UI y Marketing Digital - 2023 - Presente</li>
-          <li>Colaborador en proyectos sociales y educativos de Data Science - 2022 - Presente</li>
-          <li>Participación en cursos y talleres de inteligencia artificial aplicada a marketing</li>
-        </ul>
+        <div class="experience-category animate-in delay-2">
+          <h3><i class="fas fa-graduation-cap"></i> Formación Académica</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>Ciencias de Datos</h4>
+              <div class="timeline-date">Universidad Nacional de Córdoba | 2022 - En curso</div>
+              <p>Estudios en progreso en el campo de la ciencia de datos, con enfoque en análisis predictivo, machine learning y visualización de datos.</p>
+            </div>
+            <div class="timeline-item">
+              <h4>Google UX Design Professional Certificate</h4>
+              <div class="timeline-date">Coursera | 2023</div>
+              <p>Certificación completa que abarca investigación de usuarios, diseño de interfaces, prototipado y testing de usabilidad.</p>
+            </div>
+            <div class="timeline-item">
+              <h4>Google Digital Marketing & E-Commerce</h4>
+              <div class="timeline-date">Coursera | 2023</div>
+              <p>Programa profesional que cubre estrategias de marketing digital, análisis de datos, comercio electrónico y publicidad en línea.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-category animate-in delay-3">
+          <h3><i class="fas fa-briefcase"></i> Experiencia Profesional</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>Consultor Independiente en UX/UI y Marketing Digital</h4>
+              <div class="timeline-date">2023 - Presente</div>
+              <p>Asesoramiento a empresas y emprendedores en diseño de experiencias de usuario, estrategias de marketing digital y análisis de datos para la toma de decisiones.</p>
+            </div>
+            <div class="timeline-item">
+              <h4>Colaborador en Proyectos de Data Science</h4>
+              <div class="timeline-date">2022 - Presente</div>
+              <p>Participación en proyectos sociales y educativos aplicando técnicas de ciencia de datos para resolver problemas reales y generar impacto positivo.</p>
+            </div>
+            <div class="timeline-item">
+              <h4>Desarrollador de Proyectos Personales en IA</h4>
+              <div class="timeline-date">2021 - Presente</div>
+              <p>Creación de proyectos personales que exploran aplicaciones de inteligencia artificial en marketing, finanzas y experiencia de usuario.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="section">
-      <h2 class="animate-in">Contacto</h2>
-      <div class="contact-info animate-in delay-1">
-        <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:david.diaz.uxdata@gmail.com">david.diaz.uxdata@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <i class="fa-brands fa-linkedin"></i>
-          <a href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener">linkedin.com/in/david-data-conecta</a>
-        </div>
-        <div class="contact-item">
-          <i class="fa-brands fa-github"></i>
-          <a href="https://github.com/dsd228" target="_blank" rel="noopener">github.com/dsd228</a>
+      <div class="section-header">
+        <h2 class="section-title animate-in">Contacto</h2>
+        <p class="section-subtitle animate-in delay-1">¿Listo para colaborar en un proyecto innovador? ¡Hablemos!</p>
+      </div>
+      <div class="contact-container animate-in delay-2">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <div class="contact-label">Correo Electrónico</div>
+              <div class="contact-value">
+                <a href="mailto:david.diaz.uxdata@gmail.com">david.diaz.uxdata@gmail.com</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <div class="contact-details">
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">
+                <a href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener">linkedin.com/in/david-data-conecta</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <div class="contact-details">
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">
+                <a href="https://github.com/dsd228" target="_blank" rel="noopener">github.com/dsd228</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="contact-details">
+              <div class="contact-label">Ubicación</div>
+              <div class="contact-value">Córdoba, Argentina</div>
+            </div>
+          </div>
+
+          <div class="contact-social">
+            <a href="https://linkedin.com/in/david-data-conecta" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/dsd228" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:david.diaz.uxdata@gmail.com" class="social-btn" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <p>© 2025 David Sebastián Díaz | <a href="mailto:david.diaz.uxdata@gmail.com">Contacto</a></p>
+    <div class="footer-content">
+      <p>© 2025 David Sebastián Díaz | Transformando datos en experiencias digitales</p>
+      <div class="footer-links">
+        <a href="#about">Sobre mí</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#contact">Contacto</a>
+        <a href="assets/CV_DavidDiaz.pdf" target="_blank" download>Descargar CV</a>
+      </div>
+      <p>Construido con HTML, CSS y pasión por la tecnología</p>
     </div>
   </footer>
 
@@ -880,7 +1527,7 @@
         const target = document.querySelector(href);
         if (target) {
           window.scrollTo({
-            top: target.offsetTop - 80,
+            top: target.offsetTop - 100,
             behavior: 'smooth'
           });
         }
@@ -889,15 +1536,19 @@
 
     // Animation on scroll
     const animateOnScroll = () => {
-      const elements = document.querySelectorAll('.animate-in');
+      const elements = document.querySelectorAll('.animate-in, .animate-slide');
       
       elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
+        const elementVisible = 200;
         
         if (elementTop < window.innerHeight - elementVisible) {
           element.style.opacity = '1';
-          element.style.transform = 'translateY(0)';
+          if (element.classList.contains('animate-slide')) {
+            element.style.transform = 'translateX(0)';
+          } else {
+            element.style.transform = 'translateY(0)';
+          }
         }
       });
     };
@@ -906,7 +1557,13 @@
     document.querySelectorAll('.animate-in').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+
+    document.querySelectorAll('.animate-slide').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateX(-50px)';
+      el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
     });
 
     // Initial check
@@ -921,16 +1578,19 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            if (entry.target.classList.contains('animate-slide')) {
+              entry.target.style.transform = 'translateX(0)';
+            } else {
+              entry.target.style.transform = 'translateY(0)';
+            }
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
 
-      document.querySelectorAll('.animate-in').forEach(el => {
+      document.querySelectorAll('.animate-in, .animate-slide').forEach(el => {
         observer.observe(el);
       });
     }
   </script>
 </body>
 </html>
-```
