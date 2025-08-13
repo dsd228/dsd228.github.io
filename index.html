@@ -33,6 +33,9 @@
   <!-- Google Fonts - Inter for clean, modern typography -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
+  <!-- GitHub Buttons for social proof -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
   <style>
     :root {
       /* Primary Colors */
@@ -527,6 +530,59 @@
 
     body.dark-mode .btn-outline {
       background: var(--glass-dark-bg);
+    }
+
+    /* GitHub Badge for social proof */
+    .github-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 1.75rem;
+      padding: 0.75rem 1.5rem;
+      margin: 1.5rem 0;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    body.dark-mode .github-badge {
+      background: var(--glass-dark-bg);
+      border-color: var(--glass-dark-border);
+    }
+
+    .github-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .github-badge i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .github-stats {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .github-stats .label {
+      font-size: 0.875rem;
+      color: var(--dark-secondary);
+      font-weight: 500;
+    }
+
+    body.dark-mode .github-stats .label {
+      color: var(--gray);
+    }
+
+    .github-stats .value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 0.25rem;
     }
 
     /* Sections */
@@ -1259,6 +1315,15 @@
       color: var(--gray);
     }
 
+    /* GitHub Button Integration */
+    .github-integration {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+      flex-wrap: wrap;
+    }
+
     /* Footer */
     .footer {
       text-align: center;
@@ -1700,6 +1765,15 @@
           <span><i class="fa-solid fa-file-arrow-down"></i> Descargar CV</span>
         </a>
       </div>
+      
+      <!-- GitHub Stats Badge -->
+      <div class="github-badge animate-in delay-4">
+        <i class="fab fa-github"></i>
+        <div class="github-stats">
+          <span class="label">GitHub Rank</span>
+          <span class="value">C+</span>
+        </div>
+      </div>
     </section>
 
     <section id="about" class="section">
@@ -1938,6 +2012,13 @@
             loading="lazy"
           />
         </div>
+      </div>
+      
+      <!-- GitHub Integration Buttons -->
+      <div class="github-integration">
+        <a class="github-button" href="https://github.com/dsd228" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star dsd228 on GitHub">Star</a>
+        <a class="github-button" href="https://github.com/dsd228" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-follow" data-size="large" data-show-count="true" aria-label="Follow @dsd228 on GitHub">Follow</a>
+        <a class="github-button" href="https://github.com/dsd228?tab=repositories" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-repo" data-size="large" data-show-count="true" aria-label="View repositories">Repositories</a>
       </div>
     </section>
 
@@ -2235,6 +2316,17 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         document.querySelector('.skip-to-content').blur();
+      }
+    });
+
+    // Add dynamic GitHub stats
+    document.addEventListener('DOMContentLoaded', function() {
+      // Update GitHub stats dynamically
+      const githubStats = document.querySelector('.github-stats .value');
+      if (githubStats) {
+        // This would normally be fetched from GitHub API
+        // For now, we'll use the static value
+        githubStats.textContent = 'C+';
       }
     });
   </script>
