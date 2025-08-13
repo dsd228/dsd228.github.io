@@ -1,0 +1,79 @@
+/* css/glass-buttons.css */
+/* Glassmorphism Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.15rem 2.25rem;
+  border-radius: 1.75rem;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  min-width: 190px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+  z-index: -1;
+  border-radius: 1.75rem;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.btn:hover::before, .btn:focus::before {
+  opacity: 1;
+}
+
+.btn-primary {
+  background: rgba(51, 51, 51, 0.25);
+  color: white;
+}
+
+.btn-primary span {
+  color: var(--secondary);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  background: rgba(51, 51, 51, 0.35);
+}
+
+.btn-outline {
+  background: var(--glass-bg);
+  color: var(--primary);
+}
+
+.btn-outline span {
+  color: var(--secondary);
+}
+
+.btn-outline:hover, .btn-outline:focus {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  background: rgba(51, 51, 51, 0.35);
+  color: white;
+}
+
+.body.dark-mode .btn {
+  border-color: var(--glass-dark-border);
+}
+
+.body.dark-mode .btn-outline {
+  background: var(--glass-dark-bg);
+}
