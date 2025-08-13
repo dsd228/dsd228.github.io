@@ -1,101 +1,85 @@
-/* glass-buttons.css */
-/* Glassmorphism profesional para botones y enlaces */
-
-:root {
-  --glass-btn-bg: rgba(30, 32, 38, 0.32);
-  --glass-btn-bg-hover: rgba(30, 32, 38, 0.42);
-  --glass-btn-border: rgba(255, 255, 255, 0.30);
-  --glass-btn-shadow: 0 6px 32px rgba(0, 0, 0, 0.13);
-  --glass-btn-shadow-hover: 0 12px 40px rgba(79, 140, 255, 0.14);
-  --glass-btn-accent: #4F8CFF;
-  --glass-btn-text: #fff;
-  --glass-btn-text-hover: #e0eaff;
-  --glass-btn-radius: 18px;
-  --glass-btn-blur: 14px;
-  --glass-btn-transition: 0.23s cubic-bezier(.4,0,.2,1);
-}
-
-/* 🎨 Botón principal estilo glassmorphism */
-.glass-button {
-  position: relative;
-  background: var(--glass-btn-bg);
-  border: 2px solid var(--glass-btn-border);
-  color: var(--glass-btn-text);
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  font-size: 1.06rem;
+/* css/glass-buttons.css */
+/* Glassmorphism Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.15rem 2.25rem;
+  border-radius: 1.75rem;
   font-weight: 600;
-  padding: 0.9em 2em;
-  border-radius: var(--glass-btn-radius);
-  box-shadow: var(--glass-btn-shadow);
-  backdrop-filter: blur(var(--glass-btn-blur));
-  -webkit-backdrop-filter: blur(var(--glass-btn-blur));
-  outline: none;
-  transition:
-    background var(--glass-btn-transition),
-    color var(--glass-btn-transition),
-    box-shadow var(--glass-btn-transition),
-    border-color var(--glass-btn-transition),
-    transform 0.16s cubic-bezier(.4,2,.75,.8);
+  font-size: var(--font-size-base);
   text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  min-width: 190px;
+  justify-content: center;
+  position: relative;
   overflow: hidden;
-  z-index: 1;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
 }
 
-.glass-button:focus-visible {
-  outline: 2px solid var(--glass-btn-accent);
-  outline-offset: 2px;
-}
-
-.glass-button:hover,
-.glass-button:focus-visible {
-  background: var(--glass-btn-bg-hover);
-  color: var(--glass-btn-text-hover);
-  box-shadow: var(--glass-btn-shadow-hover);
-  border-color: var(--glass-btn-accent);
-  transform: translateY(-3px) scale(1.04);
-}
-
-.glass-button:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 10px rgba(79, 140, 255, 0.10);
-}
-
-.glass-button:disabled,
-.glass-button[aria-disabled="true"] {
-  opacity: 0.56;
-  cursor: not-allowed;
-  filter: grayscale(0.15);
-  box-shadow: none;
-}
-
-.glass-button i {
-  margin-right: 0.6em;
-  font-size: 1.1em;
-  vertical-align: middle;
-}
-
-/* ✨ Efecto glass extra (brillo interno) */
-.glass-button::before {
+.btn::before {
   content: '';
   position: absolute;
-  z-index: 0;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.15) 35%,
-    rgba(255, 255, 255, 0.04) 100%
-  );
-  transition: opacity var(--glass-btn-transition);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+  z-index: -1;
+  border-radius: 1.75rem;
+  opacity: 0;
+  transition: var(--transition);
 }
 
-/* 📱 Responsive: botones más compactos en móviles */
-@media (max-width: 600px) {
-  .glass-button {
-    font-size: 0.98em;
-    padding: 0.7em 1.2em;
-  }
+.btn:hover::before, .btn:focus::before {
+  opacity: 1;
+}
+
+.btn-primary {
+  background: rgba(99, 102, 241, 0.25);
+  color: white;
+}
+
+.btn-primary span {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  background: rgba(99, 102, 241, 0.35);
+}
+
+.btn-outline {
+  background: var(--glass-bg);
+  color: var(--primary);
+}
+
+.btn-outline span {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-outline:hover, .btn-outline:focus {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  background: rgba(99, 102, 241, 0.35);
+  color: white;
+}
+
+body.dark-mode .btn {
+  border-color: var(--glass-dark-border);
+}
+
+body.dark-mode .btn-outline {
+  background: var(--glass-dark-bg);
 }
