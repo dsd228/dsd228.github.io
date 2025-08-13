@@ -583,10 +583,17 @@ body.dark-mode .nav a:hover, body.dark-mode .nav a:focus {
 
 /* Projects */
 .projects {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 3.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   margin-top: 3rem;
+  justify-content: center;
+}
+
+.project-card {
+  flex: 1 1 400px;
+  max-width: 500px;
+  min-width: 350px;
 }
 
 .project-card {
@@ -669,6 +676,111 @@ body.dark-mode .nav a:hover, body.dark-mode .nav a:focus {
   color: var(--secondary);
   margin-bottom: 1.5rem;
   font-weight: 600;
+}
+
+/* iOS26 Project - iOS-inspired styling */
+.project-card.ios26 {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2rem;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.project-card.ios26::before {
+  background: linear-gradient(135deg, #007aff 0%, #5ac8fa 100%);
+  height: 6px;
+  border-radius: 3px 3px 0 0;
+}
+
+.project-card.ios26:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.15),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+.project-card.ios26 h3 {
+  color: #1c1c1e;
+  font-weight: 800;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.project-card.ios26 h4 {
+  color: #007aff;
+  font-weight: 700;
+}
+
+.project-card.ios26 p {
+  color: #3a3a3c;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.project-card.ios26 .project-metric {
+  background: rgba(0, 122, 255, 0.15);
+  border: 1px solid rgba(0, 122, 255, 0.3);
+  color: #007aff;
+  font-weight: 700;
+  text-shadow: none;
+}
+
+.project-card.ios26 .tags span {
+  background: rgba(0, 122, 255, 0.1);
+  border: 1px solid rgba(0, 122, 255, 0.2);
+  color: #007aff;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+.project-card.ios26 .tags span:hover {
+  background: rgba(0, 122, 255, 0.2);
+}
+
+/* Dark mode adjustments for iOS26 */
+.body.dark-mode .project-card.ios26 {
+  background: rgba(28, 28, 30, 0.95);
+  border: 1px solid rgba(58, 58, 60, 0.6);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.body.dark-mode .project-card.ios26 h3 {
+  color: #f2f2f7;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.body.dark-mode .project-card.ios26 h4 {
+  color: #5ac8fa;
+}
+
+.body.dark-mode .project-card.ios26 p {
+  color: #e5e5ea;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.body.dark-mode .project-card.ios26 .project-metric {
+  background: rgba(90, 200, 250, 0.2);
+  border: 1px solid rgba(90, 200, 250, 0.4);
+  color: #5ac8fa;
+}
+
+.body.dark-mode .project-card.ios26 .tags span {
+  background: rgba(90, 200, 250, 0.15);
+  border: 1px solid rgba(90, 200, 250, 0.3);
+  color: #5ac8fa;
+}
+
+.body.dark-mode .project-card.ios26 .tags span:hover {
+  background: rgba(90, 200, 250, 0.25);
 }
 
 .project-metric {
@@ -1291,6 +1403,15 @@ body.dark-mode .nav a:hover, body.dark-mode .nav a:focus {
   .about-img-container {
     flex: 0 0 230px;
   }
+
+  .projects {
+    gap: 2.5rem;
+  }
+
+  .project-card {
+    flex: 1 1 350px;
+    max-width: 450px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1362,6 +1483,17 @@ body.dark-mode .nav a:hover, body.dark-mode .nav a:focus {
 
   .contact-container {
     grid-template-columns: 1fr;
+  }
+
+  .projects {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    flex: 1 1 auto;
+    max-width: 100%;
+    min-width: 280px;
   }
 
   .footer-links {
