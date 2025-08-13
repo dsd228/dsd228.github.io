@@ -1523,4 +1523,21 @@ body.dark-mode .nav a:hover, body.dark-mode .nav a:focus {
     color: black;
     text-decoration: underline;
   }
+  /* --- Alineación horizontal para los proyectos destacados --- */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.project-card {
+  flex: 1 1 320px;
+  max-width: 350px;
+  min-width: 270px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
 }
