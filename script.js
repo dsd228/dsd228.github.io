@@ -1,68 +1,170 @@
-// Tema claro/oscuro
-const themeToggleBtn = document.getElementById('theme-toggle');
+// js/main.js
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
+const body = document.body;
+const navLinks = document.querySelectorAll('.nav a');
 
-function setTheme(theme) {
-  if (theme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    themeIcon.textContent = '🌞';
+// Check for saved theme preference or use prefers-color-scheme
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Apply saved theme or system preference
+if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+  body.classList.add('dark-mode');
+  themeIcon.classList.replace('fa-moon', 'fa-sun');
+}
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  
+  if (body.classList.contains('dark-mode')) {
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
     localStorage.setItem('theme', 'dark');
   } else {
-    document.documentElement.removeAttribute('data-theme');
-    themeIcon.textContent = '🌙';
+    themeIcon.classList.replace('fa-sun', 'fa-moon');
     localStorage.setItem('theme', 'light');
   }
-}
-
-themeToggleBtn.addEventListener('click', () => {
-  const currentTheme = localStorage.getItem('theme') || 'light';
-  setTheme(currentTheme === 'light' ? 'dark' : 'light');
 });
 
-// Carga inicial
-if (localStorage.getItem('theme') === 'dark') {
-  setTheme('dark');
-}
-
-// Scroll top button
+// Scroll to top button
 const scrollTopBtn = document.querySelector('.scroll-top-btn');
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
 });
 
-// Reveal on scroll (simple)
-function revealOnScroll() {
-  const reveals = document.querySelectorAll('.reveal-on-scroll');
-  const windowHeight = window.innerHeight;
-  reveals.forEach(el => {
-    const elementTop = el.getBoundingClientRect().top;
-    if (elementTop < windowHeight - 100) {
-      el.classList.add('visible');
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    
+    // Skip if it's an external link
+    if (href === '#' || href.startsWith('#!')) {
+      return;
+    }
+
+    e.preventDefault();
+
+    // Remove active class from all links
+    navLinks.forEach(link => link.classList.remove('active'));
+    // Add active class to clicked link
+    this.classList.add('active');
+
+    const target = document.querySelector(href);
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 100,
+        behavior: 'smooth'
+      });
     }
   });
+});
+
+// Set active link based on scroll position
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('.section');
+  const scrollPos = window.pageYOffset + 150;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+
+    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+});
+
+// Animation on scroll
+const animateOnScroll = () => {
+  const elements = document.querySelectorAll('.animate-in, .animate-slide');
+  
+  elements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const elementVisible = 300;
+    
+    if (elementTop < window.innerHeight - elementVisible) {
+      element.style.opacity = '1';
+      if (element.classList.contains('animate-slide')) {
+        element.style.transform = 'translateX(0)';
+      } else {
+        element.style.transform = 'translateY(0)';
+      }
+    }
+  });
+};
+
+// Set initial state for animate-in elements
+document.querySelectorAll('.animate-in').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(40px)';
+  el.style.transition = 'opacity 1.2s ease-out, transform 1.2s ease-out';
+});
+
+document.querySelectorAll('.animate-slide').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateX(-60px)';
+  el.style.transition = 'opacity 1.2s ease-out, transform 1.2s ease-out';
+});
+
+// Initial check
+animateOnScroll();
+
+// Check on scroll
+window.addEventListener('scroll', animateOnScroll);
+
+// Intersection Observer for more advanced animations (optional)
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        if (entry.target.classList.contains('animate-slide')) {
+          entry.target.style.transform = 'translateX(0)';
+        } else {
+          entry.target.style.transform = 'translateY(0)';
+        }
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -200px 0px' });
+
+  document.querySelectorAll('.animate-in, .animate-slide').forEach(el => {
+    observer.observe(el);
+  });
 }
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
 
-// Formulario simple (solo validación de ejemplo)
-const form = document.getElementById('contactForm');
-const feedback = document.getElementById('form-feedback');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const email = form.email.value.trim();
-  const message = form.message.value.trim();
-  if (!email || !message) {
-    feedback.textContent = 'Por favor completá todos los campos.';
-    feedback.style.color = 'var(--color-yellow)';
-    return;
+// Add keyboard navigation for accessibility
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelector('.skip-to-content').blur();
   }
-  // Aquí podrías integrar con API o servicio de email
-  feedback.style.color = 'lightgreen';
-  feedback.textContent = '¡Mensaje enviado con éxito! Gracias por contactarme.';
-  form.reset();
-  setTimeout(() => {
-    feedback.textContent = '';
-    feedback.style.color = 'var(--color-yellow)';
-  }, 6000);
+});
+
+// Add dynamic GitHub stats
+document.addEventListener('DOMContentLoaded', function() {
+  // Update GitHub stats dynamically
+  const githubStats = document.querySelector('.github-stats .value');
+  if (githubStats) {
+    // This would normally be fetched from GitHub API
+    // For now, we'll use the static value
+    githubStats.textContent = 'C+';
+  }
 });
