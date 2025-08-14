@@ -1,21 +1,754 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>David Sebastián Díaz | Portafolio</title>
-  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    /* Reset y variables */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --dark-bg: #0a0a0a;
+      --card-bg: #121212;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --accent-blue: #00f0ff;
+      --accent-green: #00ff88;
+      --accent-orange: #ffa500;
+      --border-light: rgba(255, 255, 255, 0.1);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    /* Header y Banner */
+    header {
+      width: 100%;
+      padding: 20px 5%;
+      position: relative;
+      z-index: 20;
+    }
+    
+    .banner-container {
+      width: 100%;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+    }
+    
+    .banner-background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0a0a0a 0%, #121212 50%, #0a0a0a 100%);
+      z-index: 1;
+    }
+    
+    .background-grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(var(--accent-blue) 1px, transparent 1px),
+        linear-gradient(90deg, var(--accent-blue) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.05;
+      z-index: 2;
+    }
+    
+    .animated-lines {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+    }
+    
+    .line {
+      position: absolute;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-green), var(--accent-orange), transparent);
+      filter: drop-shadow(0 0 8px var(--accent-blue)) drop-shadow(0 0 16px rgba(0, 240, 255, 0.5));
+      opacity: 0.6;
+    }
+    
+    .line:nth-child(1) {
+      top: 20%;
+      animation: pulse 6s ease-in-out infinite;
+    }
+    
+    .line:nth-child(2) {
+      top: 50%;
+      animation: pulse 8s ease-in-out infinite 1s;
+    }
+    
+    .line:nth-child(3) {
+      top: 80%;
+      animation: pulse 7s ease-in-out infinite 2s;
+    }
+    
+    .banner-content {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .banner-name {
+      font-size: 56px;
+      font-weight: 800;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    
+    .banner-name span {
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-green), var(--accent-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+    
+    .banner-name span::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: line-reveal 2s ease-out forwards 1.5s;
+    }
+    
+    .banner-tagline {
+      font-size: 26px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 30px;
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fade-in 1s ease-out forwards 2s;
+    }
+    
+    .banner-skills {
+      display: flex;
+      gap: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fade-in 1s ease-out forwards 2.5s;
+    }
+    
+    .banner-skill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .skill-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .skill-icons {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(5px);
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+    
+    .icon:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .web-icon {
+      border-color: var(--accent-blue);
+    }
+    
+    .web-icon i {
+      color: var(--accent-blue);
+      font-size: 20px;
+    }
+    
+    .data-icon {
+      border-color: var(--accent-green);
+    }
+    
+    .data-icon i {
+      color: var(--accent-green);
+      font-size: 20px;
+    }
+    
+    .ux-icon {
+      border-color: var(--accent-orange);
+    }
+    
+    .ux-icon i {
+      color: var(--accent-orange);
+      font-size: 20px;
+    }
+    
+    .floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 4;
+      pointer-events: none;
+    }
+    
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    
+    .circle-1 {
+      width: 150px;
+      height: 150px;
+      background: var(--accent-blue);
+      top: -50px;
+      right: 100px;
+      animation: float 15s infinite linear;
+    }
+    
+    .circle-2 {
+      width: 100px;
+      height: 100px;
+      background: var(--accent-green);
+      bottom: -30px;
+      left: 150px;
+      animation: float 20s infinite linear 3s;
+    }
+    
+    .circle-3 {
+      width: 80px;
+      height: 80px;
+      background: var(--accent-orange);
+      top: 100px;
+      left: -40px;
+      animation: float 18s infinite linear 6s;
+    }
+    
+    /* Navegación */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: var(--accent-blue);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent-blue);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+    
+    nav a:hover::after {
+      width: 70%;
+    }
+    
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+    
+    section {
+      margin-bottom: 60px;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+    }
+    
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: var(--accent-blue);
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+      border-radius: 2px;
+    }
+    
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 25px;
+    }
+    
+    .project-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid var(--border-light);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .card-content {
+      padding: 20px;
+    }
+    
+    .card-content h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: white;
+    }
+    
+    .card-content h4 {
+      font-size: 16px;
+      color: var(--accent-green);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    
+    .project-metric {
+      display: inline-block;
+      background: rgba(0, 255, 136, 0.1);
+      color: var(--accent-green);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(0, 255, 136, 0.2);
+    }
+    
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 15px 0;
+    }
+    
+    .tags span {
+      background: rgba(0, 240, 255, 0.1);
+      color: var(--accent-blue);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+      color: white;
+      border: none;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 240, 255, 0.4);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--accent-blue);
+      border: 2px solid var(--accent-blue);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(0, 240, 255, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    /* Skills */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .skill {
+      background: rgba(0, 240, 255, 0.1);
+      color: var(--accent-blue);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      transition: var(--transition);
+    }
+    
+    .skill:hover {
+      background: rgba(0, 240, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    /* Contact */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+    
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.2);
+    }
+    
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 5%;
+      margin-top: 40px;
+      color: var(--text-secondary);
+      font-size: 16px;
+      border-top: 1px solid var(--border-light);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .footer-links a {
+      color: var(--text-secondary);
+      font-size: 24px;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent-blue);
+      transform: translateY(-3px);
+    }
+    
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scaleX(0.98);
+      }
+      50% {
+        opacity: 1;
+        transform: scaleX(1);
+        filter: drop-shadow(0 0 12px var(--accent-blue)) drop-shadow(0 0 24px rgba(0, 240, 255, 0.7));
+      }
+    }
+    
+    @keyframes fade-in {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes line-reveal {
+      to {
+        transform: scaleX(1);
+      }
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate(20px, 20px) rotate(90deg);
+      }
+      50% {
+        transform: translate(0, 40px) rotate(180deg);
+      }
+      75% {
+        transform: translate(-20px, 20px) rotate(270deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(360deg);
+      }
+    }
+    
+    /* Iconos personalizados */
+    .icon i {
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Web Design Icon - Code brackets */
+    .web-icon i::before,
+    .web-icon i::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border: 2px solid;
+      border-radius: 2px;
+    }
+    
+    .web-icon i::before {
+      left: 3px;
+      top: 5px;
+      border-right: none;
+      border-top: none;
+      transform: rotate(45deg);
+    }
+    
+    .web-icon i::after {
+      right: 3px;
+      top: 5px;
+      border-left: none;
+      border-top: none;
+      transform: rotate(-45deg);
+    }
+    
+    /* Data Analytics Icon - Bar chart */
+    .data-icon i::before,
+    .data-icon i::after {
+      content: '';
+      position: absolute;
+    }
+    
+    .data-icon i::before {
+      width: 16px;
+      height: 16px;
+      border: 2px solid;
+      border-color: inherit;
+      border-radius: 2px;
+    }
+    
+    .data-icon i::after {
+      content: '___';
+      font-size: 10px;
+      color: inherit;
+      left: 3px;
+      top: 2px;
+    }
+    
+    /* UX/UI Icon - Flow diagram */
+    .ux-icon i::before,
+    .ux-icon i::after {
+      content: '';
+      position: absolute;
+    }
+    
+    .ux-icon i::before {
+      width: 16px;
+      height: 16px;
+      border: 2px solid;
+      border-color: inherit;
+      border-radius: 50%;
+    }
+    
+    .ux-icon i::after {
+      width: 8px;
+      height: 2px;
+      background: currentColor;
+      top: 7px;
+      left: 10px;
+      transform: rotate(45deg);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .banner-name {
+        font-size: 42px;
+      }
+      
+      .banner-tagline {
+        font-size: 20px;
+      }
+      
+      .banner-skills {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      nav {
+        gap: 15px;
+      }
+      
+      nav a {
+        font-size: 16px;
+        padding: 6px 12px;
+      }
+      
+      .project-links {
+        flex-direction: column;
+      }
+      
+      .btn {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="profile">
-      <img src="assets/img/avatar.jpg" alt="David Sebastián Díaz" class="avatar"/>
-      <div>
-        <h1>David Sebastián Díaz</h1>
-        <p>Desarrollador | Analista de datos | Machine Learning</p>
+    <div class="banner-container">
+      <div class="banner-background"></div>
+      <div class="background-grid"></div>
+      
+      <div class="animated-lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      
+      <div class="floating-elements">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+      </div>
+      
+      <div class="banner-content">
+        <h1 class="banner-name">David Sebastián <span>Díaz</span></h1>
+        <p class="banner-tagline">Digital Experiences That Connect & Inspire</p>
+        <div class="banner-skills">
+          <div class="banner-skill">
+            <div class="skill-title">Web Design</div>
+            <div class="skill-icons">
+              <div class="icon web-icon"><i></i></div>
+              <div class="icon web-icon"><i></i></div>
+              <div class="icon web-icon"><i></i></div>
+            </div>
+          </div>
+          <div class="banner-skill">
+            <div class="skill-title">Data Analytics</div>
+            <div class="skill-icons">
+              <div class="icon data-icon"><i></i></div>
+              <div class="icon data-icon"><i></i></div>
+              <div class="icon data-icon"><i></i></div>
+            </div>
+          </div>
+          <div class="banner-skill">
+            <div class="skill-title">UX/UI Motion</div>
+            <div class="skill-icons">
+              <div class="icon ux-icon"><i></i></div>
+              <div class="icon ux-icon"><i></i></div>
+              <div class="icon ux-icon"><i></i></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    
     <nav>
       <a href="#about">Sobre mí</a>
       <a href="#projects">Proyectos</a>
@@ -92,3 +825,4 @@
   </footer>
 </body>
 </html>
+```
